@@ -4,2073 +4,304 @@
   "currency": "USD",
   "products": [
     {
-      "title": "Stock Set - Black",
-      "category": "AR15 Furniture Sets",
-      "price": 56.0,
+      "title": "Double Whammy - 9 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Black-p564091004",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-black"
-    },
-    {
-      "title": "Stock Set-Coyote Brown",
-      "category": "AR15 Furniture Sets",
-      "price": 70.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Coyote-Brown-p564090985",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-coyote-brown"
-    },
-    {
-      "title": "Stock Set-Flat Dark Earth",
-      "category": "AR15 Furniture Sets",
-      "price": 70.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Flat-Dark-Earth-p564090981",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-flat-dark-earth"
-    },
-    {
-      "title": "Stock Set-Foliage Green",
-      "category": "AR15 Furniture Sets",
-      "price": 60.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Foliage-Green-p564090979",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-foliage-green"
-    },
-    {
-      "title": "Stock Set-Orange",
-      "category": "AR15 Furniture Sets",
-      "price": 140.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Orange-p574705311",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-orange"
-    },
-    {
-      "title": "Stock Set-Purple",
-      "category": "AR15 Furniture Sets",
-      "price": 140.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Purple-p574710622",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-purple"
-    },
-    {
-      "title": "Stock Set-Pink",
-      "category": "AR15 Furniture Sets",
-      "price": 99.95,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Pink-p564057990",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-pink"
-    },
-    {
-      "title": "Stock Set-Olive Drab Green",
-      "category": "AR15 Furniture Sets",
-      "price": 70.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Olive-Drab-Green-p564057991",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-olive-drab-green"
-    },
-    {
-      "title": "Stock Set-Dark Blue",
-      "category": "AR15 Furniture Sets",
-      "price": 140.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Stock-Set-Dark-Blue-p574714454",
-      "options": [
-        {
-          "name": "Set-Pistol Grip",
-          "values": [
-            {
-              "value": "C9-A2 Style Pistol Grip",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Stock Option",
-          "values": [
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A2 Length Fixed Stock",
-              "price_delta": 10.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 14.0
-            }
-          ]
-        },
-        {
-          "name": "Set-Handguards",
-          "values": [
-            {
-              "value": "C3-Carbine",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C4-M4-Style Carbine",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C6-Mid-Length Fat",
-              "price_delta": 5.0
-            },
-            {
-              "value": "C8-Mid-Length",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C7-Rifle",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C5-Rifle Fat",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "stock-set-dark-blue"
-    },
-    {
-      "title": "C1-Buttstock",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 25.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C1-Buttstock-p564091626",
-      "options": [
-        {
-          "name": "Buttplate",
-          "values": [
-            {
-              "value": "None-Shell With Short Screw Only",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Injection Molded Buttplate with Sling Swivel",
-              "price_delta": 12.49
-            },
-            {
-              "value": "A2 Buttplate with Sling Swivel",
-              "price_delta": 24.95
-            }
-          ]
-        },
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c1-buttstock"
-    },
-    {
-      "title": "C3-Carbine Handguard",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 25.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C3-Carbine-Handguard-p574647430",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Flat Dark Earth",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 5.0
-            }
-          ]
-        }
-      ],
-      "slug": "c3-carbine-handguard"
-    },
-    {
-      "title": "C4-\\\"M4 Style\\\" Handguards",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C4-M4-Style-Handguards-p574699012",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Flat Dark Earth",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 5.0
-            }
-          ]
-        },
-        {
-          "name": "Option",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Double Heat Shields",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Gas Piston Compatible",
-              "price_delta": 5.0
-            }
-          ]
-        }
-      ],
-      "slug": "c4-m4-style-handguards"
-    },
-    {
-      "title": "C6-Fat Mid-Length Hand Guards",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C6-Fat-Mid-Length-Hand-Guards-p574699013",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Flat Dark Earth",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 5.0
-            }
-          ]
-        }
-      ],
-      "slug": "c6-fat-mid-length-hand-guards"
-    },
-    {
-      "title": "C8-Standard Mid-Length Handguard",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C8-Standard-Mid-Length-Handguard-p574648742",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c8-standard-mid-length-handguard"
-    },
-    {
-      "title": "C9-A2 Style Pistol Grip",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 6.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C9-A2-Style-Pistol-Grip-p574702012",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 4.0
-            },
-            {
-              "value": "Flat Dark Earth",
-              "price_delta": 4.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 4.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 4.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 4.0
-            },
-            {
-              "value": "Gray",
-              "price_delta": 4.0
-            }
-          ]
-        }
-      ],
-      "slug": "c9-a2-style-pistol-grip"
-    },
-    {
-      "title": "Ladder Style Full Length Rail Cover",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 12.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Ladder-Style-Full-Length-Rail-Cover-p574682876",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Flat Dark Earth",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "ladder-style-full-length-rail-cover"
-    },
-    {
-      "title": "Ergo Sure-Grip",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 26.4,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Ergo-Sure-Grip-p574709252",
+      "image":"/images/products/dw.png",
+      "url": "https://www.americantraditionfireworks.com/products/double-whammy",
       "options": [],
-      "slug": "ergo-sure-grip"
+      "slug": "double-whammy-9-shots"
     },
     {
-      "title": "C7-Rifle Handguard",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.0,
+      "title": "Man Cave - 36 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C7-Rifle-Handguard-p574705312",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c7-rifle-handguard"
-    },
-    {
-      "title": "C5-Fat Rifle Handguard",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C5-Fat-Rifle-Handguard-p574699014",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Flat Dark Earth",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 5.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 5.0
-            }
-          ]
-        }
-      ],
-      "slug": "c5-fat-rifle-handguard"
-    },
-    {
-      "title": "C2-Mil Spec Telestock",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 35.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C2-Mil-Spec-Telestock-p574694529",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Flat Dark Earth",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Gray",
-              "price_delta": 10.0
-            }
-          ]
-        }
-      ],
-      "slug": "c2-mil-spec-telestock"
-    },
-    {
-      "title": "C2-Commercial Telestock",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 35.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C2-Commercial-Telestock-p574694530",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Flat Dark Earth",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Gray",
-              "price_delta": 10.0
-            }
-          ]
-        },
-        {
-          "name": "Telestock Tube Assembly",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Telestock Tube Assembly",
-              "price_delta": 45.0
-            }
-          ]
-        }
-      ],
-      "slug": "c2-commercial-telestock"
-    },
-    {
-      "title": "CAR Stock",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CAR-Stock-p574714455",
-      "options": [
-        {
-          "name": "Color-CAV",
-          "values": [
-            {
-              "value": "Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Coyote Brown",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Foliage Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Olive Drab Green",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Earth",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "car-stock"
-    },
-    {
-      "title": "Injection Molded Buttplate with Sling Swivel",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 12.95,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Injection-Molded-Buttplate-with-Sling-Swivel-p574714456",
+      "image":"/images/products/mc.png",
+      "url": "https://www.americantraditionfireworks.com/products/man-cave",
       "options": [],
-      "slug": "injection-molded-buttplate-with-sling-swivel"
+      "slug": "man-cave-36-shots"
     },
     {
-      "title": "C1-Buttstock Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 55.0,
+      "title": "Master Stroke - 20 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C1-Buttstock-Special-Colors-p564057992",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Pink",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Orange",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Old",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Buttplate",
-          "values": [
-            {
-              "value": "None-Shell With Short Screw Only",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Injection Molded Buttplate with Sling Swivel",
-              "price_delta": 12.49
-            },
-            {
-              "value": "A2 Buttplate with Sling Swivel",
-              "price_delta": 24.95
-            }
-          ]
-        }
-      ],
-      "slug": "c1-buttstock-special-colors"
-    },
-    {
-      "title": "C3-Carbine Handguard Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 35.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C3-Carbine-Handguard-Special-Colors-p574709254",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Pink",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Orange",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Old",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c3-carbine-handguard-special-colors"
-    },
-    {
-      "title": "C3-Carbine Handguard Special Color Combinations",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 35.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C3-Carbine-Handguard-Special-Color-Combinations-p574709255",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Pink-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Blue-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Orange-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey-Black",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c3-carbine-handguard-special-color-combinations"
-    },
-    {
-      "title": "C4-\\\"M4 Style\\\" Handguards Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C4-M4-Style-Handguards-Special-Colors-p574702619",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Option",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Double Heat Shields",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Gas Piston Compatible",
-              "price_delta": 5.0
-            }
-          ]
-        }
-      ],
-      "slug": "c4-m4-style-handguards-special-colors"
-    },
-    {
-      "title": "C4-\\\"M4 Style\\\" Handguards Special Color Combinations",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C4-M4-Style-Handguards-Special-Color-Combinations-p574709253",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey-Black",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Option",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Double Heat Shields",
-              "price_delta": 10.0
-            },
-            {
-              "value": "Gas Piston Compatible",
-              "price_delta": 5.0
-            }
-          ]
-        }
-      ],
-      "slug": "c4-m4-style-handguards-special-color-combinations"
-    },
-    {
-      "title": "C7-Rifle Handguard Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C7-Rifle-Handguard-Special-Colors-p574705313",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c7-rifle-handguard-special-colors"
-    },
-    {
-      "title": "C7-Rifle Handguard Special Color Combinations",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C7-Rifle-Handguard-Special-Color-Combinations-p574705314",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow-Black",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey-Black",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c7-rifle-handguard-special-color-combinations"
-    },
-    {
-      "title": "C9-A2 Style Pistol Grip Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 20.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C9-A2-Style-Pistol-Grip-Special-Colors-p574709251",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c9-a2-style-pistol-grip-special-colors"
-    },
-    {
-      "title": "Ladder Style Full Length Rail Cover Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 12.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Ladder-Style-Full-Length-Rail-Cover-Special-Colors-p574709250",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "ladder-style-full-length-rail-cover-special-colors"
-    },
-    {
-      "title": "C8-Standard Mid-Length Handguard Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C8-Standard-Mid-Length-Handguard-Special-Colors-p574705315",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c8-standard-mid-length-handguard-special-colors"
-    },
-    {
-      "title": "CAR Stock",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CAR-Stock-p574714455",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "car-stock-ar15-furniture-special"
-    },
-    {
-      "title": "C6-Fat Mid-Length Handguards Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C6-Fat-Mid-Length-Handguards-Special-Colors-p574705316",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c6-fat-mid-length-handguards-special-colors"
-    },
-    {
-      "title": "C5-Fat Rifle Handguard Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C5-Fat-Rifle-Handguard-Special-Colors-p574705317",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        }
-      ],
-      "slug": "c5-fat-rifle-handguard-special-colors"
-    },
-    {
-      "title": "C2-Commercial Telestock Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 70.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/C2-Commercial-Telestock-Special-Colors-p574709249",
-      "options": [
-        {
-          "name": "Color-CAV-Special",
-          "values": [
-            {
-              "value": "Red",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Purple-Grape",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Dark Blue",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Yellow",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Grey",
-              "price_delta": 0.0
-            }
-          ]
-        },
-        {
-          "name": "Telestock Tube Assembly",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Telestock Tube Assembly",
-              "price_delta": 45.0
-            }
-          ]
-        }
-      ],
-      "slug": "c2-commercial-telestock-special-colors"
-    },
-    {
-      "title": "SST-590 AR15 Stock Adapter for the Mossberg 500/590",
-      "category": "Shotgun Systems",
-      "price": 250.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-590-AR15-Stock-Adapter-for-the-Mossberg-500-590-p574699206",
-      "options": [
-        {
-          "name": "Stock Options",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 70.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 80.0
-            }
-          ]
-        }
-      ],
-      "slug": "sst-590-ar15-stock-adapter-for-the-mossberg-500-590"
-    },
-    {
-      "title": "SST-870 AR15 Stock Adapter for Remington 870",
-      "category": "Shotgun Systems",
-      "price": 250.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-870-AR15-Stock-Adapter-for-Remington-870-p574702139",
-      "options": [
-        {
-          "name": "Stock Options",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 70.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 80.0
-            }
-          ]
-        }
-      ],
-      "slug": "sst-870-ar15-stock-adapter-for-remington-870"
-    },
-    {
-      "title": "SST-590 Safety Extended Safety for the Mossberg 500/590",
-      "category": "Shotgun Systems",
-      "price": 40.0,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-590-Safety-Extended-Safety-for-the-Mossberg-500-590-p574699207",
+      "image":"/images/products/ms.png",
+      "url": "https://www.americantraditionfireworks.com/products/master-stroke",
       "options": [],
-      "slug": "sst-590-safety-extended-safety-for-the-mossberg-500-590"
+      "slug": "master-stroke-20-shots"
     },
     {
-      "title": "SST-870 Front Sight",
-      "category": "Shotgun Systems",
-      "price": 40.0,
+      "title": "Party Bus - 42 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-870-Front-Sight-p574702140",
+      "image":"/images/products/pb.png",
+      "url": "https://www.americantraditionfireworks.com/products/party-bus",
       "options": [],
-      "slug": "sst-870-front-sight"
+      "slug": "party-bus-42-shots"
     },
     {
-      "title": "CAV-15 Buffer Detent Roll Pin",
-      "category": "CAV-15 Accessories",
-      "price": 2.0,
+      "title": "Rush Hour - 100 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CAV-15-Buffer-Detent-Roll-Pin-p564091008",
+      "image":"/images/products/rh.png",
+      "url": "https://www.americantraditionfireworks.com/products/rush-hour",
       "options": [],
-      "slug": "cav-15-buffer-detent-roll-pin"
+      "slug": "rush-hour-100-shots"
     },
     {
-      "title": "CAV-15 MKII Take Down Pins",
-      "category": "CAV-15 Accessories",
-      "price": 10.0,
+      "title": "Club Mix - 63 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CAV-15-MKII-Take-Down-Pins-p564091007",
+      "image":"/images/products/cm.png",
+      "url": "https://www.americantraditionfireworks.com/products/club-mix",
       "options": [],
-      "slug": "cav-15-mkii-take-down-pins"
+      "slug": "club-mix-63-shots"
     },
     {
-      "title": "SCAR-H Billet P-MAG Compatible Lower",
-      "category": "SCAR Accessories",
-      "price": 389.0,
+      "title": "Crown Kiku - 23 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SCAR-H-Billet-P-MAG-Compatible-Lower-p564057994",
+      "image":"/images/products/ck.png",
+      "url": "https://www.americantraditionfireworks.com/products/crown-kiku",
       "options": [],
-      "slug": "scar-h-billet-p-mag-compatible-lower"
+      "slug": "crown-kiku-23-shots"
     },
     {
-      "title": "4\" Dual Pad Emergency Bandage",
-      "category": "Emergency Bandages",
-      "price": 9.07,
+      "title": "Zero to Hero - 44 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/4-Dual-Pad-Emergency-Bandage-p564091155",
+      "image":"/images/products/zth.png",
+      "url": "https://www.americantraditionfireworks.com/products/zero-to-hero",
       "options": [],
-      "slug": "4in-dual-pad-emergency-bandage"
+      "slug": "zero-to-hero-44-shots"
     },
     {
-      "title": "4\" Single Pad Emergency Bandage",
-      "category": "Emergency Bandages",
-      "price": 6.88,
+      "title": "Fantastic Beast - 16 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/4-Single-Pad-Emergency-Bandage-p564091160",
-      "options": [
-        {
-          "name": "Color",
-          "values": [
-            {
-              "value": "White",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Green",
-              "price_delta": 1.22
-            }
-          ]
-        }
-      ],
-      "slug": "4in-single-pad-emergency-bandage"
-    },
-    {
-      "title": "6\" Single Pad Emergency Bandage",
-      "category": "Emergency Bandages",
-      "price": 7.82,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/6-Single-Pad-Emergency-Bandage-p564091156",
-      "options": [
-        {
-          "name": "Color",
-          "values": [
-            {
-              "value": "White",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Green",
-              "price_delta": 1.03
-            }
-          ]
-        }
-      ],
-      "slug": "6in-single-pad-emergency-bandage"
-    },
-    {
-      "title": "6\" Dual Pad Emergency Bandage",
-      "category": "Emergency Bandages",
-      "price": 10.3,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/6-Dual-Pad-Emergency-Bandage-p564091154",
-      "options": [
-        {
-          "name": "Color",
-          "values": [
-            {
-              "value": "White",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Green",
-              "price_delta": 0.85
-            }
-          ]
-        }
-      ],
-      "slug": "6in-dual-pad-emergency-bandage"
-    },
-    {
-      "title": "Thin-Cinch",
-      "category": "Emergency Bandages",
-      "price": 8.68,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Thin-Cinch-p574682878",
+      "image":"/images/products/fb.png",
+      "url": "https://www.americantraditionfireworks.com/products/fantastic-beast",
       "options": [],
-      "slug": "thin-cinch"
+      "slug": "fantastic-beast-16-shots"
     },
     {
-      "title": "Dukal Emergency Pressure Dressing",
-      "category": "Emergency Bandages",
-      "price": 5.0,
+      "title": "Artistic Pyro - 45 Shots",
+      "category": "500 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Dukal-Emergency-Pressure-Dressing-p574682879",
+      "image":"/images/products/ap.png",
+      "url": "https://www.americantraditionfireworks.com/products/artistic-pyro",
       "options": [],
-      "slug": "dukal-emergency-pressure-dressing"
+      "slug": "artistic-pyro-45-shots"
     },
     {
-      "title": "8\" Abdominal Emergency Bandage with 12\"x12\" ab pad",
-      "category": "Emergency Bandages",
-      "price": 15.64,
+      "title": "Rowdy Party - 41 Shots",
+      "category": "200 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/8-Abdominal-Emergency-Bandage-with-12x12-ab-pad-p574682880",
-      "options": [
-        {
-          "name": "Color",
-          "values": [
-            {
-              "value": "White",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Green",
-              "price_delta": 0.64
-            }
-          ]
-        }
-      ],
-      "slug": "8in-abdominal-emergency-bandage-with-12x12in-ab-pad"
-    },
-    {
-      "title": "Celox Granules",
-      "category": "Celox - Hemostatic Granules",
-      "price": 24.34,
-      "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Celox-Granules-p564091151",
+      "image":"/images/products/200rp.png",
+      "url": "https://www.americantraditionfireworks.com/products/rowdy-party",
       "options": [],
-      "slug": "celox-granules"
+      "slug": "rowdy-party-41-shots"
     },
     {
-      "title": "Asherman Chest Seal",
-      "category": "Chest Seals",
-      "price": 24.65,
+      "title": "Smokey Bandit - 94 Shots",
+      "category": "200 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Asherman-Chest-Seal-p564091144",
+      "image":"/images/products/200sb.png",
+      "url": "https://www.americantraditionfireworks.com/products/smokey-bandit",
       "options": [],
-      "slug": "asherman-chest-seal"
+      "slug": "smokey-bandit-94-shots"
     },
     {
-      "title": "Bolin Chest Seal",
-      "category": "Chest Seals",
-      "price": 28.28,
+      "title": "Gold Rush",
+      "category": "200 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Bolin-Chest-Seal-p564091143",
+      "image":"/images/products/200gr.png",
+      "url": "https://www.americantraditionfireworks.com/products/gold-rush",
       "options": [],
-      "slug": "bolin-chest-seal"
+      "slug": "gold-rush"
     },
     {
-      "title": "Slick Tourniquet",
-      "category": "Tourniquets",
-      "price": 14.89,
+      "title": "Pirates Invasion - 23 Shots",
+      "category": "200 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Slick-Tourniquet-p574682877",
+      "image":"/images/products/200pi.png",
+      "url": "https://www.americantraditionfireworks.com/products/pirates-invasion",
       "options": [],
-      "slug": "slick-tourniquet"
+      "slug": "pirates-invasion-23-shots"
     },
     {
-      "title": "TK-4 Tourniquet",
-      "category": "Tourniquets",
-      "price": 9.25,
+      "title": "Wizards of Ahhhs",
+      "category": "200 Gram Cakes",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/TK-4-Tourniquet-p564091145",
+      "image":"/images/products/200woa.png",
+      "url": "https://www.americantraditionfireworks.com/products/wizards-of-ahhhs",
       "options": [],
-      "slug": "tk-4-tourniquet"
+      "slug": "wizards-of-ahhhs"
     },
     {
-      "title": "AAK-Automotive Aid Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 76.0,
+      "title": "Echo in the Ear 5\" - 6 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/AAK-Automotive-Aid-Kit-p564091146",
+      "image":"/images/products/aerial_0.png",
+      "url": "https://www.americantraditionfireworks.com/products/echo-in-the-ear-5-6-shells",
       "options": [],
-      "slug": "aak-automotive-aid-kit"
+      "slug": "echo-in-the-ear-5-6-shells"
     },
     {
-      "title": "ATK-Advanced Trauma Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 73.15,
+      "title": "G-Force - 24 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ATK-Advanced-Trauma-Kit-p564091147",
+      "image":"/images/products/aerial_1.png",
+      "url": "https://www.americantraditionfireworks.com/products/g-force-24-shells",
       "options": [],
-      "slug": "atk-advanced-trauma-kit"
+      "slug": "g-force-24-shells"
     },
     {
-      "title": "CBK-Contagion Barrier Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 2.5,
+      "title": "Ultimate Power - 12 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CBK-Contagion-Barrier-Kit-p564091148",
+      "image":"/images/products/aerial_2.png",
+      "url": "https://www.americantraditionfireworks.com/products/ultimate-power-12-shells",
       "options": [],
-      "slug": "cbk-contagion-barrier-kit"
+      "slug": "ultimate-power-12-shells"
     },
     {
-      "title": "CRK-Casualty Response Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 19.95,
+      "title": "Neon Beef - 24 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CRK-Casualty-Response-Kit-p564091149",
+      "image":"/images/products/aerial_3.png",
+      "url": "https://www.americantraditionfireworks.com/products/neon-beef-24-shells",
       "options": [],
-      "slug": "crk-casualty-response-kit"
+      "slug": "neon-beef-24-shells"
     },
     {
-      "title": "BAK-Basic Aid Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 19.95,
+      "title": "Absolute Power - 6 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/BAK-Basic-Aid-Kit-p564091150",
+      "image":"/images/products/aerial_4.png",
+      "url": "https://www.americantraditionfireworks.com/products/absolute-power-6-shells",
       "options": [],
-      "slug": "bak-basic-aid-kit"
+      "slug": "absolute-power-6-shells"
     },
     {
-      "title": "ICMK-Individual Combat Medical Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 94.89,
+      "title": "Artillery Shell - 6 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ICMK-Individual-Combat-Medical-Kit-p564091153",
+      "image":"/images/products/aerial_5.png",
+      "url": "https://www.americantraditionfireworks.com/products/artillery-shell-6-shells",
       "options": [],
-      "slug": "icmk-individual-combat-medical-kit"
+      "slug": "artillery-shell-6-shells"
     },
     {
-      "title": "LEPAK-Law Enforcement Personal Aid Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 71.89,
+      "title": "Whistling Buster - 6 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/LEPAK-Law-Enforcement-Personal-Aid-Kit-p564091152",
+      "image":"/images/products/aerial_6.png",
+      "url": "https://www.americantraditionfireworks.com/products/whistling-buster-6-shells",
       "options": [],
-      "slug": "lepak-law-enforcement-personal-aid-kit"
+      "slug": "whistling-buster-6-shells"
     },
     {
-      "title": "MKR-Mass Casualty Response Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 450.0,
+      "title": "Assorted Crackling Shells - 6 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/MKR-Mass-Casualty-Response-Kit-p564091158",
+      "image":"/images/products/aerial_7.png",
+      "url": "https://www.americantraditionfireworks.com/products/assorted-crackling-shells-6-shells",
       "options": [],
-      "slug": "mkr-mass-casualty-response-kit"
+      "slug": "assorted-crackling-shells-6-shells"
     },
     {
-      "title": "PTK-Personal Trauma Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 39.89,
+      "title": "Double Dragon - 6 Double Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/PTK-Personal-Trauma-Kit-p564091159",
+      "image":"/images/products/aerial_8.png",
+      "url": "https://www.americantraditionfireworks.com/products/double-dragon-6-double-shells",
       "options": [],
-      "slug": "ptk-personal-trauma-kit"
+      "slug": "double-dragon-6-double-shells"
     },
     {
-      "title": "ITK-Individual Trauma Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 42.0,
+      "title": "Festival Balls - 6 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ITK-Individual-Trauma-Kit-p564091157",
+      "image":"/images/products/aerial_9.png",
+      "url": "https://www.americantraditionfireworks.com/products/festival-balls-6-shells",
       "options": [],
-      "slug": "itk-individual-trauma-kit"
+      "slug": "festival-balls-6-shells"
     },
     {
-      "title": "DEK-Dental Emergency Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 39.89,
+      "title": "Super Nova 24 - 24 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/DEK-Dental-Emergency-Kit-p574682881",
+      "image":"/images/products/aerial_10.jpeg",
+      "url": "https://www.americantraditionfireworks.com/products/super-nova-24-24-shells",
       "options": [],
-      "slug": "dek-dental-emergency-kit"
+      "slug": "super-nova-24-24-shells"
     },
     {
-      "title": "NEAK-Non-Emergency Aid Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 7.0,
+      "title": "#3000 or #5000 - Single Tube - One shoe each",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/NEAK-Non-Emergency-Aid-Kit-p574682882",
+      "image":"/images/products/aerial_11.jpeg",
+      "url": "https://www.americantraditionfireworks.com/products/3000-or-5000-single-tube-one-shoe-each",
       "options": [],
-      "slug": "neak-non-emergency-aid-kit"
+      "slug": "3000-or-5000-single-tube-one-shoe-each"
     },
     {
-      "title": "PTKB-Personal Trauma Kit Basic",
-      "category": "Cavalry Medical Kits",
-      "price": 32.0,
+      "title": "Military Parachute - Two Single-shot tubes",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/PTKB-Personal-Trauma-Kit-Basic-p574682883",
+      "image":"/images/products/aerial_12.jpeg",
+      "url": "https://www.americantraditionfireworks.com/products/military-parachute-two-single-shot-tubes",
       "options": [],
-      "slug": "ptkb-personal-trauma-kit-basic"
+      "slug": "military-parachute-two-single-shot-tubes"
     },
     {
-      "title": "AVTK-Advanced Vehicle Trauma Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 107.89,
+      "title": "Neon Brawn - 12 Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
       "currency": "USD",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/AVTK-Advanced-Vehicle-Trauma-Kit-p574682884",
+      "image":"/images/products/aerial_13.jpeg",
+      "url": "https://www.americantraditionfireworks.com/products/neon-brawn-12-shells",
       "options": [],
-      "slug": "avtk-advanced-vehicle-trauma-kit"
+      "slug": "neon-brawn-12-shells"
+    },
+    {
+      "title": "Heavyweight - 24 5\" Shells",
+      "category": "Aerial Display Shells",
+      "price": 0.0,
+      "currency": "USD",
+      "image":"/images/products/aerial_14.jpeg",
+      "url": "https://www.americantraditionfireworks.com/products/heavyweight-24-5-shells",
+      "options": [],
+      "slug": "heavyweight-24-5-shells"
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
-  "name": "Midwest Flooring Suppliers",
-  "email": "Pbisimwa7@gmail.com",
-  "phone": "616-589-3768",
-  "phoneFormatted": "(616) 589-3768",
+  "name": "American Tradition LLC",
+  "email": "americantradition@yahoo.com",
+  "phone": "2667314311",
+  "phoneFormatted": "(266) 731-4311",
   "address": {
     "lineOne": "First Address Line",
     "lineTwo": "Second Address Line, If Needed",
     "city": "",
     "county": "",
     "postcode": "",
-    "mapLink": "https://maps.app.goo.gl/ZhePbTjskM2YksQh6"
+    "mapLink": ""
   },
-  "domain": "www.website.com"
+  "domain": "americantraditionfireworks.com"
 }

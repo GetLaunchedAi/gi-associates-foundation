@@ -24,10 +24,10 @@
                 <li class="{% if entry.title == 'Services' %}dropdown{% endif %}" id="{{ entry.title }}">
                     {% if entry.title == 'Services' %}
                     <a class="dropdown-toggle" role="button" tabindex="0">{{ entry.title }}</a>
-                    <ul class="dropdown-menu">
+                    <!-- <ul class="dropdown-menu">
                         <li><a href="/vinyl-flooring/">Vinyl Flooring</a></li>
                         <li><a href="/flooring-installation/">Flooring Installation</a></li>
-                    </ul>
+                    </ul> -->
                     {% else %}
                     <a {% if entry.url==page.url %} class="active" {% endif %} href="{{ entry.url }}">{{ entry.title
                         }}</a>

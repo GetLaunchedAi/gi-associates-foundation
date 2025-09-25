@@ -1,92 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!--Swap our for actual link-->
-        <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="{{ description }}">
-        <meta name="keywords" content="">
+    <!--Swap our for actual link-->
+    <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}">
 
-        <!--Social Media Display-->
-        <meta property="og:title" content="{{ metaTitle }}"/>
-        <meta property="og:description" content="{{ description }}"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://{{ client.domain }}{{ page.url }}"/>
-        <meta property="og:image" content="/images/social.jpg"/>
-        <meta property="og:image:secure_url" content="/images/social.jpg"/>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="">
 
-        <!--Favicons-->
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1">
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-        <link rel="manifest" href="/assets/favicons/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+    <!--Social Media Display-->
+    <meta property="og:title" content="{{ metaTitle }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://{{ client.domain }}{{ page.url }}" />
+    <meta property="og:image" content="/images/social.jpg" />
+    <meta property="og:image:secure_url" content="/images/social.jpg" />
 
-        <!-- Preload -->
-        <link rel="preload" as="image" href="/assets/logo-light.png">
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
+    <!-- Favicons -->
+    <!-- Light -->
+    <link rel="icon" href="/assets/favicons/light/favicon.ico" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/light/favicon-32x32.png"
+        media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/light/favicon-16x16.png"
+        media="(prefers-color-scheme: light)">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/light/apple-touch-icon.png"
+        media="(prefers-color-scheme: light)">
+    <link rel="manifest" href="/assets/favicons/light/site.webmanifest" media="(prefers-color-scheme: light)">
 
-        <link rel="stylesheet" href="/css/root.css">
-        <link rel="stylesheet" href="/css/dark.css">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.6.0/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.6.0/default/snipcart.js"></script>
-        <link rel="preload" as="image" href="{{ preloadImg }}"/>
+    <!-- Dark -->
+    <link rel="icon" href="/assets/favicons/dark/favicon.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/dark/favicon-32x32.png"
+        media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/dark/favicon-16x16.png"
+        media="(prefers-color-scheme: dark)">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/dark/apple-touch-icon.png"
+        media="(prefers-color-scheme: dark)">
+    <link rel="manifest" href="/assets/favicons/dark/site.webmanifest" media="(prefers-color-scheme: dark)">
 
-        <!-- Loading in page specific CSS sheets from css block -->
-        <link rel="stylesheet" href="/css/critical.css"/>
-        <link rel="stylesheet" href="{{ preloadCSS }}">
+    <!-- Preload -->
+    <link rel="preload" as="image" href="/assets/logo-light.png">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
 
-        <!--Put analytics tag here at the bottom to prevent it from render blocking-->
+    <link rel="stylesheet" href="/css/root.css">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.6.0/default/snipcart.css" />
+    <script async src="https://cdn.snipcart.com/themes/v3.6.0/default/snipcart.js"></script>
+    <link rel="preload" as="image" href="{{ preloadImg }}" />
 
-        <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
-        <title>
-            {% if page.url == '/'%}
-                {{ client.name }} | {{ tagTitle }} | {{ client.address.city }}, {{ client.address.county }}
-            {% else %}
-                {{ tagTitle }} | {{ client.name }}
-            {% endif %}
-        </title>
-    </head>
-    <body>
-        <!--Screen reader skip main nav-->
-        <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
+    <!-- Loading in page specific CSS sheets from css block -->
+    <link rel="stylesheet" href="/css/critical.css" />
+    <link rel="stylesheet" href="{{ preloadCSS }}">
 
-        {% include "header.html" %}
-        <main id="main">{{ content | safe }}</main>
-        {% include "footer.html" %}
+    <!--Put analytics tag here at the bottom to prevent it from render blocking-->
 
-        <script defer src="/assets/js/nav.js"></script>
-        <script defer src="/assets/js/dark.js"></script>
+    <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
+    <title>
+        {% if page.url == '/'%}
+        {{ client.name }} | {{ tagTitle }} | {{ client.address.city }}, {{ client.address.county }}
+        {% else %}
+        {{ tagTitle }} | {{ client.name }}
+        {% endif %}
+    </title>
+</head>
 
-        <!--
+<body>
+    <!--Screen reader skip main nav-->
+    <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
+
+    {% include "header.html" %}
+    <main id="main">{{ content | safe }}</main>
+    {% include "footer.html" %}
+
+    <script defer src="/assets/js/nav.js"></script>
+    <script defer src="/assets/js/dark.js"></script>
+
+    <!--
         This script adds a class to the body after scrolling 100px
         and we used these body.scroll styles to create some on scroll 
         animations with the navbar
     -->
-        <script defer>
-            document.addEventListener('scroll', (e) => {
-                const scroll = document.documentElement.scrollTop;
-                if (scroll >= 100) {
-                    document
-                        .querySelector('body')
-                        .classList
-                        .add('scroll')
-                } else {
-                    document
-                        .querySelector('body')
-                        .classList
-                        .remove('scroll')
-                }
-            });
-        </script>
-        <script>
-   
-</script>
-    </body>
+    <script defer>
+        document.addEventListener('scroll', (e) => {
+            const scroll = document.documentElement.scrollTop;
+            if (scroll >= 100) {
+                document
+                    .querySelector('body')
+                    .classList
+                    .add('scroll')
+            } else {
+                document
+                    .querySelector('body')
+                    .classList
+                    .remove('scroll')
+            }
+        });
+    </script>
+    <script>
+
+    </script>
+</body>
+
 </html>

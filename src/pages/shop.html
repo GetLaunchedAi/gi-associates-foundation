@@ -12,7 +12,27 @@ eleventyNavigation:
   order: 200
 ---
 
+<style>
+  /*
+  The CSS for the expandable filters. We use max-height and
+  a CSS variable to smoothly transition the height.
+  */
+  #catalog-filters .filters__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 
+  #catalog-filters .show-more-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 14px;
+    padding: 0;
+    margin-top: 5px;
+  }
+</style>
 
 <!-- ============================================ -->
 <!--                    LANDING                   -->
@@ -97,6 +117,11 @@ function card(p) {
   let ACTIVE_CAT = '';
   let filtersBound = false; // <— prevent multiple listeners
 
+  // The number of categories to show initially
+  const INITIAL_FILTER_COUNT = 5;
+  let allCategories = [];
+  let isExpanded = false;
+
   // ------- URL helpers -------
   function readCatFromURL(){
     return new URLSearchParams(location.search).get('cat') || '';
@@ -119,10 +144,38 @@ function card(p) {
   }
 
   function renderFilters(list){
-    const cats = categoriesFrom(list);
-    chipWrap.innerHTML = cats.map(c =>
+    allCategories = categoriesFrom(list);
+    
+    // Clear existing chips and button
+    chipWrap.innerHTML = '';
+    const existingBtn = filtersBar.querySelector('.show-more-btn');
+    if (existingBtn) {
+        existingBtn.remove();
+    }
+
+    const catsToRender = isExpanded ? allCategories : allCategories.slice(0, INITIAL_FILTER_COUNT);
+    
+    const html = catsToRender.map(c =>
       `<button class="filter" data-cat="${esc(c)}">${esc(toTitle(c))}</button>`
     ).join('');
+    
+    chipWrap.innerHTML = html;
+    
+    // Add the "Show More/Less" button if needed
+    if (allCategories.length > INITIAL_FILTER_COUNT) {
+      const showMoreBtn = document.createElement('button');
+      showMoreBtn.className = 'show-more-btn';
+      showMoreBtn.textContent = isExpanded ? 'Show less categories' : 'Show more categories';
+      showMoreBtn.setAttribute('aria-expanded', isExpanded);
+      filtersBar.appendChild(showMoreBtn);
+
+      // Add the click listener to toggle the expanded state
+      showMoreBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        renderFilters(ALL); // Re-render filters with the new expanded state
+        setActiveFilter(ACTIVE_CAT); // Ensure active filter remains
+      });
+    }
 
     setActiveFilter(ACTIVE_CAT);
 

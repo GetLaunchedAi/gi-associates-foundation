@@ -4,9 +4,12 @@
 /* Mobile */
 @media only screen and (min-width: 0em) {
   :root {
-    --primary: #c11c2a;       /* Bold Crimson */
---primaryShade: #d4342a;  /* Patriotic Scarlet */
---primaryDark: #8a141e;   /* Deep Brick Red */
+    --primary: #c11c2a;
+    /* Bold Crimson */
+    --primaryShade: #d4342a;
+    /* Patriotic Scarlet */
+    --primaryDark: #8a141e;
+    /* Deep Brick Red */
     /* Deep Charcoal */
     --bodyTextColor: #4e4b66;
     --bodyTextColorWhite: #fafbfc;
@@ -860,16 +863,16 @@ body.dark-mode #dark-mode-toggle .sun {
    keeps total hidden, and avoids overlap with hamburger */
 /* --- Fix moon offset on mobile (force centering & kill legacy positioning) --- */
 @media (max-width: 1023px) {
-  #navigation .header-actions{
-    display:flex;
-    align-items:center;
-    gap:.5rem;
-    margin-left:auto;
+  #navigation .header-actions {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-left: auto;
   }
 
   /* identical, centered hit-areas for moon/login/cart */
   #navigation .icon-btn,
-  #dark-mode-toggle{
+  #dark-mode-toggle {
     width: var(--icon-btn-size) !important;
     height: var(--icon-btn-size) !important;
     padding: 6px !important;
@@ -880,24 +883,32 @@ body.dark-mode #dark-mode-toggle .sun {
   }
 
   /* hard-reset any old rules that nudged the moon */
-  #dark-mode-toggle{
+  #dark-mode-toggle {
     position: static !important;
     inset: auto !important;
     transform: none !important;
   }
 
-  #dark-mode-toggle svg{
+  #dark-mode-toggle svg {
     width: var(--icon-glyph-size) !important;
     height: var(--icon-glyph-size) !important;
-    display:block !important;
+    display: block !important;
   }
 }
 
 /* Mobile (light mode): make header icons black, regardless of earlier rules */
 @media (max-width: 1023px) {
-  body:not(.dark-mode) #navigation .header-actions { color: #000 !important; }
-  body:not(.dark-mode) #navigation .icon-btn { color: inherit !important; }
-  body:not(.dark-mode) #navigation .icon-btn svg path { fill: currentColor !important; }
+  body:not(.dark-mode) #navigation .header-actions {
+    color: #000 !important;
+  }
+
+  body:not(.dark-mode) #navigation .icon-btn {
+    color: inherit !important;
+  }
+
+  body:not(.dark-mode) #navigation .icon-btn svg path {
+    fill: currentColor !important;
+  }
 }
 
 

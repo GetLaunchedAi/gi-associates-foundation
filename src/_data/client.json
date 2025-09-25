@@ -1,8 +1,8 @@
 {
-  "name": "American Tradition LLC",
-  "email": "americantradition@yahoo.com",
-  "phone": "2667314311",
-  "phoneFormatted": "(266) 731-4311",
+  "name": "Cavalry Manufacturing",
+  "email": "office@cavalrymanufacturing.com",
+  "phone": "4808339685",
+  "phoneFormatted": "(480) 833-9685",
   "address": {
     "lineOne": "First Address Line",
     "lineTwo": "Second Address Line, If Needed",
@@ -11,5 +11,5 @@
     "postcode": "",
     "mapLink": ""
   },
-  "domain": "americantraditionfireworks.com"
+  "domain": "cavalrymanufacturing.com"
 }

@@ -1,15 +1,17 @@
 {
-  "name": "Cavalry Manufacturing",
-  "email": "office@cavalrymanufacturing.com",
-  "phone": "4808339685",
-  "phoneFormatted": "(480) 833-9685",
+  "name": "Alaskans Art-n-Around",
+  "email": "alaskansartnaround@yahoo.com",
+  "phone": "9075008881",
+  "phoneFormatted": "(907) 500-8881",
+  "altPhone": "9075008834",
+  "altPhoneFormatted": "(907) 500-8834",
   "address": {
-    "lineOne": "First Address Line",
-    "lineTwo": "Second Address Line, If Needed",
-    "city": "",
-    "county": "",
+    "lineOne": "",
+    "lineTwo": "",
+    "city": "Juneau",
+    "county": "AK",
     "postcode": "",
     "mapLink": ""
   },
-  "domain": "cavalrymanufacturing.com"
+  "domain": "alaskansartnaround.com"
 }

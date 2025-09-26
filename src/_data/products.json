@@ -1,949 +1,732 @@
 {
-  "source": "https://www.cavalrymanufacturing.com/manufacturing-store/",
+  "source": "https://www.alaskansartnaround.com/store/",
   "generated_at": "2025-09-17T20:19:24.982122",
   "currency": "USD",
   "products": [
     {
-      "title": "C7-Rifle Handguard Special Color Combinations",
-      "category": "Specials",
-      "price": 50.00,
+      "title": "Africa",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/special_0.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c7-rifle-handguard-special-color-combinations",
+      "image": "/images/products/spinners_0.avif",
+      "url": "https://www.alaskansartnaround.com/store/Africa-Spinner",
       "options": [],
-      "slug": "c7-rifle-handguard-special-color-combinations"
+      "slug": "africa"
     },
     {
-      "title": "C1-Buttstock Special Colors",
-      "category": "Specials",
-      "price": 55.00,
+      "title": "American Eagle Head",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/special_1.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c1-buttstock-special-colors",
+      "image": "/images/products/spinners_1.avif",
+      "url": "https://www.alaskansartnaround.com/store/American-Eagle-Head-Spinner",
       "options": [],
-      "slug": "c1-buttstock-special-colors"
+      "slug": "american-eagle-head"
     },
     {
-      "title": "C3-Carbine Handguard Special Color Combinations",
-      "category": "Specials",
-      "price": 35.00,
+      "title": "American Flag",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/special_2.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c3-carbine-handguard-special-color-combinations",
+      "image": "/images/products/spinners_2.avif",
+      "url": "https://www.alaskansartnaround.com/store/American-Flag-Spinner",
       "options": [],
-      "slug": "c3-carbine-handguard-special-color-combinations"
+      "slug": "american-flag"
     },
     {
-      "title": "C4-\"M4 Style\" Handguards Special Color Combinations",
-      "category": "Specials",
-      "price": 50.00,
+      "title": "Bumble Bee",
+      "category": "Spinners",
+      "price": 0.0,
       "currency": "USD",
-      "image": "/images/products/special_3.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c4-m4-style-handguards-special-color-combinations",
+      "image": "/images/products/spinners_3.avif",
+      "url": "https://www.alaskansartnaround.com/store/Bumble-Bee-Spinner",
       "options": [],
-      "slug": "c4-m4-style-handguards-special-color-combinations"
+      "slug": "bumble-bee"
     },
     {
-      "title": "Stock Set - Black",
-      "category": "AR15 Furniture Sets",
-      "price": 56.00,
+      "title": "Burst - Blue Spiral",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/ar15_0.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-black",
+      "image": "/images/products/spinners_4.avif",
+      "url": "https://www.alaskansartnaround.com/store/Burst-Blue-Spiral-Spinner",
       "options": [],
-      "slug": "stock-set-black"
+      "slug": "burst-blue-spiral"
     },
     {
-      "title": "Stock Set-Coyote Brown",
-      "category": "AR15 Furniture Sets",
-      "price": 70.00,
+      "title": "Burst - Single Color",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/ar15_1.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-coyote-brown",
-      "options": [],
-      "slug": "stock-set-coyote-brown"
-    },
-    {
-      "title": "Stock Set-Flat Dark Earth",
-      "category": "AR15 Furniture Sets",
-      "price": 70.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_2.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-flat-dark-earth",
-      "options": [],
-      "slug": "stock-set-flat-dark-earth"
-    },
-    {
-      "title": "Stock Set-Foliage Green",
-      "category": "AR15 Furniture Sets",
-      "price": 60.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_3.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-foliage-green",
-      "options": [],
-      "slug": "stock-set-foliage-green"
-    },
-    {
-      "title": "Stock Set-Orange",
-      "category": "AR15 Furniture Sets",
-      "price": 140.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_4.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-orange",
-      "options": [],
-      "slug": "stock-set-orange"
-    },
-    {
-      "title": "Stock Set-Purple",
-      "category": "AR15 Furniture Sets",
-      "price": 140.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_5.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-purple",
-      "options": [],
-      "slug": "stock-set-purple"
-    },
-    {
-      "title": "Stock Set-Pink",
-      "category": "AR15 Furniture Sets",
-      "price": 99.95,
-      "currency": "USD",
-      "image": "/images/products/ar15_6.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-pink",
-      "options": [],
-      "slug": "stock-set-pink"
-    },
-    {
-      "title": "Stock Set-Olive Drab Green",
-      "category": "AR15 Furniture Sets",
-      "price": 70.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_7.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-olive-drab-green",
-      "options": [],
-      "slug": "stock-set-olive-drab-green"
-    },
-    {
-      "title": "Stock Set-Dark Blue",
-      "category": "AR15 Furniture Sets",
-      "price": 140.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_8.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/stock-set-dark-blue",
-      "options": [],
-      "slug": "stock-set-dark-blue"
-    },
-    {
-      "title": "C1-Buttstock",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 25.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_0.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c1-buttstock",
-      "options": [],
-      "slug": "c1-buttstock"
-    },
-    {
-      "title": "C3-Carbine Handguard",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 25.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_1.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c3-carbine-handguard",
-      "options": [],
-      "slug": "c3-carbine-handguard"
-    },
-    {
-      "title": "C4-\"M4 Style\" Handguards",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_2.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c4-m4-style-handguards",
-      "options": [],
-      "slug": "c4-m4-style-handguards"
-    },
-    {
-      "title": "C6-Fat Mid-Length Hand Guards",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_3.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c6-fat-mid-length-hand-guards",
-      "options": [],
-      "slug": "c6-fat-mid-length-hand-guards"
-    },
-    {
-      "title": "C8-Standard Mid-Length Handguard",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_4.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c8-standard-mid-length-handguard",
-      "options": [],
-      "slug": "c8-standard-mid-length-handguard"
-    },
-    {
-      "title": "C9-A2 Style Pistol Grip",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 6.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_5.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c9-a2-style-pistol-grip",
-      "options": [],
-      "slug": "c9-a2-style-pistol-grip"
-    },
-    {
-      "title": "Ladder Style Full Length Rail Cover",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 12.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_6.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/ladder-style-full-length-rail-cover",
-      "options": [],
-      "slug": "ladder-style-full-length-rail-cover"
-    },
-    {
-      "title": "Ergo Sure-Grip",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 26.40,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_7.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/ergo-sure-grip",
-      "options": [],
-      "slug": "ergo-sure-grip"
-    },
-    {
-      "title": "C7-Rifle Handguard",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_8.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c7-rifle-handguard",
-      "options": [],
-      "slug": "c7-rifle-handguard"
-    },
-    {
-      "title": "C5-Fat Rifle Handguard",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 30.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_9.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c5-fat-rifle-handguard",
-      "options": [],
-      "slug": "c5-fat-rifle-handguard"
-    },
-    {
-      "title": "C2-Mil Spec Telestock",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 35.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_10.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c2-mil-spec-telestock",
-      "options": [],
-      "slug": "c2-mil-spec-telestock"
-    },
-    {
-      "title": "C2-Commercial Telestock",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 35.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_11.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c2-commercial-telestock",
-      "options": [],
-      "slug": "c2-commercial-telestock"
-    },
-    {
-      "title": "CAR Stock",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_12.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/car-stock",
-      "options": [],
-      "slug": "car-stock"
-    },
-    {
-      "title": "Injection Molded Buttplate with Sling Swivel",
-      "category": "AR15 Furniture - Standard Colors",
-      "price": 12.95,
-      "currency": "USD",
-      "image": "/images/products/ar15_standard_13.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/injection-molded-buttplate-with-sling-swivel",
-      "options": [],
-      "slug": "injection-molded-buttplate-with-sling-swivel"
-    },
-    {
-      "title": "C1-Buttstock Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 55.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_0.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c1-buttstock-special-colors",
-      "options": [],
-      "slug": "c1-buttstock-special-colors"
-    },
-    {
-      "title": "C3-Carbine Handguard Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 35.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_1.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c3-carbine-handguard-special-colors",
-      "options": [],
-      "slug": "c3-carbine-handguard-special-colors"
-    },
-    {
-      "title": "C3-Carbine Handguard Special Color Combinations",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 35.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_2.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c3-carbine-handguard-special-color-combinations",
-      "options": [],
-      "slug": "c3-carbine-handguard-special-color-combinations"
-    },
-    {
-      "title": "C4-\"M4 Style\" Handguards Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_3.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c4-m4-style-handguards-special-colors",
-      "options": [],
-      "slug": "c4-m4-style-handguards-special-colors"
-    },
-    {
-      "title": "C4-\"M4 Style\" Handguards Special Color Combinations",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_4.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c4-m4-style-handguards-special-color-combinations",
-      "options": [],
-      "slug": "c4-m4-style-handguards-special-color-combinations"
-    },
-    {
-      "title": "C7-Rifle Handguard Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_5.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c7-rifle-handguard-special-colors",
-      "options": [],
-      "slug": "c7-rifle-handguard-special-colors"
-    },
-    {
-      "title": "C7-Rifle Handguard Special Color Combinations",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_6.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c7-rifle-handguard-special-color-combinations",
-      "options": [],
-      "slug": "c7-rifle-handguard-special-color-combinations"
-    },
-    {
-      "title": "C9-A2 Style Pistol Grip Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 20.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_7.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c9-a2-style-pistol-grip-special-colors",
-      "options": [],
-      "slug": "c9-a2-style-pistol-grip-special-colors"
-    },
-    {
-      "title": "Ladder Style Full Length Rail Cover Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 12.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_8.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/ladder-style-full-length-rail-cover-special-colors",
-      "options": [],
-      "slug": "ladder-style-full-length-rail-cover-special-colors"
-    },
-    {
-      "title": "C8-Standard Mid-Length Handguard Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_9.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c8-standard-mid-length-handguard-special-colors",
-      "options": [],
-      "slug": "c8-standard-mid-length-handguard-special-colors"
-    },
-    {
-      "title": "CAR Stock",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_10.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/car-stock",
-      "options": [],
-      "slug": "car-stock"
-    },
-    {
-      "title": "C6-Fat Mid-Length Handguards Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_11.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c6-fat-mid-length-handguards-special-colors",
-      "options": [],
-      "slug": "c6-fat-mid-length-handguards-special-colors"
-    },
-    {
-      "title": "C5-Fat Rifle Handguard Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 50.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_12.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c5-fat-rifle-handguard-special-colors",
-      "options": [],
-      "slug": "c5-fat-rifle-handguard-special-colors"
-    },
-    {
-      "title": "C2-Commercial Telestock Special Colors",
-      "category": "AR15 Furniture - Special Colors",
-      "price": 70.00,
-      "currency": "USD",
-      "image": "/images/products/ar15_special_13.jpg",
-      "url": "https://www.calvarymanufacturing.com/products/c2-commercial-telestock-special-colors",
-      "options": [],
-      "slug": "c2-commercial-telestock-special-colors"
-    },
-    {
-      "title": "SST-590 AR15 Stock Adapter for the Mossberg 500/590",
-      "category": "Shotgun Systems",
-      "price": 250.0,
-      "currency": "USD",
-      "image": "/images/products/shotgun_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-590-AR15-Stock-Adapter-for-the-Mossberg-500-590-p574699206",
-      "options": [
-        {
-          "name": "Stock Options",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 70.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 80.0
-            }
-          ]
-        }
-      ],
-      "slug": "sst-590-ar15-stock-adapter-for-the-mossberg-500-590"
-    },
-    {
-      "title": "SST-870 AR15 Stock Adapter for Remington 870",
-      "category": "Shotgun Systems",
-      "price": 250.0,
-      "currency": "USD",
-      "image": "/images/products/shotgun_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-870-AR15-Stock-Adapter-for-Remington-870-p574702139",
-      "options": [
-        {
-          "name": "Stock Options",
-          "values": [
-            {
-              "value": "None",
-              "price_delta": 0.0
-            },
-            {
-              "value": "C1-A1 Length Fixed Stock",
-              "price_delta": 70.0
-            },
-            {
-              "value": "C2-M4 Style Tele-Stock",
-              "price_delta": 80.0
-            }
-          ]
-        }
-      ],
-      "slug": "sst-870-ar15-stock-adapter-for-remington-870"
-    },
-    {
-      "title": "SST-590 Safety Extended Safety for the Mossberg 500/590",
-      "category": "Shotgun Systems",
-      "price": 40.0,
-      "currency": "USD",
-      "image": "/images/products/shotgun_2.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-590-Safety-Extended-Safety-for-the-Mossberg-500-590-p574699207",
-      "options": [],
-      "slug": "sst-590-safety-extended-safety-for-the-mossberg-500-590"
-    },
-    {
-      "title": "SST-870 Front Sight",
-      "category": "Shotgun Systems",
-      "price": 40.0,
-      "currency": "USD",
-      "image": "/images/products/shotgun_3.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-870-Front-Sight-p574702140",
-      "options": [],
-      "slug": "sst-870-front-sight"
-    },
-    {
-      "title": "CAV-15 Buffer Detent Roll Pin",
-      "category": "CAV-15 Accessories",
-      "price": 2.0,
-      "currency": "USD",
-      "image": "/images/products/cav15_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CAV-15-Buffer-Detent-Roll-Pin-p564091008",
-      "options": [],
-      "slug": "cav-15-buffer-detent-roll-pin"
-    },
-    {
-      "title": "CAV-15 MKII Take Down Pins",
-      "category": "CAV-15 Accessories",
-      "price": 10.0,
-      "currency": "USD",
-      "image": "/images/products/cav15_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CAV-15-MKII-Take-Down-Pins-p564091007",
-      "options": [],
-      "slug": "cav-15-mkii-take-down-pins"
-    },
-    {
-      "title": "SCAR-H Billet P-MAG Compatible Lower",
-      "category": "SCAR Accessories",
-      "price": 389.0,
-      "currency": "USD",
-      "image": "/images/products/scar_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SCAR-H-Billet-P-MAG-Compatible-Lower-p564057994",
-      "options": [],
-      "slug": "scar-h-billet-p-mag-compatible-lower"
-    },
-    {
-      "title": "4\" Dual Pad Emergency Bandage",
-      "category": "Emergency Bandages",
-      "price": 9.07,
-      "currency": "USD",
-      "image": "/images/products/emergency_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/4-Dual-Pad-Emergency-Bandage-p564091155",
-      "options": [],
-      "slug": "4in-dual-pad-emergency-bandage"
-    },
-    {
-      "title": "4\" Single Pad Emergency Bandage",
-      "category": "Emergency Bandages",
-      "price": 6.88,
-      "currency": "USD",
-      "image": "/images/products/emergency_2.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/4-Single-Pad-Emergency-Bandage-p564091160",
+      "image": "/images/products/spinners_5.avif",
+      "url": "https://www.alaskansartnaround.com/store/Burst-Single-Color-Spinner",
       "options": [
         {
           "name": "Color",
           "values": [
             {
-              "value": "White",
-              "price_delta": 0.0
+              "value": "Blue"
             },
             {
-              "value": "Green",
-              "price_delta": 1.22
+              "value": "Red"
             }
           ]
         }
       ],
-      "slug": "4in-single-pad-emergency-bandage"
+      "slug": "burst-single-color"
     },
     {
-      "title": "6\" Single Pad Emergency Bandage",
-      "category": "Emergency Bandages",
-      "price": 7.82,
+      "title": "Butterfly - Animated",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/emergency_3.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/6-Single-Pad-Emergency-Bandage-p564091156",
+      "image": "/images/products/spinners_6.avif",
+      "url": "https://www.alaskansartnaround.com/store/Butterfly-Animated-Spinner",
+      "options": [],
+      "slug": "butterfly-animated"
+    },
+    {
+      "title": "Butterfly - Cut Out",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_7.avif",
+      "url": "https://www.alaskansartnaround.com/store/Butterfly-Cut-Out-Spinner",
+      "options": [],
+      "slug": "butterfly-cut-out"
+    },
+    {
+      "title": "Butterfly",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_8.avif",
+      "url": "https://www.alaskansartnaround.com/store/Butterfly-Spinner",
+      "options": [
+        {
+          "name": "Style",
+          "values": [
+            {
+              "value": "Pink"
+            }
+          ]
+        }
+      ],
+      "slug": "butterfly"
+    },
+    {
+      "title": "Butterfly - Stained Glass",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_9.avif",
+      "url": "https://www.alaskansartnaround.com/store/Butterfly-Stained-Glass-Spinner",
+      "options": [],
+      "slug": "butterfly-stained-glass"
+    },
+    {
+      "title": "Cannabis Leaf",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_10.avif",
+      "url": "https://www.alaskansartnaround.com/store/Cannabis-Leaf-Spinner",
+      "options": [],
+      "slug": "cannabis-leaf"
+    },
+    {
+      "title": "Cardinal - Multi Colored",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_11.avif",
+      "url": "https://www.alaskansartnaround.com/store/Cardinal-Multi-Colored-Spinner",
+      "options": [],
+      "slug": "cardinal-multi-colored"
+    },
+    {
+      "title": "Cardinal Heart",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_12.avif",
+      "url": "https://www.alaskansartnaround.com/store/Cardinal-Heart-Spinner",
+      "options": [],
+      "slug": "cardinal-heart"
+    },
+    {
+      "title": "Cross - Stained Glass",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_13.avif",
+      "url": "https://www.alaskansartnaround.com/store/Cross-Stained-Glass-Spinner",
+      "options": [],
+      "slug": "cross-stained-glass"
+    },
+    {
+      "title": "Deer",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_14.avif",
+      "url": "https://www.alaskansartnaround.com/store/Deer-Spinner",
+      "options": [],
+      "slug": "deer"
+    },
+    {
+      "title": "Dolphins",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_15.avif",
+      "url": "https://www.alaskansartnaround.com/store/Dolphins-Spinner",
+      "options": [],
+      "slug": "dolphins"
+    },
+    {
+      "title": "Dragonfly",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_16.avif",
+      "url": "https://www.alaskansartnaround.com/store/Dragonfly-Spinner",
+      "options": [],
+      "slug": "dragonfly"
+    },
+    {
+      "title": "Fairies",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_17.avif",
+      "url": "https://www.alaskansartnaround.com/store/Fairies-Spinner",
+      "options": [],
+      "slug": "fairies"
+    },
+    {
+      "title": "Fish",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_18.avif",
+      "url": "https://www.alaskansartnaround.com/store/Fish-Spinner",
+      "options": [],
+      "slug": "fish"
+    },
+    {
+      "title": "Flamingos",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_19.avif",
+      "url": "https://www.alaskansartnaround.com/store/Flamingos-Spinner",
+      "options": [],
+      "slug": "flamingos"
+    },
+    {
+      "title": "Frog",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_20.avif",
+      "url": "https://www.alaskansartnaround.com/store/Frog-Spinner",
+      "options": [],
+      "slug": "frog"
+    },
+    {
+      "title": "Lighthouse / Sailboat Combo",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_21.avif",
+      "url": "https://www.alaskansartnaround.com/store/Lighthouse-Sailboat-Combo-Spinner",
+      "options": [],
+      "slug": "lighthouse-sailboat-combo"
+    },
+    {
+      "title": "Heart",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_22.avif",
+      "url": "https://www.alaskansartnaround.com/store/Heart-Spinner",
+      "options": [],
+      "slug": "heart"
+    },
+    {
+      "title": "Horse - Double Horses",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_23.avif",
+      "url": "https://www.alaskansartnaround.com/store/Horse-Double-Horses-Spinner",
+      "options": [],
+      "slug": "horse-double-horses"
+    },
+    {
+      "title": "Hummingbird",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_24.avif",
+      "url": "https://www.alaskansartnaround.com/store/Hummingbird-Spinner",
       "options": [
         {
           "name": "Color",
           "values": [
             {
-              "value": "White",
-              "price_delta": 0.0
+              "value": "Blue"
             },
             {
-              "value": "Green",
-              "price_delta": 1.03
+              "value": "Red"
             }
           ]
         }
       ],
-      "slug": "6in-single-pad-emergency-bandage"
+      "slug": "hummingbird"
     },
     {
-      "title": "6\" Dual Pad Emergency Bandage",
-      "category": "Emergency Bandages",
-      "price": 10.3,
+      "title": "Hummingbird - Flower",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/emergency_4.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/6-Dual-Pad-Emergency-Bandage-p564091154",
+      "image": "/images/products/spinners_25.avif",
+      "url": "https://www.alaskansartnaround.com/store/Hummingbird-Flower-Spinner",
+      "options": [],
+      "slug": "hummingbird-flower"
+    },
+    {
+      "title": "Hummingbird - Multi",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_26.avif",
+      "url": "https://www.alaskansartnaround.com/store/Hummingbird-Multi-Spinner",
+      "options": [],
+      "slug": "hummingbird-multi"
+    },
+    {
+      "title": "Hummingbird - Stained Glass",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_27.avif",
+      "url": "https://www.alaskansartnaround.com/store/Hummingbird-Stained-Glass-Spinner",
+      "options": [],
+      "slug": "hummingbird-stained-glass"
+    },
+    {
+      "title": "Mandala - Blues",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_28.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Blues-Spinner",
+      "options": [],
+      "slug": "mandala-blues"
+    },
+    {
+      "title": "Mandala - Blue, Red, Yellow",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_29.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Blue-Red-Yellow-Spinner",
+      "options": [],
+      "slug": "mandala-blue-red-yellow"
+    },
+    {
+      "title": "Mandala - Blue/Silver",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_30.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Blue-Silver-Spinner",
+      "options": [],
+      "slug": "mandala-blue-silver"
+    },
+    {
+      "title": "Mandala - Celtic Knot",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_31.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Celtic-Knot-Spinner",
+      "options": [],
+      "slug": "mandala-celtic-knot"
+    },
+    {
+      "title": "Mandala - Flower of Life",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_32.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Flower-of-Life-Spinner",
+      "options": [],
+      "slug": "mandala-flower-of-life"
+    },
+    {
+      "title": "Mandala - Green Polka Dot",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_33.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Green-Polka-Dot-Spinner",
+      "options": [],
+      "slug": "mandala-green-polka-dot"
+    },
+    {
+      "title": "Mandala - Kaleidoscope",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_34.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Kaleidoscope-Spinner",
+      "options": [],
+      "slug": "mandala-kaleidoscope"
+    },
+    {
+      "title": "Mandala - Original",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_35.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Original-Spinner",
+      "options": [],
+      "slug": "mandala-original"
+    },
+    {
+      "title": "Mandala - Pastel",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_36.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Pastel-Spinner",
+      "options": [],
+      "slug": "mandala-pastel"
+    },
+    {
+      "title": "Mandala - Purple Polka Dots",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_37.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Purple-Polka-Dots-Spinner",
+      "options": [],
+      "slug": "mandala-purple-polka-dots"
+    },
+    {
+      "title": "Mandala - Purple Polka Dots with Ball",
+      "category": "Spinners",
+      "price": 45.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_40.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Purple-Polka-Dots-with-Ball-Spinner",
+      "options": [],
+      "slug": "mandala-purple-polka-dots-with-ball"
+    },
+    {
+      "title": "Mandala - Seed of Life",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_41.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Seed-of-Life-Spinner",
+      "options": [],
+      "slug": "mandala-seed-of-life"
+    },
+    {
+      "title": "Mandala - Seed of Life, Rainbow",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_42.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Seed-of-Life-Rainbow-Spinner",
+      "options": [],
+      "slug": "mandala-seed-of-life-rainbow"
+    },
+    {
+      "title": "Mandala - Target",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_43.avif",
+      "url": "https://www.alaskansartnaround.com/store/Mandala-Target-Spinner",
+      "options": [],
+      "slug": "mandala-target"
+    },
+    {
+      "title": "Moon - Eclipse",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_44.avif",
+      "url": "https://www.alaskansartnaround.com/store/Moon-Eclipse-Spinner",
+      "options": [],
+      "slug": "moon-eclipse"
+    },
+    {
+      "title": "Musical Note",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_45.avif",
+      "url": "https://www.alaskansartnaround.com/store/Musical-Note-Spinner",
+      "options": [],
+      "slug": "musical-note"
+    },
+    {
+      "title": "North Woods",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_46.avif",
+      "url": "https://www.alaskansartnaround.com/store/North-Woods-Spinner",
+      "options": [],
+      "slug": "north-woods"
+    },
+    {
+      "title": "Palm Tree",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_47.avif",
+      "url": "https://www.alaskansartnaround.com/store/Palm-Tree-Spinner",
+      "options": [],
+      "slug": "palm-tree"
+    },
+    {
+      "title": "Peace Sign",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_48.avif",
+      "url": "https://www.alaskansartnaround.com/store/Peace-Sign-Spinner",
+      "options": [],
+      "slug": "peace-sign"
+    },
+    {
+      "title": "Peacock",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_49.avif",
+      "url": "https://www.alaskansartnaround.com/store/Peacock-Spinner",
+      "options": [],
+      "slug": "peacock"
+    },
+    {
+      "title": "Sasquatch",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_50.avif",
+      "url": "https://www.alaskansartnaround.com/store/Sasquatch-Spinner",
+      "options": [],
+      "slug": "sasquatch"
+    },
+    {
+      "title": "Sugar Skull",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_51.avif",
+      "url": "https://www.alaskansartnaround.com/store/Sugar-Skull-Spinner",
+      "options": [],
+      "slug": "sugar-skull"
+    },
+    {
+      "title": "Splash - Glow",
+      "category": "Spinners",
+      "price": 45.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_52.avif",
+      "url": "https://www.alaskansartnaround.com/store/Splash-Glow-Spinner",
+      "options": [],
+      "slug": "splash-glow"
+    },
+    {
+      "title": "Splash - Hyper",
+      "category": "Spinners",
+      "price": 45.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_53.avif",
+      "url": "https://www.alaskansartnaround.com/store/Splash-Hyper-Spinner",
+      "options": [],
+      "slug": "splash-hyper"
+    },
+    {
+      "title": "Splash - Red",
+      "category": "Spinners",
+      "price": 45.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_54.avif",
+      "url": "https://www.alaskansartnaround.com/store/Splash-Red-Spinner",
+      "options": [],
+      "slug": "splash-red"
+    },
+    {
+      "title": "Sun - Celestial",
+      "category": "Spinners",
+      "price": 45.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_55.avif",
+      "url": "https://www.alaskansartnaround.com/store/Sun-Celestial-Spinner",
+      "options": [],
+      "slug": "sun-celestial"
+    },
+    {
+      "title": "Sun",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_56.avif",
+      "url": "https://www.alaskansartnaround.com/store/Sun-Spinner",
+      "options": [],
+      "slug": "sun"
+    },
+    {
+      "title": "Sun - Multi",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_57.avif",
+      "url": "https://www.alaskansartnaround.com/store/Sun-Multi-Spinner",
+      "options": [],
+      "slug": "sun-multi"
+    },
+    {
+      "title": "Tear Drop - Blue",
+      "category": "Spinners",
+      "price": 45.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_58.avif",
+      "url": "https://www.alaskansartnaround.com/store/Tear-Drop-Blue-Spinner",
+      "options": [],
+      "slug": "tear-drop-blue"
+    },
+    {
+      "title": "Tear Drop - Green",
+      "category": "Spinners",
+      "price": 55.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_59.avif",
+      "url": "https://www.alaskansartnaround.com/store/Tear-Drop-Green-Spinner",
+      "options": [],
+      "slug": "tear-drop-green"
+    },
+    {
+      "title": "Tear Drop - Mirror",
+      "category": "Spinners",
+      "price": 35.0,
+      "currency": "USD",
+      "image": "/images/products/spinners_60.avif",
+      "url": "https://www.alaskansartnaround.com/store/Tear-Drop-Mirror-Spinner",
       "options": [
         {
-          "name": "Color",
+          "name": "Price Options",
           "values": [
             {
-              "value": "White",
-              "price_delta": 0.0
+              "value": "Regular Price $45"
             },
             {
-              "value": "Green",
-              "price_delta": 0.85
+              "value": "Sale Price $35"
             }
           ]
         }
       ],
-      "slug": "6in-dual-pad-emergency-bandage"
+      "slug": "tear-drop-mirror"
     },
     {
-      "title": "Thin-Cinch",
-      "category": "Emergency Bandages",
-      "price": 8.68,
+      "title": "Turtle - Sea",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/emergency_5.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Thin-Cinch-p574682878",
+      "image": "/images/products/spinners_61.avif",
+      "url": "https://www.alaskansartnaround.com/store/Turtle-Sea-Spinner",
       "options": [],
-      "slug": "thin-cinch"
+      "slug": "turtle-sea"
     },
     {
-      "title": "Dukal Emergency Pressure Dressing",
-      "category": "Emergency Bandages",
-      "price": 5.0,
+      "title": "Turtle - Tribal",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/emergency_6.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Dukal-Emergency-Pressure-Dressing-p574682879",
+      "image": "/images/products/spinners_62.avif",
+      "url": "https://www.alaskansartnaround.com/store/Turtle-Tribal-Spinner",
       "options": [],
-      "slug": "dukal-emergency-pressure-dressing"
+      "slug": "turtle-tribal"
     },
     {
-      "title": "8\" Abdominal Emergency Bandage with 12\"x12\" ab pad",
-      "category": "Emergency Bandages",
-      "price": 15.64,
+      "title": "Tree of Life",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/emergency_7.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/8-Abdominal-Emergency-Bandage-with-12x12-ab-pad-p574682880",
-      "options": [
-        {
-          "name": "Color",
-          "values": [
-            {
-              "value": "White",
-              "price_delta": 0.0
-            },
-            {
-              "value": "Green",
-              "price_delta": 0.64
-            }
-          ]
-        }
-      ],
-      "slug": "8in-abdominal-emergency-bandage-with-12x12in-ab-pad"
-    },
-    {
-      "title": "Celox Granules",
-      "category": "Celox - Hemostatic Granules",
-      "price": 24.34,
-      "currency": "USD",
-      "image": "/images/products/celox_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Celox-Granules-p564091151",
+      "image": "/images/products/spinners_63.avif",
+      "url": "https://www.alaskansartnaround.com/store/Tree-of-Life-Spinner",
       "options": [],
-      "slug": "celox-granules"
+      "slug": "tree-of-life"
     },
     {
-      "title": "Asherman Chest Seal",
-      "category": "Chest Seals",
-      "price": 24.65,
+      "title": "Whale",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/chest_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Asherman-Chest-Seal-p564091144",
+      "image": "/images/products/spinners_64.avif",
+      "url": "https://www.alaskansartnaround.com/store/Whale-Spinner",
       "options": [],
-      "slug": "asherman-chest-seal"
+      "slug": "whale"
     },
     {
-      "title": "Bolin Chest Seal",
-      "category": "Chest Seals",
-      "price": 28.28,
+      "title": "Wolf",
+      "category": "Spinners",
+      "price": 35.0,
       "currency": "USD",
-      "image": "/images/products/chest_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Bolin-Chest-Seal-p564091143",
+      "image": "/images/products/spinners_65.avif",
+      "url": "https://www.alaskansartnaround.com/store/Wolf-Spinner",
       "options": [],
-      "slug": "bolin-chest-seal"
+      "slug": "wolf"
     },
     {
-      "title": "Slick Tourniquet",
-      "category": "Tourniquets",
-      "price": 14.89,
+      "title": "Yin Yang",
+      "category": "Spinners",
+      "price": 45.0,
       "currency": "USD",
-      "image": "/images/products/tourniquets_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Slick-Tourniquet-p574682877",
+      "image": "/images/products/spinners_66.avif",
+      "url": "https://www.alaskansartnaround.com/store/Yin-Yang-Spinner",
       "options": [],
-      "slug": "slick-tourniquet"
+      "slug": "yin-yang"
     },
     {
-      "title": "TK-4 Tourniquet",
-      "category": "Tourniquets",
-      "price": 9.25,
+      "title": "Battery Motor",
+      "category": "Spinners",
+      "price": 15.0,
       "currency": "USD",
-      "image": "/images/products/tourniquets_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/TK-4-Tourniquet-p564091145",
+      "image": "/images/products/spinners_67.avif",
+      "url": "https://www.alaskansartnaround.com/store/Battery-Motor",
       "options": [],
-      "slug": "tk-4-tourniquet"
+      "slug": "battery-motor"
     },
     {
-      "title": "CPR Face Mask With Case",
-      "category": "Protective Equipment",
-      "price": 12.27,
+      "title": "Swivels",
+      "category": "Spinners",
+      "price": 3.0,
       "currency": "USD",
-      "image": "/images/products/protective_equipment_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CPR-Face-Mask-With-Case",
+      "image": "/images/products/spinners_swivels.avif",
+      "url": "https://www.alaskansartnaround.com/store/Swivels",
       "options": [],
-      "slug": "cpr-face-mask-with-case"
+      "slug": "swivels"
     },
     {
-      "title": "Defender Gloves-Extra Large",
-      "category": "Protective Equipment",
-      "price": 0.70,
+      "title": "Twisted Tail",
+      "category": "Spinners",
+      "price": 20.0,
       "currency": "USD",
-      "image": "/images/products/protective_equipment_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Defender-Gloves-Extra-Large",
+      "image": "/images/products/spinners_twisted_tail.avif",
+      "url": "https://www.alaskansartnaround.com/store/Twisted-Tail",
       "options": [],
-      "slug": "defender-gloves-extra-large"
-    },
-    {
-      "title": "Laerdal Face Shield",
-      "category": "Protective Equipment",
-      "price": 3.50,
-      "currency": "USD",
-      "image": "/images/products/protective_equipment_2.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Laerdal-Face-Shield",
-      "options": [],
-      "slug": "laerdal-face-shield"
-    },
-    {
-      "title": "AAK-Automotive Aid Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 76.0,
-      "currency": "USD",
-      "image": "/images/products/cal_med_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/AAK-Automotive-Aid-Kit-p564091146",
-      "options": [],
-      "slug": "aak-automotive-aid-kit"
-    },
-    {
-      "title": "ATK-Advanced Trauma Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 73.15,
-      "currency": "USD",
-      "image": "/images/products/cal_med_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ATK-Advanced-Trauma-Kit-p564091147",
-      "options": [],
-      "slug": "atk-advanced-trauma-kit"
-    },
-    {
-      "title": "CBK-Contagion Barrier Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 2.5,
-      "currency": "USD",
-      "image": "/images/products/cal_med_2.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CBK-Contagion-Barrier-Kit-p564091148",
-      "options": [],
-      "slug": "cbk-contagion-barrier-kit"
-    },
-    {
-      "title": "CRK-Casualty Response Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 19.95,
-      "currency": "USD",
-      "image": "/images/products/cal_med_3.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CRK-Casualty-Response-Kit-p564091149",
-      "options": [],
-      "slug": "crk-casualty-response-kit"
-    },
-    {
-      "title": "BAK-Basic Aid Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 19.95,
-      "currency": "USD",
-      "image": "/images/products/cal_med_4.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/BAK-Basic-Aid-Kit-p564091150",
-      "options": [],
-      "slug": "bak-basic-aid-kit"
-    },
-    {
-      "title": "ICMK-Individual Combat Medical Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 94.89,
-      "currency": "USD",
-      "image": "/images/products/cal_med_5.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ICMK-Individual-Combat-Medical-Kit-p564091153",
-      "options": [],
-      "slug": "icmk-individual-combat-medical-kit"
-    },
-    {
-      "title": "LEPAK-Law Enforcement Personal Aid Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 71.89,
-      "currency": "USD",
-      "image": "/images/products/cal_med_6.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/LEPAK-Law-Enforcement-Personal-Aid-Kit-p564091152",
-      "options": [],
-      "slug": "lepak-law-enforcement-personal-aid-kit"
-    },
-    {
-      "title": "MKR-Mass Casualty Response Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 450.0,
-      "currency": "USD",
-      "image": "/images/products/cal_med_7.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/MKR-Mass-Casualty-Response-Kit-p564091158",
-      "options": [],
-      "slug": "mkr-mass-casualty-response-kit"
-    },
-    {
-      "title": "PTK-Personal Trauma Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 39.89,
-      "currency": "USD",
-      "image": "/images/products/cal_med_8.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/PTK-Personal-Trauma-Kit-p564091159",
-      "options": [],
-      "slug": "ptk-personal-trauma-kit"
-    },
-    {
-      "title": "ITK-Individual Trauma Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 42.0,
-      "currency": "USD",
-      "image": "/images/products/cal_med_9.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ITK-Individual-Trauma-Kit-p564091157",
-      "options": [],
-      "slug": "itk-individual-trauma-kit"
-    },
-    {
-      "title": "DEK-Dental Emergency Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 39.89,
-      "currency": "USD",
-      "image": "/images/products/cal_med_10.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/DEK-Dental-Emergency-Kit-p574682881",
-      "options": [],
-      "slug": "dek-dental-emergency-kit"
-    },
-    {
-      "title": "NEAK-Non-Emergency Aid Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 7.0,
-      "currency": "USD",
-      "image": "/images/products/cal_med_11.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/NEAK-Non-Emergency-Aid-Kit-p574682882",
-      "options": [],
-      "slug": "neak-non-emergency-aid-kit"
-    },
-    {
-      "title": "PTKB-Personal Trauma Kit Basic",
-      "category": "Cavalry Medical Kits",
-      "price": 32.0,
-      "currency": "USD",
-      "image": "/images/products/cal_med_12.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/PTKB-Personal-Trauma-Kit-Basic-p574682883",
-      "options": [],
-      "slug": "ptkb-personal-trauma-kit-basic"
-    },
-    {
-      "title": "AVTK-Advanced Vehicle Trauma Kit",
-      "category": "Cavalry Medical Kits",
-      "price": 107.89,
-      "currency": "USD",
-      "image": "/images/products/cal_med_13.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/AVTK-Advanced-Vehicle-Trauma-Kit-p574682884",
-      "options": [],
-      "slug": "avtk-advanced-vehicle-trauma-kit"
-    },
-    {
-      "title": "Vionex Wipes",
-      "category": "Decontamination",
-      "price": 0.50,
-      "currency": "USD",
-      "image": "/images/products/decontamination_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Vionex-Wipes",
-      "options": [],
-      "slug": "vionex-wipes"
-    },
-    {
-      "title": "Sudecon Wipe",
-      "category": "Decontamination",
-      "price": 3.14,
-      "currency": "USD",
-      "image": "/images/products/decontamination_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Sudecon-Wipe",
-      "options": [],
-      "slug": "sudecon-wipe"
-    },
-    {
-      "title": "4.5\" Gauze Roll",
-      "category": "Misc. Bandages and Ab Pads",
-      "price": 2.00,
-      "currency": "USD",
-      "image": "/images/products/bandages_abpads_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/4-5-Gauze-Roll",
-      "options": [],
-      "slug": "4-5-gauze-roll"
-    },
-    {
-      "title": "Dermacea Ab Pad",
-      "category": "Misc. Bandages and Ab Pads",
-      "price": 1.00,
-      "currency": "USD",
-      "image": "/images/products/bandages_abpads_1.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Dermacea-Ab-Pad",
-      "options": [],
-      "slug": "dermacea-ab-pad"
-    },
-    {
-      "title": "Hypoallergenic Tape",
-      "category": "Misc. Bandages and Ab Pads",
-      "price": 2.00,
-      "currency": "USD",
-      "image": "/images/products/bandages_abpads_2.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Hypoallergenic-Tape",
-      "options": [],
-      "slug": "hypoallergenic-tape"
-    },
-    {
-      "title": "Versalon Sponge",
-      "category": "Misc. Bandages and Ab Pads",
-      "price": 0.15,
-      "currency": "USD",
-      "image": "/images/products/bandages_abpads_3.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Versalon-Sponge",
-      "options": [],
-      "slug": "versalon-sponge"
-    },
-    {
-      "title": "Elastic Bandage",
-      "category": "Misc. Bandages and Ab Pads",
-      "price": 1.50,
-      "currency": "USD",
-      "image": "/images/products/bandages_abpads_4.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Elastic-Bandage",
-      "options": [],
-      "slug": "elastic-bandage"
-    },
-    {
-      "title": "NPA-Nasopharyngeal Airway 28F",
-      "category": "Airway",
-      "price": 6.00,
-      "currency": "USD",
-      "image": "/images/products/airway_0.jpg",
-      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/NPA-Nasopharyngeal-Airway-28F",
-      "options": [],
-      "slug": "npa-nasopharyngeal-airway-28f"
+      "slug": "twisted-tail"
     }
   ]
 }

@@ -4,13 +4,12 @@
 /* Mobile */
 @media only screen and (min-width: 0em) {
   :root {
-    --primary: #f6ff00;
-    /* Cavalry Yellow */
---primaryShade: #d4db00;
-    /* Armory Gold */
---primaryDark: #1a1a1a;
-    /* Forged Black */
-    /* Deep Charcoal */
+    --primary: #0070c9;
+    /* Cavalry Blue */
+--primaryShade: #3399ff;
+    /* Armory Sky */
+--primaryDark: #004b8a;
+    /* Forged Navy */
     --bodyTextColor: #4e4b66;
     --bodyTextColorWhite: #fafbfc;
     --headerColor: #1a1a1a;

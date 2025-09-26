@@ -412,6 +412,538 @@
       "url": "https://www.calvarymanufacturing.com/products/c2-commercial-telestock-special-colors",
       "options": [],
       "slug": "c2-commercial-telestock-special-colors"
+    },
+    {
+      "title": "SST-590 AR15 Stock Adapter for the Mossberg 500/590",
+      "category": "Shotgun Systems",
+      "price": 250.0,
+      "currency": "USD",
+      "image": "/images/products/shotgun_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-590-AR15-Stock-Adapter-for-the-Mossberg-500-590-p574699206",
+      "options": [
+        {
+          "name": "Stock Options",
+          "values": [
+            {
+              "value": "None",
+              "price_delta": 0.0
+            },
+            {
+              "value": "C1-A1 Length Fixed Stock",
+              "price_delta": 70.0
+            },
+            {
+              "value": "C2-M4 Style Tele-Stock",
+              "price_delta": 80.0
+            }
+          ]
+        }
+      ],
+      "slug": "sst-590-ar15-stock-adapter-for-the-mossberg-500-590"
+    },
+    {
+      "title": "SST-870 AR15 Stock Adapter for Remington 870",
+      "category": "Shotgun Systems",
+      "price": 250.0,
+      "currency": "USD",
+      "image": "/images/products/shotgun_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-870-AR15-Stock-Adapter-for-Remington-870-p574702139",
+      "options": [
+        {
+          "name": "Stock Options",
+          "values": [
+            {
+              "value": "None",
+              "price_delta": 0.0
+            },
+            {
+              "value": "C1-A1 Length Fixed Stock",
+              "price_delta": 70.0
+            },
+            {
+              "value": "C2-M4 Style Tele-Stock",
+              "price_delta": 80.0
+            }
+          ]
+        }
+      ],
+      "slug": "sst-870-ar15-stock-adapter-for-remington-870"
+    },
+    {
+      "title": "SST-590 Safety Extended Safety for the Mossberg 500/590",
+      "category": "Shotgun Systems",
+      "price": 40.0,
+      "currency": "USD",
+      "image": "/images/products/shotgun_2.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-590-Safety-Extended-Safety-for-the-Mossberg-500-590-p574699207",
+      "options": [],
+      "slug": "sst-590-safety-extended-safety-for-the-mossberg-500-590"
+    },
+    {
+      "title": "SST-870 Front Sight",
+      "category": "Shotgun Systems",
+      "price": 40.0,
+      "currency": "USD",
+      "image": "/images/products/shotgun_3.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SST-870-Front-Sight-p574702140",
+      "options": [],
+      "slug": "sst-870-front-sight"
+    },
+    {
+      "title": "CAV-15 Buffer Detent Roll Pin",
+      "category": "CAV-15 Accessories",
+      "price": 2.0,
+      "currency": "USD",
+      "image": "/images/products/cav15_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CAV-15-Buffer-Detent-Roll-Pin-p564091008",
+      "options": [],
+      "slug": "cav-15-buffer-detent-roll-pin"
+    },
+    {
+      "title": "CAV-15 MKII Take Down Pins",
+      "category": "CAV-15 Accessories",
+      "price": 10.0,
+      "currency": "USD",
+      "image": "/images/products/cav15_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CAV-15-MKII-Take-Down-Pins-p564091007",
+      "options": [],
+      "slug": "cav-15-mkii-take-down-pins"
+    },
+    {
+      "title": "SCAR-H Billet P-MAG Compatible Lower",
+      "category": "SCAR Accessories",
+      "price": 389.0,
+      "currency": "USD",
+      "image": "/images/products/scar_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/SCAR-H-Billet-P-MAG-Compatible-Lower-p564057994",
+      "options": [],
+      "slug": "scar-h-billet-p-mag-compatible-lower"
+    },
+    {
+      "title": "4\" Dual Pad Emergency Bandage",
+      "category": "Emergency Bandages",
+      "price": 9.07,
+      "currency": "USD",
+      "image": "/images/products/emergency_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/4-Dual-Pad-Emergency-Bandage-p564091155",
+      "options": [],
+      "slug": "4in-dual-pad-emergency-bandage"
+    },
+    {
+      "title": "4\" Single Pad Emergency Bandage",
+      "category": "Emergency Bandages",
+      "price": 6.88,
+      "currency": "USD",
+      "image": "/images/products/emergency_2.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/4-Single-Pad-Emergency-Bandage-p564091160",
+      "options": [
+        {
+          "name": "Color",
+          "values": [
+            {
+              "value": "White",
+              "price_delta": 0.0
+            },
+            {
+              "value": "Green",
+              "price_delta": 1.22
+            }
+          ]
+        }
+      ],
+      "slug": "4in-single-pad-emergency-bandage"
+    },
+    {
+      "title": "6\" Single Pad Emergency Bandage",
+      "category": "Emergency Bandages",
+      "price": 7.82,
+      "currency": "USD",
+      "image": "/images/products/emergency_3.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/6-Single-Pad-Emergency-Bandage-p564091156",
+      "options": [
+        {
+          "name": "Color",
+          "values": [
+            {
+              "value": "White",
+              "price_delta": 0.0
+            },
+            {
+              "value": "Green",
+              "price_delta": 1.03
+            }
+          ]
+        }
+      ],
+      "slug": "6in-single-pad-emergency-bandage"
+    },
+    {
+      "title": "6\" Dual Pad Emergency Bandage",
+      "category": "Emergency Bandages",
+      "price": 10.3,
+      "currency": "USD",
+      "image": "/images/products/emergency_4.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/6-Dual-Pad-Emergency-Bandage-p564091154",
+      "options": [
+        {
+          "name": "Color",
+          "values": [
+            {
+              "value": "White",
+              "price_delta": 0.0
+            },
+            {
+              "value": "Green",
+              "price_delta": 0.85
+            }
+          ]
+        }
+      ],
+      "slug": "6in-dual-pad-emergency-bandage"
+    },
+    {
+      "title": "Thin-Cinch",
+      "category": "Emergency Bandages",
+      "price": 8.68,
+      "currency": "USD",
+      "image": "/images/products/emergency_5.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Thin-Cinch-p574682878",
+      "options": [],
+      "slug": "thin-cinch"
+    },
+    {
+      "title": "Dukal Emergency Pressure Dressing",
+      "category": "Emergency Bandages",
+      "price": 5.0,
+      "currency": "USD",
+      "image": "/images/products/emergency_6.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Dukal-Emergency-Pressure-Dressing-p574682879",
+      "options": [],
+      "slug": "dukal-emergency-pressure-dressing"
+    },
+    {
+      "title": "8\" Abdominal Emergency Bandage with 12\"x12\" ab pad",
+      "category": "Emergency Bandages",
+      "price": 15.64,
+      "currency": "USD",
+      "image": "/images/products/emergency_7.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/8-Abdominal-Emergency-Bandage-with-12x12-ab-pad-p574682880",
+      "options": [
+        {
+          "name": "Color",
+          "values": [
+            {
+              "value": "White",
+              "price_delta": 0.0
+            },
+            {
+              "value": "Green",
+              "price_delta": 0.64
+            }
+          ]
+        }
+      ],
+      "slug": "8in-abdominal-emergency-bandage-with-12x12in-ab-pad"
+    },
+    {
+      "title": "Celox Granules",
+      "category": "Celox - Hemostatic Granules",
+      "price": 24.34,
+      "currency": "USD",
+      "image": "/images/products/celox_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Celox-Granules-p564091151",
+      "options": [],
+      "slug": "celox-granules"
+    },
+    {
+      "title": "Asherman Chest Seal",
+      "category": "Chest Seals",
+      "price": 24.65,
+      "currency": "USD",
+      "image": "/images/products/chest_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Asherman-Chest-Seal-p564091144",
+      "options": [],
+      "slug": "asherman-chest-seal"
+    },
+    {
+      "title": "Bolin Chest Seal",
+      "category": "Chest Seals",
+      "price": 28.28,
+      "currency": "USD",
+      "image": "/images/products/chest_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Bolin-Chest-Seal-p564091143",
+      "options": [],
+      "slug": "bolin-chest-seal"
+    },
+    {
+      "title": "Slick Tourniquet",
+      "category": "Tourniquets",
+      "price": 14.89,
+      "currency": "USD",
+      "image": "/images/products/tourniquets_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Slick-Tourniquet-p574682877",
+      "options": [],
+      "slug": "slick-tourniquet"
+    },
+    {
+      "title": "TK-4 Tourniquet",
+      "category": "Tourniquets",
+      "price": 9.25,
+      "currency": "USD",
+      "image": "/images/products/tourniquets_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/TK-4-Tourniquet-p564091145",
+      "options": [],
+      "slug": "tk-4-tourniquet"
+    },
+    {
+      "title": "CPR Face Mask With Case",
+      "category": "Protective Equipment",
+      "price": 12.27,
+      "currency": "USD",
+      "image": "/images/products/protective_equipment_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CPR-Face-Mask-With-Case",
+      "options": [],
+      "slug": "cpr-face-mask-with-case"
+    },
+    {
+      "title": "Defender Gloves-Extra Large",
+      "category": "Protective Equipment",
+      "price": 0.70,
+      "currency": "USD",
+      "image": "/images/products/protective_equipment_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Defender-Gloves-Extra-Large",
+      "options": [],
+      "slug": "defender-gloves-extra-large"
+    },
+    {
+      "title": "Laerdal Face Shield",
+      "category": "Protective Equipment",
+      "price": 3.50,
+      "currency": "USD",
+      "image": "/images/products/protective_equipment_2.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Laerdal-Face-Shield",
+      "options": [],
+      "slug": "laerdal-face-shield"
+    },
+    {
+      "title": "AAK-Automotive Aid Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 76.0,
+      "currency": "USD",
+      "image": "/images/products/cal_med_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/AAK-Automotive-Aid-Kit-p564091146",
+      "options": [],
+      "slug": "aak-automotive-aid-kit"
+    },
+    {
+      "title": "ATK-Advanced Trauma Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 73.15,
+      "currency": "USD",
+      "image": "/images/products/cal_med_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ATK-Advanced-Trauma-Kit-p564091147",
+      "options": [],
+      "slug": "atk-advanced-trauma-kit"
+    },
+    {
+      "title": "CBK-Contagion Barrier Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 2.5,
+      "currency": "USD",
+      "image": "/images/products/cal_med_2.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CBK-Contagion-Barrier-Kit-p564091148",
+      "options": [],
+      "slug": "cbk-contagion-barrier-kit"
+    },
+    {
+      "title": "CRK-Casualty Response Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 19.95,
+      "currency": "USD",
+      "image": "/images/products/cal_med_3.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/CRK-Casualty-Response-Kit-p564091149",
+      "options": [],
+      "slug": "crk-casualty-response-kit"
+    },
+    {
+      "title": "BAK-Basic Aid Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 19.95,
+      "currency": "USD",
+      "image": "/images/products/cal_med_4.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/BAK-Basic-Aid-Kit-p564091150",
+      "options": [],
+      "slug": "bak-basic-aid-kit"
+    },
+    {
+      "title": "ICMK-Individual Combat Medical Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 94.89,
+      "currency": "USD",
+      "image": "/images/products/cal_med_5.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ICMK-Individual-Combat-Medical-Kit-p564091153",
+      "options": [],
+      "slug": "icmk-individual-combat-medical-kit"
+    },
+    {
+      "title": "LEPAK-Law Enforcement Personal Aid Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 71.89,
+      "currency": "USD",
+      "image": "/images/products/cal_med_6.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/LEPAK-Law-Enforcement-Personal-Aid-Kit-p564091152",
+      "options": [],
+      "slug": "lepak-law-enforcement-personal-aid-kit"
+    },
+    {
+      "title": "MKR-Mass Casualty Response Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 450.0,
+      "currency": "USD",
+      "image": "/images/products/cal_med_7.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/MKR-Mass-Casualty-Response-Kit-p564091158",
+      "options": [],
+      "slug": "mkr-mass-casualty-response-kit"
+    },
+    {
+      "title": "PTK-Personal Trauma Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 39.89,
+      "currency": "USD",
+      "image": "/images/products/cal_med_8.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/PTK-Personal-Trauma-Kit-p564091159",
+      "options": [],
+      "slug": "ptk-personal-trauma-kit"
+    },
+    {
+      "title": "ITK-Individual Trauma Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 42.0,
+      "currency": "USD",
+      "image": "/images/products/cal_med_9.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/ITK-Individual-Trauma-Kit-p564091157",
+      "options": [],
+      "slug": "itk-individual-trauma-kit"
+    },
+    {
+      "title": "DEK-Dental Emergency Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 39.89,
+      "currency": "USD",
+      "image": "/images/products/cal_med_10.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/DEK-Dental-Emergency-Kit-p574682881",
+      "options": [],
+      "slug": "dek-dental-emergency-kit"
+    },
+    {
+      "title": "NEAK-Non-Emergency Aid Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 7.0,
+      "currency": "USD",
+      "image": "/images/products/cal_med_11.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/NEAK-Non-Emergency-Aid-Kit-p574682882",
+      "options": [],
+      "slug": "neak-non-emergency-aid-kit"
+    },
+    {
+      "title": "PTKB-Personal Trauma Kit Basic",
+      "category": "Cavalry Medical Kits",
+      "price": 32.0,
+      "currency": "USD",
+      "image": "/images/products/cal_med_12.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/PTKB-Personal-Trauma-Kit-Basic-p574682883",
+      "options": [],
+      "slug": "ptkb-personal-trauma-kit-basic"
+    },
+    {
+      "title": "AVTK-Advanced Vehicle Trauma Kit",
+      "category": "Cavalry Medical Kits",
+      "price": 107.89,
+      "currency": "USD",
+      "image": "/images/products/cal_med_13.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/AVTK-Advanced-Vehicle-Trauma-Kit-p574682884",
+      "options": [],
+      "slug": "avtk-advanced-vehicle-trauma-kit"
+    },
+    {
+      "title": "Vionex Wipes",
+      "category": "Decontamination",
+      "price": 0.50,
+      "currency": "USD",
+      "image": "/images/products/decontamination_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Vionex-Wipes",
+      "options": [],
+      "slug": "vionex-wipes"
+    },
+    {
+      "title": "Sudecon Wipe",
+      "category": "Decontamination",
+      "price": 3.14,
+      "currency": "USD",
+      "image": "/images/products/decontamination_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Sudecon-Wipe",
+      "options": [],
+      "slug": "sudecon-wipe"
+    },
+    {
+      "title": "4.5\" Gauze Roll",
+      "category": "Misc. Bandages and Ab Pads",
+      "price": 2.00,
+      "currency": "USD",
+      "image": "/images/products/bandages_abpads_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/4-5-Gauze-Roll",
+      "options": [],
+      "slug": "4-5-gauze-roll"
+    },
+    {
+      "title": "Dermacea Ab Pad",
+      "category": "Misc. Bandages and Ab Pads",
+      "price": 1.00,
+      "currency": "USD",
+      "image": "/images/products/bandages_abpads_1.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Dermacea-Ab-Pad",
+      "options": [],
+      "slug": "dermacea-ab-pad"
+    },
+    {
+      "title": "Hypoallergenic Tape",
+      "category": "Misc. Bandages and Ab Pads",
+      "price": 2.00,
+      "currency": "USD",
+      "image": "/images/products/bandages_abpads_2.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Hypoallergenic-Tape",
+      "options": [],
+      "slug": "hypoallergenic-tape"
+    },
+    {
+      "title": "Versalon Sponge",
+      "category": "Misc. Bandages and Ab Pads",
+      "price": 0.15,
+      "currency": "USD",
+      "image": "/images/products/bandages_abpads_3.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Versalon-Sponge",
+      "options": [],
+      "slug": "versalon-sponge"
+    },
+    {
+      "title": "Elastic Bandage",
+      "category": "Misc. Bandages and Ab Pads",
+      "price": 1.50,
+      "currency": "USD",
+      "image": "/images/products/bandages_abpads_4.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/Elastic-Bandage",
+      "options": [],
+      "slug": "elastic-bandage"
+    },
+    {
+      "title": "NPA-Nasopharyngeal Airway 28F",
+      "category": "Airway",
+      "price": 6.00,
+      "currency": "USD",
+      "image": "/images/products/airway_0.jpg",
+      "url": "https://www.cavalrymanufacturing.com/manufacturing-store/NPA-Nasopharyngeal-Airway-28F",
+      "options": [],
+      "slug": "npa-nasopharyngeal-airway-28f"
     }
   ]
 }

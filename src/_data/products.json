@@ -908,6 +908,94 @@
       "url": "https://www.alaskansartnaround.com/store/Humpback-Whales",
       "options": [],
       "slug": "humpback-whales"
+    },
+    {
+      "title": "Abalone Jewelry",
+      "category": "Semi Precious Stone Jewelry",
+      "price": 0.0,
+      "currency": "USD",
+      "image": "/images/products/abalone-jewelry.avif",
+      "url": "#",
+      "options": [],
+      "slug": "abalone-jewelry",
+      "isSubcategory": true
+    },
+    {
+      "title": "Amethyst Jewelry",
+      "category": "Semi Precious Stone Jewelry",
+      "price": 0.0,
+      "currency": "USD",
+      "image": "/images/products/amethyst-jewelry.avif",
+      "url": "#",
+      "options": [],
+      "slug": "amethyst-jewelry",
+      "isSubcategory": true
+    },
+    {
+      "title": "Labradorite Pendants",
+      "category": "Semi Precious Stone Jewelry",
+      "price": 0.0,
+      "currency": "USD",
+      "image": "/images/products/labradorite-pendants.avif",
+      "url": "#",
+      "options": [],
+      "slug": "labradorite-pendants",
+      "isSubcategory": true
+    },
+    {
+      "title": "Larimar Jewelry",
+      "category": "Semi Precious Stone Jewelry",
+      "price": 0.0,
+      "currency": "USD",
+      "image": "/images/products/larimar-jewelry.avif",
+      "url": "#",
+      "options": [],
+      "slug": "larimar-jewelry",
+      "isSubcategory": true
+    },
+    {
+      "title": "Moonstone Jewelry",
+      "category": "Semi Precious Stone Jewelry",
+      "price": 0.0,
+      "currency": "USD",
+      "image": "/images/products/moonstone-jewelry.avif",
+      "url": "#",
+      "options": [],
+      "slug": "moonstone-jewelry",
+      "isSubcategory": true
+    },
+    {
+      "title": "Semi Precious Stone Necklaces",
+      "category": "Semi Precious Stone Jewelry",
+      "price": 0.0,
+      "currency": "USD",
+      "image": "/images/products/semi-precious-stone-necklaces.avif",
+      "url": "#",
+      "options": [],
+      "slug": "semi-precious-stone-necklaces",
+      "isSubcategory": true
+    },
+    {
+      "title": "Tiger Eye Jewelry",
+      "category": "Semi Precious Stone Jewelry",
+      "price": 0.0,
+      "currency": "USD",
+      "image": "/images/products/tiger-eye-jewelry.avif",
+      "url": "#",
+      "options": [],
+      "slug": "tiger-eye-jewelry",
+      "isSubcategory": true
+    },
+    {
+      "title": "Turquoise Jewelry",
+      "category": "Semi Precious Stone Jewelry",
+      "price": 0.0,
+      "currency": "USD",
+      "image": "/images/products/turquoise-jewelry.avif",
+      "url": "#",
+      "options": [],
+      "slug": "turquoise-jewelry",
+      "isSubcategory": true
     }
   ]
 }

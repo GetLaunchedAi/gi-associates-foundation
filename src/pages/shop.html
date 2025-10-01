@@ -32,6 +32,51 @@ eleventyNavigation:
     padding: 0;
     margin-top: 5px;
   }
+
+  /* Category Description Styles */
+  .category-description {
+    background: var(--light, #f8f9fa);
+    padding: 2rem 0;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
+
+  .category-description .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  #category-description-content {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--bodyTextColor, #333);
+  }
+
+  #category-description-content p {
+    margin: 0.5rem 0;
+  }
+
+  #category-description-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  #category-description-content li {
+    margin: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  #category-description-content li:before {
+    content: "•";
+    color: var(--primary, #007bff);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
 </style>
 
 <!-- ============================================ -->
@@ -51,6 +96,15 @@ eleventyNavigation:
   <div class="filters__wrap">
     <button class="filter is-active" data-cat="">All</button>
     <div id="filterChips"></div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!--                Category Description          -->
+<!-- ============================================ -->
+<section id="category-description" class="category-description" style="display: none;">
+  <div class="container">
+    <div id="category-description-content"></div>
   </div>
 </section>
 <!-- ============================================ -->
@@ -89,27 +143,167 @@ eleventyNavigation:
   const slug = s => String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
   const money = v => (typeof v === 'number' && !Number.isNaN(v)) ? v.toFixed(2) : (parseFloat(v)||0).toFixed(2);
 
-  // Replace your current `card` function with this one
-function card(p) {
-  const id   = p.id || p.sku || slug(p.slug || p.title || p.name || 'item');
-  const name = p.title || p.name || id;
-  const href = productUrl(p);                   // PDP link
-  const img  = p.image || '/images/placeholder.jpg';
-  const desc = p.description || '';
-  const price = p.price ?? p.base_price ?? 0;
+  // Category and Subcategory Descriptions
+  const CATEGORY_DESCRIPTIONS = {
+    "Spinners": `<p>CHOOSE A CATEGORY FROM ABOVE OR SCROLL DOWN FOR OUR ENTIRE INVENTORY</p>
+    <ul>
+      <li>One of the largest selections of laser cut wind spinners in the USA</li>
+      <li>Mesmerizing indoors or out</li>
+      <li>Stainless steel</li>
+    </ul>`,
+    
+    "Tails": `<p>Tails help stabilize the spinners in the wind. The mesmerizing spinning tail has a jaw dropping optical illusion, revealing another dimension of the wind spinner experience.</p>
+    <p><strong>Colored Ball options:</strong> Amber, Aqua, Blue, Crystal, Glow In the Dark, Green, Multi, Orange, Pink, Purple, Red, Yellow</p>
+    <ul>
+      <li><strong>Mini Twister Tails</strong> are 7.5" long<br>Color: Copper, Gold, Silver<br>2 balls (30mm, 20mm)<br>Hanging crystal drop*</li>
+      <li><strong>Spiral Tails</strong> are 11" long<br>Color: Copper, Gold, or Silver<br>2" glass colored ball</li>
+      <li><strong>Twisted Tails</strong> are 14" long<br>Color: Copper, Gold, Silver<br>2 balls (50mm, 30mm)<br>Hanging crystal drop*</li>
+    </ul>
+    <p><em>* The hanging drop crystal catches the light and reflects rainbows.</em></p>`,
+    
+    "Accessories": `<p><strong>BATTERY MOTOR (optional)</strong><br>The battery motor runs with a D cell battery. The motor turns 30 rpms to show off the spinners and give it them a constant spin. The motor has an on/off switch.</p>
+    <p><strong>HOOKS (optional)</strong><br>The hook allows you to hang your spinner. The hooks come in 7" or 15" length and come in copper or silver color.</p>
+    <p><strong>SWIVEL HOOKS</strong><br>The dual swivel allows for the spinner to spin freely in the wind. If you are using a motor, you will have to disengage the swivel by clipping it to the S hook and bypass the swivel. A swivel is included in every spinner purchase.</p>`,
+    
+    "Woolly Mammoth Ivory": `<p><strong>Woolly Mammoth Ivory Jewelry</strong></p>
+    <p>Did you know that Woolly Mammoths are being unearthed all over Alaska and Siberia? At Alaskans Art-n-Around, we are able to offer some truly one-of-a-kind jewelry carved out of these prehistoric bones. Aged for thousands of years under the Alaskan tundra, they can now become part of your collection. If you would prefer to wear something grown in this century, consider our stunning collection of carved bone jewelry from responsibly sourced cow bones.</p>
+    <p><strong>Unearthed in Alaska--Carved by Masters in Bali</strong><br>Our woolly mammoth jewelry is created out of a mammoth that was unearthed in Alaska. The bones and ivory were shipped off to Bali, where master carvers created a collection of pendants, bracelets, necklaces, and carvings. Each piece is a conversation piece in itself while maintaining its innate beauty. The last mammoth walked the Earth about 4,000 years ago, but these pieces are entirely timeless.</p>
+    <p><strong>Maintain Tradition with Responsibly Sourced Carved Bone Jewelry</strong><br>If you love the look of ivory, but want a more eco-conscious 21st century option, check out our line of carved bone jewelry. These pieces are crafted by local artisans from responsibly sourced cow bones. You enjoy the warmth and feel of ivory and support a traditional craft. Make your choice from pins, necklaces, and pendants. Many items reflect the spirit animals of the North like the polar bear, sea otter, sea turtle, eagle, bear, and wolf. Alaskans Art-n-Around stocks many beautiful examples of bone carving. Order yours from our online store or give us a call to make the purchase over the phone. While we are often traveling, so does our inventory, so we can box up your purchase and ship it out ASAP. See us in person! We are often found at art and folk festivals and fairs all across the nation every year.</p>`,
+    
+    "Carved Cow Bone": `<p><strong>Carved Cow Bone Jewelry</strong></p>
+    <p><strong>Maintain Tradition with Responsibly Sourced Carved Bone Jewelry</strong><br>If you love the look of ivory, but want a more eco-conscious 21st century option, check out our line of carved bone jewelry. Our carved cow bone jewelry is hand carved, in the Bali Islands, by master and apprentice carvers. Some of the bone has been dyed in coffee or tea to bring out the details of the carvings. Make your choice from pins, necklaces, and pendants. Many items reflect the spirit animals of the North like the polar bear, sea otter, sea turtle, eagle, bear, and wolf. Alaskans Art-n-Around stock many beautiful examples of bone carving. Order yours from our online store or give us a call to make the purchase over the phone. While we are often traveling, so does our inventory, so we can box up your purchase and ship it out ASAP. See us in person! We are often found at art and folk festivals and fairs all across the nation every year.</p>`,
+    
+    "Semi Precious Stone Jewelry": `<p>Alaskans Art-n-Around features a complete selection of jewelry crafted from semi precious stones. Browse our inventory and find the perfect necklace, pendant, or earrings for your special person, or complete your personal set. We specialize in Abalone, Amethyst, Labradorite, Larimar, Rainbow Moonstone, Tiger Eye, and Turquoise, among other stones. Pick your favorite choice for its natural beauty or tap into its healing energy.</p>
+    
+    <p><strong>Celebrated Achievements and Hallmarks with Moonstone Jewelry</strong></p>
+    <p>Channel your inner magic with a beautiful moonstone pendant or earrings. Its misty rainbow coloration grabs your attention and is able to help focus during meditation. Our rainbow moonstones are selected for their reflective qualities. Spy prisms in their depths. Wear yours day in and out for an inner sense of peace and calm dreams. Perfect as a gift for your one true love or spiritual partner, not one piece of our moonstone jewelry is like any other.</p>
+    
+    <p><strong>Traditional Turquoise Jewelry for a Cherished Keepsake</strong></p>
+    <p>Turquoise remains a popular stone with its bold aqua coloring that stands out against silver and gold. Unique pieces turn into heirlooms. Pick earrings or a pendant for your loved one on their special day such as graduation, anniversary, birthdays, or a special achievement. We hand select all of our stones choosing only the ones with deep and true coloration. Known as a stone of protection for shamans and kings, its marbled depths will provide the same strength for its intended recipient.</p>
+    
+    <p><strong>Always Something New and Unique in Our Wide Selection</strong></p>
+    <p>Unlike gemstones that are hoarded for their monetary value, semi precious stone jewelry comes with a more intrinsic value that connects you with the natural world around you. Find the one true stone that provides inner calm, connects you with the spiritual world, or reminds you of a particular moment in your life. No two stones are alike. Our pendants and earrings are handcrafted with love and make a wonderful gift for your friends and loved ones.</p>
+    
+    <p>Are you searching for a specific type of moonstone of turquoise jewelry piece? Scroll through our Alaskans Art-n-Around online store or give us a call. We may have new items that have just arrived and have not made it onto the web site, yet. Even though we are often traveling, we always make sure to box up and ship out your item as fast as possible.</p>`,
+    
+    "Sun Catcher / Dream Catcher": `<p>We don't have any products to show here right now.</p>
+    <p><strong>SUN CATCHERS</strong><br>Decorative pieces that hang indoors near a window to <em>catch the light</em> from the reflecting crystals or beads.</p>
+    <p>Our beautiful handmade Alaskans Sun Catchers are wrapped in leather and made with glass beads and swarovski crystals. We bead the catchers by hand, sending our love to you with every rainbow it catches.</p>
+    <p>Our hope is that these rainbows remind you of the beauty life has in store for you.</p>
+    
+    <p><strong>DREAM CATCHERS</strong><br>The Legend Of the Dream Catcher The Ojibwa (Chippewa) believe that night is full of both good and bad dreams. When a dream catcher is hung above the place where you sleep it moves freely in the night air and catches the dreams as they drift by.</p>`,
+    
+    "Necklaces": `<p>We hand make our necklaces with inspiration from nature and our travels.</p>
+    <p>Alaskans Art-n-Around makes one of a kind unique nature inspired necklaces. We use a variety of beading material ranging from semi precious stones, turquoise, glass pony beads, shells, crystals, carved bone, abalone, Woolly Mammoth and Mastodon Ivories, to name a few. Our pendants are skillfully carved in great detail from mammoth ivory and cow bone with sterling silver findings. The pendants are all handmade so slight variations in size and color may occur. Necklaces are hand made by Marla and Ruth Olsen and strung on a strong, flexible, coated wire and finished with either a powerful magnetic clasp or a silver lobster clasp. <br/><br/> We do not have product to display. Please contact us by phone or email for current inventory.</p>`
+  };
 
-  return `
-    <article class="product-card" style="border:1px solid var(--border,#eee);padding:12px;border-radius:12px">
-      <a href="${esc(href)}">
-        <img src="${esc(img)}" alt="${esc(p.imageAlt || name)}" loading="lazy" />
-      </a>
-      <h3><a href="${esc(href)}">${esc(name)}</a></h3>
-      <p class="price">$${money(price)}</p>
-      <p class="desc">${esc(desc)}</p>
-      <!-- NOTE: plain link class, not "snipcart-add-item" -->
-      <a class="add-to-cart" href="${esc(href)}">Add to cart</a>
-    </article>`;
-}
+  const SUBCATEGORY_DESCRIPTIONS = {
+    "Abalone Jewelry": `<p><strong>ABALONE THE EARS OF THE SEA</strong><br>CALMING • SOOTHING • HEALING</p>
+    <p>We don't have any products to show right now.</p>
+    <p>For as long as abalone have been nourishing human appetites, their mother-of-pearl bearing shells have been used in ritual ceremonies to replenish our souls as well. Abalone are a type of mollusk, like clams and oysters, except inside their flat, one-sided, ear-shaped shells, abalone have tentacles and feet.</p>
+    <ul>
+      <li>Abalone can strengthen the body's structure and improve the functions of the heart</li>
+      <li>Abalone can strengthen the muscle tissues</li>
+      <li>Abalone can boost the immune system and the body's ability to assimilate proteins</li>
+      <li>Abalone is known to aid digestion</li>
+      <li>Abalone helps in alleviating the symptoms of joint disorders and arthritis</li>
+      <li>Abalone brings feelings of relaxation and well-being</li>
+      <li>Abalone arouses and enhances all the senses</li>
+      <li>Abalone jewelry is eye catching</li>
+    </ul>`,
+    
+    "Amethyst Jewelry": `<p>We don't have any products to show right now.</p>
+    <p><strong>Amethyst Jewelry</strong></p>
+    <ul>
+      <li>♥ Increases nobility</li>
+      <li>♥ Spiritual awareness</li>
+      <li>♥ Psychic abilities</li>
+      <li>♥ Inner peace and healing</li>
+      <li>♥ Communication</li>
+      <li>♥ Healing of body, mind & soul</li>
+      <li>♥ Positive transformation</li>
+      <li>♥ Meditation</li>
+      <li>♥ Balance</li>
+      <li>♥ Relieves stress</li>
+    </ul>
+    <p>Would you like to strengthen your connection with the spiritual world? Alaskans Art-n-Around offers a wide selection of amethyst jewelry ready to help balance your aura and improve strength and perseverance. Amethyst is well-known for its deep purple and lavender shades in a crystalline structure and is very popular for earrings, necklaces, and pendants.</p>
+    <p><strong>Protect Your Loved Ones with a Gift of Amethyst Jewelry</strong><br>Amethyst provides protection from negative energy and influences. A beautiful amethyst pendant worn next to the heart will warm your loved one with memories of time spent together while shielding them from draining energy and spirits. Our amethyst jewelry features a variety of stones in sizes from small earrings to large crystals. Select the one that speaks to you.</p>
+    <p>Amethyst has been highly esteemed throughout the ages for its stunning beauty and legendary powers to stimulate, and soothe, the mind and emotions. It is a semi-precious stone in today's classifications, but to the ancients, it was a "Gem of Fire"; a Precious Stone worth, at times in history, as much as a Diamond.</p>
+    <p>Amethyst is a gem whose beauty transcends its commonality. It is a variety of Quartz found in many locations around the world. It forms as transparent, terminated crystals of all sizes in geodes, clusters and as long single termination.</p>
+    <p>Amethyst is a powerful and protective stone. It guards against psychic attack, transmuting the energy into love and protecting the wearer from all types of harm, including geopathic or electromagnetic stress and ill wishes from others. Amethyst is a natural tranquiliser, it relieves stress and strain, soothes irritability, balances mood swings, dispels anger, rage, fear and anxiety. Alleviates sadness and grief, and dissolves negativity. Amethyst activates spiritual awareness, opens intuition and enhances psychic abilities. It has strong healing and cleansing powers. Amethyst encourages sobriety, having a sobering effect on overindulgence of alcohol, drugs or other addictions. It calms and stimulates the mind, helping you become more focused, enhancing memory and improving motivation. Amethyst assists in remembering and understanding dreams. It relieves insomnia. Encourages selflessness and spiritual wisdom.</p>
+    <p>Amethyst boosts hormone production, tunes the endocrine system and metabolism. It strengthens the immune system, reduces pain and strengthens the body to fight against cancer. It destroys malignant tumours and aids in tissue regeneration. Cleanses the blood. Relieves physical, emotional and psychological pain or stress. Amethyst eases headaches and releases tension. It reduces bruising, swellings, injuries, and treats hearing disorders. Amethyst heals diseases of the lungs and respiratory tract, skin conditions, cellular disorders and diseases of the digestive tract.</p>
+    <p>Scroll through our selection of amethyst jewelry. At Alaskans Art-n-Around we respond to every online purchase as soon as possible and will have it shipped out to you shortly. Do you want to hold your stone in your hand? You can find our mobile shop popping up at festivals and fairs throughout the year.</p>`,
+    
+    "Labradorite Pendants": `<p>We don't have any products to show right now.</p>
+    <p><strong>Labradorite Jewelry</strong></p>
+    <p>Would you like to strengthen your connection with the spiritual world? Alaskans Art-n-Around offers a selection of labradorite jewelry ready to help balance your aura and improve strength and perseverance.</p>
+    <p><strong>Connect with Your Spiritual World when You Select Your Labradorite Stone</strong><br>A feldspar stone, labradorite is a dark lustrous stone that reflects the many colors of life in its crystalline depths. Linear inclusions of color reflect sunlight and trap your focus. Some say it improves intuition or promotes psychic abilities. Others use it to balance chakras. Whatever its intended purpose, there will be a singular stone that will complete your piece of labradorite jewelry.</p>
+    <p>Labradorite is a popular decorative stone because of its labradorescence, which creates a dazzling optical phenomenon of a blue green to deep blue sheen that shimmers in the light. Other varieties, including rare specimens, offer a stunning rainbow of green, violet, or orange shimmer called spectrolite. Thanks to the parallel formation of mineral intergrowths within its structure, these lights bounce back-and-forth, which creates its distinctive shimmery, ethereal effect.</p>
+    <p>Labradorite is a useful companion through change, imparting strength and perseverance. It balances and protects the aura, raises consciousness and grounds spiritual energies. Excellent for strengthening intuition - promoting psychic abilities.</p>
+    <p>Labradorite crystal healing properties are linked with the third eye chakra, the energy field that ignites spiritual expansion and higher levels of the mind and spirit. If you're looking to expand your mind and increase your spiritual growth, meditate with Labradorite and connect to higher realms of consciousness and parallel worlds of endless possibilities. Bring Labradorite into your life and remember that every day holds new magic to be discovered.</p>
+    <p>Scroll through our selection of labradorite jewelry. At Alaskans Art-n-Around we respond to every online purchase as soon as possible and will have it shipped out to you shortly. Do you want to hold your stone in your hand? You can find our mobile shop popping up at festivals and fairs throughout the year.</p>`,
+    
+    "Larimar Jewelry": `<p>We don't have any products to show right now.</p>
+    <p><strong>Larimar Jewelry</strong><br>A larimar stone helps to focus the healing energy of the world on the part of your body that is injured or suffers from chronic pain. Wear a pendant on a long chain and let it rest next to your heart and lungs. Grasp the stone while meditating and feel the flow of light and energy roll through you and bring healing to mind and body.</p>
+    <p>Larimar is the embodiment of the tranquil Sea and Sky energies. Its soft, soothing blues and calming turquoise is streaked with white patterns that resemble sunlight dancing beneath Caribbean waters. It brings the ancient wisdom of Atlantis and the healing power of dolphins to harmonize the body and soul. Larimar is one of the cardinal Water element stones, yet is born of Fire in its volcanic origins. One of the few crystals to balance the polarities of these energies, Larimar cools tempers and calms fears, relieves stress and nurtures the physical and emotional bodies. It is powerful in meditation and in connecting to the Divine Feminine, and is particularly helpful in releasing emotional bonds, patterns or principles that no longer serve the highest good. A stone of clear communication, it provides the strength and courage needed to speak openly from the heart.</p>
+    <p>Larimar is found only in the Dominican Republic in the Caribbean.</p>`,
+    
+    "Moonstone Jewelry": `<p><strong>Rainbow Moon Stones</strong></p>
+    <p>We don't have any products to show right now.</p>
+    <p>As ancient as the moon itself, Moonstone holds the power of mystery. Its secrets are locked beneath a pearly veil, and with them, our own hidden truths. Only within its reflected light can we begin to understand what it has to teach us. Moonstone is foremost a talisman of the inward journey, taking one deep into the self to retrieve what is missing, the parts of the soul left behind or forgotten, then brought to light.</p>
+    <p>Since earliest times, Moonstone has been a tangible connection to the magic of the moon - an amulet of protection for travelers, a gift of lovers for passion, a channel for prophecy, and a path to wisdom. Our ties to the moon are strong. As it waxes and wanes in cyclic perfection, it creates the tides and rhythms of our mother, Earth, and influences our behaviors, emotions and spiritual growth. Moonstone calms and encourages, teaching us the natural rhythms of life.</p>
+    <p>Moonstone has been used in Roman jewelry for nearly two thousand years, even longer in the Orient. It has always been a sacred stone in India with a special significance for lovers, and is a traditional wedding gift there. It was a popular choice for jewelers in the Art Nouveau period, and in Europe was believed to reconcile estranged lovers and to cure sleeplessness. Moonstone is known as the Traveler's Stone for the protection it affords, especially at night, and because of its uplifting quality of hope, has long been worn as a talisman to enhance the personality.</p>
+    <p>Named for its moon-like sheen, Moonstone is a Feldspar mineral exhibiting a soft, watery opaqueness and a silvery-white reflection called chatoyancy that moves as a line across the surface as light varies. Moonstone occurs in delicate shades of peach, blue, gray, white and a prismatic variety known as Rainbow Moonstone. In addition to the general properties of all Moonstones outlined in this article, the crystals have additional focuses.</p>
+    <p>Rainbow Moonstone acts as a prism, diffusing energy throughout the aura. It provides psychic protection, clearing the mind and senses, and aids in lucid dreaming and calm sleep. It deflects negativity and eases emotional trauma. Aligned with the Goddess, Rainbow Moonstones connect with the energies and spirits of Nature, from plant devas to galactic consciousness.</p>`,
+    
+    "Semi Precious Stone Necklaces": `<p>We hand make our necklaces with inspiration from nature and our travels.</p>
+    <p>Alaskans Art-n-Around makes one of a kind unique nature inspired necklaces. We use a variety of beading material ranging from semi precious stones, turquoise, glass pony beads, shells, crystals, carved bone, abalone, Woolly Mammoth and Mastodon Ivories, to name a few. Our pendants are skillfully carved in great detail from mammoth ivory and cow bone with sterling silver findings. The pendants are all handmade so slight variations in size and color may occur. Necklaces are hand made by Marla and Ruth Olsen and strung on a strong, flexible, coated wire and finished with either a powerful magnetic clasp or a silver lobster clasp. We do not have product to display. Please contact us by phone or email for current inventory.</p>`,
+    
+    "Tiger Eye Jewelry": `<p><strong>Tiger's Eye THE SHAPE SHIFTER</strong><br>INSPIRATION • PERSPECTIVE • GOOD LUCK</p>
+    <p>We don't have any products to show right now.</p>
+    <p>Known as "The Shapeshifter," this stone of courage and motivation will help you be successful at everything you do. When you channel the energy of Tiger's Eye, you'll be able to connect with the ultimate power crystal of the mineral kingdom. Often, fear can pose a challenge to our success It can trap you in your place, and take control over your life The Tiger's Eye crystal helps to transform those toxic feelings into courage and self-confidence. It helps you shift your perspective so you can see the way forward, even in times of fear.</p>
+    <p>The Tiger's Eye crystal gets its healing properties from a combination of the sun and Earth elements. This is what gives it both grounding and inspiring vibrations. When you wear jewelry with Tiger's Eye crystals, or connect with it during meditation or other therapeutic sessions, let this stone's optimistic and stabilizing energy help you see any situation in a positive light. This is what makes the Tiger's Eye meaning especially helpful for easing feelings of fear or worry. When you harness the positive energy of Tiger's Eye healing properties, it will help you feel centered and grounded, giving you the confidence and courage to go after your dreams.</p>
+    <p>With the energy of the Tiger's Eye crystal, you can maintain a balanced perspective. Its bold coloration is just as bold as its healing properties, which work to balance toxic emotions and create positive mental shifts. The Tiger's Eye crystal works by keeping your mind razor focused on your true passions in life, whether it's business related, creative pursuits, or something else entirely. The Tiger's Eye crystal meaning is also associated with courage and confidence, which comes from understanding your true desires. Tiger's Eye is a stone that helps you discover your authentic self through testing your perceived limitations.</p>
+    <p>An effective way to deepen your connection with the Tiger's Eye crystal is by carrying around a stone and calling on it to give you strength and insight during times of spiritual challenge. Thanks to its multi-dimensional frequencies, the Tiger's Eye healing properties can help shift one's mindset to a more positive outlook, which will help you gain a deeper understanding of yourself. Tiger's Eye is the stone to keep around when you find yourself asking questions and trying new things. Is there a new hobby you'd like to try? A solution to a problem you haven't considered? An aspect to yourself that you haven't indulged? Working with the energy of Tiger's Eye properties can ground and stabilize you, giving you the power needed to bolster courage and pursue new ventures.</p>
+    <p>Along with other gemstones in the mineral kingdom, the powerful and motivating energy of the Tiger's Eye crystal meaning can be magnified and enhanced when you make it part of a power combination with other stones. For maximum results, your intentions for success can be programmed into a Tiger's Eye crystal, and combined with other pieces that promote prosperity and abundance such as Pyrite. Keep these stones in your work space and use their energy to achieve your wildest dreams.</p>
+    <p><strong>WIKIPEDIA</strong><br>Tiger's eye (also called tiger eye) is a chatoyant gemstone that is usually a metamorphic rock with a golden to red-brown colour and a silky lustre. As members of the quartz group, tiger's eye and the related blue-coloured mineral hawk's eye gain their silky, lustrous appearance from the parallel intergrowth of quartz crystals and altered amphibole fibres that have mostly turned into limonite.</p>`,
+    
+    "Turquoise Jewelry": `<p>No turquoise available at this time. Please contact us to see if we have new stock.</p>`
+  };
+
+  // Updated card function to handle subcategories
+  function card(p) {
+    const id   = p.id || p.sku || slug(p.slug || p.title || p.name || 'item');
+    const name = p.title || p.name || id;
+    const href = productUrl(p);                   // PDP link
+    const img  = p.image || '/images/placeholder.jpg';
+    const desc = p.description || '';
+    const price = p.price ?? p.base_price ?? 0;
+
+    // Check if this is a subcategory card
+    if (p.isSubcategory) {
+      return `
+        <article class="subcategory-card" style="border:1px solid var(--border,#eee);padding:12px;border-radius:12px;text-align:center;cursor:pointer" data-subcategory="${esc(name)}">
+          <div class="subcategory-image" style="margin-bottom:12px">
+            <img src="${esc(img)}" alt="${esc(p.imageAlt || name)}" loading="lazy" style="width:60px;height:60px;object-fit:cover;border-radius:8px;margin:0 auto;display:block" />
+          </div>
+          <h3 style="margin:0;font-size:1.1rem;color:var(--bodyTextColor,#333)">${esc(name)}</h3>
+          <p style="margin:8px 0 0 0;font-size:0.9rem;color:var(--bodyTextColor,#666);font-style:italic">Click to view details</p>
+        </article>`;
+    }
+
+    return `
+      <article class="product-card" style="border:1px solid var(--border,#eee);padding:12px;border-radius:12px">
+        <a href="${esc(href)}">
+          <img src="${esc(img)}" alt="${esc(p.imageAlt || name)}" loading="lazy" />
+        </a>
+        <h3><a href="${esc(href)}">${esc(name)}</a></h3>
+        <p class="price">$${money(price)}</p>
+        <p class="desc">${esc(desc)}</p>
+        <!-- NOTE: plain link class, not "snipcart-add-item" -->
+        <a class="add-to-cart" href="${esc(href)}">Add to cart</a>
+      </article>`;
+  }
 
 
   // ------- State -------
@@ -140,6 +334,10 @@ function card(p) {
       if (p && p.category) set.add(String(p.category));
       if (Array.isArray(p?.categories)) p.categories.forEach(c => set.add(String(c)));
     });
+    
+    // Add categories that have descriptions but no products yet
+    Object.keys(CATEGORY_DESCRIPTIONS).forEach(cat => set.add(cat));
+    
     return Array.from(set).sort((a,b)=>a.localeCompare(b));
   }
 
@@ -187,6 +385,7 @@ function card(p) {
         const cat = btn.dataset.cat || '';
         ACTIVE_CAT = cat;
         setActiveFilter(cat);
+        showCategoryDescription(cat);
         renderProducts();
         writeCatToURL(cat ? safeSlug(cat) : '');
       });
@@ -212,9 +411,47 @@ function card(p) {
 
   function renderProducts(){
     const items = ALL.filter(p => inCategory(p, ACTIVE_CAT));
-    root.innerHTML = items.length
-      ? items.map(card).join('')
-      : `<p class="muted" style="grid-column:1/-1">No products in this category.</p>`;
+    
+    if (items.length > 0) {
+      root.innerHTML = items.map(card).join('');
+      
+      // Add click listeners for subcategory cards
+      root.querySelectorAll('.subcategory-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const subcategoryName = card.dataset.subcategory;
+          handleSubcategoryClick(subcategoryName);
+        });
+      });
+    } else if (ACTIVE_CAT && CATEGORY_DESCRIPTIONS[ACTIVE_CAT]) {
+      // Category has description but no products - show a message
+      root.innerHTML = `<p class="muted" style="grid-column:1/-1; text-align: center; padding: 2rem; font-style: italic;">Products for this category are coming soon! Please contact us for current availability.</p>`;
+    } else {
+      // No products and no description
+      root.innerHTML = `<p class="muted" style="grid-column:1/-1">No products in this category.</p>`;
+    }
+  }
+
+  function showCategoryDescription(category, subcategory = null) {
+    const descSection = document.getElementById('category-description');
+    const descContent = document.getElementById('category-description-content');
+    
+    if (subcategory && SUBCATEGORY_DESCRIPTIONS[subcategory]) {
+      descContent.innerHTML = SUBCATEGORY_DESCRIPTIONS[subcategory];
+      descSection.style.display = 'block';
+    } else if (category && CATEGORY_DESCRIPTIONS[category]) {
+      descContent.innerHTML = CATEGORY_DESCRIPTIONS[category];
+      descSection.style.display = 'block';
+    } else {
+      descSection.style.display = 'none';
+    }
+  }
+
+  function handleSubcategoryClick(subcategoryName) {
+    // Show the subcategory description
+    showCategoryDescription(null, subcategoryName);
+    
+    // Hide the products section completely for subcategories
+    root.innerHTML = '';
   }
 
   // ------- Init -------
@@ -230,6 +467,7 @@ function card(p) {
         ACTIVE_CAT = byLabel || '';
       }
       renderFilters(ALL);
+      showCategoryDescription(ACTIVE_CAT);
       renderProducts();
     } catch (err) {
       console.error('Failed to load products:', err);

@@ -21,7 +21,14 @@
     <meta property="og:image:secure_url" content="/images/social.jpg" />
 
     <!-- Favicons -->
-    <!-- Light -->
+    <!-- Fallback favicon (no media query for maximum compatibility) -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/light/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/light/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/light/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/favicons/light/site.webmanifest">
+
+    <!-- Light theme favicons -->
     <link rel="icon" href="/assets/favicons/light/favicon.ico" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/light/favicon-32x32.png"
         media="(prefers-color-scheme: light)">
@@ -31,7 +38,7 @@
         media="(prefers-color-scheme: light)">
     <link rel="manifest" href="/assets/favicons/light/site.webmanifest" media="(prefers-color-scheme: light)">
 
-    <!-- Dark -->
+    <!-- Dark theme favicons -->
     <link rel="icon" href="/assets/favicons/dark/favicon.ico" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/dark/favicon-32x32.png"
         media="(prefers-color-scheme: dark)">

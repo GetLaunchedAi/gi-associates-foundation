@@ -4,7 +4,7 @@ description: "Meta description for the page"
 metaTitle: "Alaskans Art-n-Around"
 tagTitle: "Services"
 title: "Services"
-preloadImg: "/images/landing-1920w.webp"
+preloadImg: "/images/shop_banner_img.png"
 preloadCSS: "/css/shop.css"
 permalink: "shop/"
 eleventyNavigation:
@@ -177,10 +177,32 @@ eleventyNavigation:
     </div>
   </div>
 
+  <!-- Category Description -->
+  <div id="category-description" class="category-description" style="display: none;">
+    <div class="category-info">
+      <h3 id="category-title"></h3>
+      <p id="category-desc"></p>
+      <div id="subcategories" class="subcategories"></div>
+    </div>
+  </div>
+
   <!-- Products Grid -->
 <section id="catalog" class="grid" data-src="/products.json">
   <!-- Products will be loaded here -->
 </section>
+
+  <!-- Pagination -->
+  <div id="pagination" class="pagination">
+    <button id="prev-page" class="pagination-btn" disabled>
+      <span>← Previous</span>
+    </button>
+    <div id="page-numbers" class="page-numbers">
+      <!-- Page numbers will be dynamically generated -->
+    </div>
+    <button id="next-page" class="pagination-btn">
+      <span>Next →</span>
+    </button>
+  </div>
   </div> <!-- End filter-container -->
 </div>
 
@@ -216,6 +238,8 @@ eleventyNavigation:
         categories: []
       };
       this.sortBy = 'default';
+      this.currentPage = 1;
+      this.productsPerPage = 10;
       
       this.initializeElements();
       this.bindEvents();
@@ -303,6 +327,21 @@ eleventyNavigation:
         header.addEventListener('click', () => {
           this.toggleFilterGroup(header);
         });
+      });
+
+      // Pagination events
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('#prev-page')) {
+          e.preventDefault();
+          this.prevPage();
+        } else if (e.target.closest('#next-page')) {
+          e.preventDefault();
+          this.nextPage();
+        } else if (e.target.closest('.page-number')) {
+          e.preventDefault();
+          const page = parseInt(e.target.closest('.page-number').dataset.page);
+          this.goToPage(page);
+        }
       });
     }
 
@@ -420,6 +459,9 @@ eleventyNavigation:
         checkbox.checked = false;
       });
       
+      // Hide category description
+      this.hideCategoryDescription();
+      
       this.applyFilters();
     }
 
@@ -467,7 +509,14 @@ eleventyNavigation:
     }
 
     populateCategoryOptions() {
-      const categories = [...new Set(this.allProducts.map(p => p.category).filter(Boolean))];
+      // Get categories from products
+      const productCategories = [...new Set(this.allProducts.map(p => p.category).filter(Boolean))];
+      
+      // Get all categories from descriptions (including those with no products)
+      const allCategories = Object.keys(this.getCategoryDescriptions());
+      
+      // Combine and deduplicate categories
+      const categories = [...new Set([...productCategories, ...allCategories])];
       
       const categoryCheckboxOptions = this.categoryOptions.querySelector('.checkbox-options');
       if (categoryCheckboxOptions) {
@@ -491,8 +540,14 @@ eleventyNavigation:
               if (!this.currentFilters.categories.includes(category)) {
                 this.currentFilters.categories.push(category);
               }
+              // Show category description when category is selected
+              this.showCategoryDescription(category);
             } else {
               this.currentFilters.categories = this.currentFilters.categories.filter(c => c !== category);
+              // Hide category description if no categories are selected
+              if (this.currentFilters.categories.length === 0) {
+                this.hideCategoryDescription();
+              }
             }
             
             this.applyFilters();
@@ -507,6 +562,7 @@ eleventyNavigation:
 
     // Filtering logic
     applyFilters() {
+      this.currentPage = 1; // Reset to first page when filters change
       let filtered = [...this.allProducts];
 
       // Price filter
@@ -558,17 +614,164 @@ eleventyNavigation:
 
     renderProducts() {
       if (this.filteredProducts.length > 0) {
-        root.innerHTML = this.filteredProducts.map(card).join('');
-      } else {
+        const sortedProducts = this.sortProducts([...this.filteredProducts]);
+        const totalPages = Math.ceil(sortedProducts.length / this.productsPerPage);
+        
+        // Reset to page 1 if current page is beyond available pages
+        if (this.currentPage > totalPages) {
+          this.currentPage = 1;
+        }
+
+        const startIndex = (this.currentPage - 1) * this.productsPerPage;
+        const endIndex = startIndex + this.productsPerPage;
+        const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
+
+        root.innerHTML = paginatedProducts.map(card).join('');
+    } else {
         root.innerHTML = `<p class="muted" style="grid-column:1/-1; text-align: center; padding: 2rem;">No products match your filters.</p>`;
       }
       
       this.updateProductCount();
+      this.renderPagination();
     }
 
     updateProductCount() {
       const count = this.filteredProducts.length;
       this.productsCount.textContent = `(${count})`;
+    }
+
+    showCategoryDescription(category) {
+      const categoryDesc = document.getElementById('category-description');
+      const categoryTitle = document.getElementById('category-title');
+      const categoryDescText = document.getElementById('category-desc');
+      const subcategories = document.getElementById('subcategories');
+
+      if (!categoryDesc || !categoryTitle || !categoryDescText || !subcategories) return;
+
+      // Get category description
+      const descriptions = this.getCategoryDescriptions();
+      const description = descriptions[category] || '';
+
+      // Get subcategories for this category
+      const categorySubcategories = this.allProducts.filter(p => 
+        p.category === category && p.isSubcategory
+      );
+
+      // Show description if it exists, even for categories with no products
+      if (description) {
+        categoryTitle.textContent = toTitle(category);
+        categoryDescText.innerHTML = description;
+        
+        // Clear and populate subcategories (only if they exist)
+        subcategories.innerHTML = '';
+        if (categorySubcategories.length > 0) {
+          categorySubcategories.forEach(sub => {
+            const subItem = document.createElement('div');
+            subItem.className = 'subcategory-item';
+            subItem.textContent = sub.title;
+            subItem.addEventListener('click', () => {
+              // Filter to show only this subcategory
+              this.currentFilters.categories = [category];
+              this.applyFilters();
+            });
+            subcategories.appendChild(subItem);
+          });
+        }
+
+        categoryDesc.style.display = 'block';
+    } else {
+        categoryDesc.style.display = 'none';
+      }
+    }
+
+    hideCategoryDescription() {
+      const categoryDesc = document.getElementById('category-description');
+      if (categoryDesc) {
+        categoryDesc.style.display = 'none';
+      }
+    }
+
+    getCategoryDescriptions() {
+      return {
+        'Spinners': 'CHOOSE A CATEGORY FROM ABOVE OR SCROLL DOWN FOR OUR ENTIRE INVENTORY<br><br>*One of the largest selections of laser cut wind spinners in the USA<br><br>* Mesmerizing indoors or out<br><br>* Stainless steel',
+        'Tails': 'Tails help stabilize the spinners in the wind. The mesmerizing spinning tail has a jaw dropping optical illusion, revealing another dimension of the wind spinner experience.<br><br><strong>Colored Ball options:</strong><br>Amber, Aqua, Blue, Crystal, Glow In the Dark, Green, Multi, Orange, Pink, Purple, Red, Yellow<br><br><strong>Mini Twister Tails</strong> are 7.5" long<br>Color: Copper, Gold, Silver<br>2 balls (30mm, 20mm)<br>Hanging crystal drop*<br><br><strong>Spiral Tails</strong> are 11" long<br>Color: Copper, Gold, or Silver<br>2" glass colored ball<br><br><strong>Twisted Tails</strong> are 14" long<br>Color: Copper, Gold, Silver<br>2 balls (50mm, 30mm)<br>Hanging crystal drop*<br><br>* The hanging drop crystal catches the light and reflects rainbows.',
+        'Accessories': 'BATTERY MOTOR (optional)<br><br>The battery motor runs with a D cell battery. The motor turns 30 rpms to show off the spinners and give it them a constant spin. The motor has an on/off switch.<br><br><strong>HOOKS (optional)</strong><br>The hook allows you to hang your spinner. The hooks come in 7" or 15" length and come in copper or silver color.<br><br><strong>SWIVEL HOOKS</strong><br>The dual swivel allows for the spinner to spin freely in the wind. If you are using a motor, you will have to disengage the swivel by clipping it to the S hook and bypass the swivel.<br><br>A swivel is included in every spinner purchase.',
+        'Sun Catcher/Dream Catcher': 'We don\'t have any products to show here right now.<br><br><strong>SUN CATCHERS</strong><br>Decorative pieces that hang indoors near a window to *catch the light* from the reflecting crystals or beads.<br><br>Our beautiful handmade Alaskans Sun Catchers are wrapped in leather and made with glass beads and swarovski crystals. We bead the catchers by hand, sending our love to you with every rainbow it catches.<br><br>Our hope is that these rainbows remind you of the beauty life has in store for you.<br><br><strong>DREAM CATCHERS</strong><br>The Legend Of the Dream Catcher The Ojibwa (Chippewa) believe that night is full of both good and bad dreams. When a dream catcher is hung above the place where you sleep it moves freely in the night air and catches the dreams as they drift by.',
+        'Woolly Mammoth Ivory': 'Woolly Mammoth Ivory Jewelry<br><br>Did you know that Woolly Mammoths are being unearthed all over Alaska and Siberia? At Alaskans Art-n-Around, we are able to offer some truly one-of-a-kind jewelry carved out of these prehistoric bones. Aged for thousands of years under the Alaskan tundra, they can now become part of your collection. If you would prefer to wear something grown in this century, consider our stunning collection of carved bone jewelry from responsibly sourced cow bones.<br><br><strong>Unearthed in Alaska--Carved by Masters in Bali</strong><br><br>Our woolly mammoth jewelry is created out of a mammoth that was unearthed in Alaska. The bones and ivory were shipped off to Bali, where master carvers created a collection of pendants, bracelets, necklaces, and carvings. Each piece is a conversation piece in itself while maintaining its innate beauty. The last mammoth walked the Earth about 4,000 years ago, but these pieces are entirely timeless.<br><br><strong>Maintain Tradition with Responsibly Sourced Carved Bone Jewelry</strong><br><br>If you love the look of ivory, but want a more eco-conscious 21st century option, check out our line of carved bone jewelry. These pieces are crafted by local artisans from responsibly sourced cow bones. You enjoy the warmth and feel of ivory and support a traditional craft. Make your choice from pins, necklaces, and pendants. Many items reflect the spirit animals of the North like the polar bear, sea otter, sea turtle, eagle, bear, and wolf.<br><br>Alaskans Art-n-Around stocks many beautiful examples of bone carving. Order yours from our online store or give us a call to make the purchase over the phone. While we are often traveling, so does our inventory, so we can box up your purchase and ship it out ASAP. See us in person! We are often found at art and folk festivals and fairs all across the nation every year.',
+        'Carved Cow Bone Jewelry': 'Carved Cow Bone Jewelry<br><br><strong>Maintain Tradition with Responsibly Sourced Carved Bone Jewelry</strong><br><br>If you love the look of ivory, but want a more eco-conscious 21st century option, check out our line of carved bone jewelry. Our carved cow bone jewelry is hand carved, in the Bali Islands, by master and apprentice carvers. Some of the bone has been dyed in coffee or tea to bring out the details of the carvings. Make your choice from pins, necklaces, and pendants. Many items reflect the spirit animals of the North like the polar bear, sea otter, sea turtle, eagle, bear, and wolf.<br><br>Alaskans Art-n-Around stock many beautiful examples of bone carving. Order yours from our online store or give us a call to make the purchase over the phone. While we are often traveling, so does our inventory, so we can box up your purchase and ship it out ASAP. See us in person! We are often found at art and folk festivals and fairs all across the nation every year.<br>Carved Bone (cow)',
+        'Necklaces': 'We hand make our necklaces with inspiration from nature and our travels.<br><br>Alaskans Art-n-Around makes one of a kind unique nature inspired necklaces. We use a variety of beading material ranging from semi precious stones, turquoise, glass pony beads, shells, crystals, carved bone, abalone, Woolly Mammoth and Mastodon Ivories, to name a few. Our pendants are skillfully carved in great detail from mammoth ivory and cow bone with sterling silver findings.<br><br>The pendants are all handmade so slight variations in size and color may occur. Necklaces are hand made by Marla and Ruth Olsen and strung on a strong, flexible, coated wire and finished with either a powerful magnetic clasp or a silver lobster clasp.<br><br>We do not have product to display. Please contact us by phone or email for current inventory.',
+        'Semi Precious Stone Jewelry': 'Exquisite jewelry crafted from semi-precious stones including turquoise, tiger eye, moonstone, and other natural gemstones.'
+      };
+    }
+
+    renderPagination() {
+      const paginationContainer = document.getElementById('pagination');
+      const pageNumbersContainer = document.getElementById('page-numbers');
+      const prevBtn = document.getElementById('prev-page');
+      const nextBtn = document.getElementById('next-page');
+
+      if (!paginationContainer || !pageNumbersContainer || !prevBtn || !nextBtn) return;
+
+      const totalPages = Math.ceil(this.filteredProducts.length / this.productsPerPage);
+      
+      if (totalPages <= 1) {
+        paginationContainer.style.display = 'none';
+        return;
+      }
+
+      paginationContainer.style.display = 'flex';
+
+      // Update prev/next buttons
+      prevBtn.disabled = this.currentPage === 1;
+      nextBtn.disabled = this.currentPage === totalPages;
+
+      // Generate page numbers
+      let pageNumbers = '';
+      const maxVisiblePages = 5;
+      let startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+
+      if (startPage > 1) {
+        pageNumbers += `<button class="page-number" data-page="1">1</button>`;
+        if (startPage > 2) {
+          pageNumbers += `<span class="page-ellipsis">...</span>`;
+        }
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pageNumbers += `<button class="page-number ${i === this.currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+      }
+
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          pageNumbers += `<span class="page-ellipsis">...</span>`;
+        }
+        pageNumbers += `<button class="page-number" data-page="${totalPages}">${totalPages}</button>`;
+      }
+
+      pageNumbersContainer.innerHTML = pageNumbers;
+    }
+
+    goToPage(page) {
+      this.currentPage = page;
+      this.renderProducts();
+    }
+
+    nextPage() {
+      const totalPages = Math.ceil(this.filteredProducts.length / this.productsPerPage);
+      if (this.currentPage < totalPages) {
+        this.goToPage(this.currentPage + 1);
+      }
+    }
+
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.goToPage(this.currentPage - 1);
+      }
     }
 
     async loadProducts() {
@@ -594,8 +797,9 @@ eleventyNavigation:
     const title = esc(p.title || p.name || 'Untitled');
     const price = p.price ? money(p.price) : '0.00';
     const currency = p.currency || 'USD';
+    const isOutOfStock = p.price === 0 || !p.inStock;
     
-    return `<article class="card">
+    return `<article class="card ${isOutOfStock ? 'out-of-stock' : ''}">
         <a href="${esc(href)}" class="card__link">
           <picture class="card__img">
             <img src="${esc(img)}" alt="${esc(title)}" loading="lazy" decoding="async">
@@ -605,9 +809,9 @@ eleventyNavigation:
           <h3 class="card__title">
             <a href="${esc(href)}" data-title="${esc(title)}">${title}</a>
           </h3>
-          <p class="card__price">$${price} ${currency}</p>
+          <p class="card__price">${isOutOfStock ? 'Out of Stock' : `$${price} ${currency}`}</p>
         </div>
-        <a class="add-to-cart" href="${esc(href)}">Add to cart</a>
+        <a class="add-to-cart ${isOutOfStock ? 'disabled' : ''}" href="${esc(href)}">${isOutOfStock ? 'Out of Stock' : 'Add to cart'}</a>
       </article>`;
   }
 

@@ -788,6 +788,26 @@ body.dark-mode{
   border-bottom: 1px solid var(--border);
 }
 
+.back-button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-button:hover {
+  background: var(--primary-dark, #0056b3);
+  transform: translateY(-1px);
+}
+
 .category-info h3 {
   margin: 0 0 10px 0;
   font-size: 16px;
@@ -1036,4 +1056,13 @@ body.dark-mode .filter-actions {
 body.dark-mode .products-header {
   background: var(--bg);
   border-color: var(--border);
+}
+
+body.dark-mode .back-button {
+  background: var(--primary);
+  color: white;
+}
+
+body.dark-mode .back-button:hover {
+  background: var(--primary-dark, #0056b3);
 }

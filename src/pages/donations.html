@@ -1,0 +1,217 @@
+---
+layout: "base.html"
+description: "Support the BE BETTER BSBL movement and help us build a state-of-the-art baseball performance complex for the next generation of players. Every donation helps us grow the game."
+metaTitle: "Donate | BE BETTER BSBL"
+tagTitle: "Donations"
+preloadImg: "/images/donations_banner_img.png"
+preloadCSS: "/css/donations.css"
+permalink: "donations/"
+eleventyNavigation:
+  key: Donations
+  order: 400
+---
+
+<!-- ============================================ -->
+<!--                    LANDING                   -->
+<!-- ============================================ -->
+
+<section id="int-hero">
+  <h1 id="home-h">Support Our Mission</h1>
+  {% image './src/images/donations_banner_img.png', 'Baseball field and equipment representing the BE BETTER BSBL mission', '', 'lazy',
+  '(max-width: 850px) 850px, 1920px'%}
+</section>
+
+<!-- ============================================ -->
+<!--                 Why Donate                   -->
+<!-- ============================================ -->
+
+<!-- <section id="why-donate">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Our Mission</span>
+      <h2 class="cs-title">Building Baseball's Future</h2>
+      <p class="cs-text">
+        BE BETTER BSBL is more than just apparel—we're building a movement. Your donations help us create 
+        a state-of-the-art baseball performance complex where athletes can train, compete, and grow. 
+        Every contribution brings us closer to our vision of developing the next generation of baseball players.
+      </p>
+    </div>
+  </div>
+</section> -->
+
+<!-- ============================================ -->
+<!--              Donation Options                -->
+<!-- ============================================ -->
+
+<section id="donation-options">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Support Us</span>
+      <h2 class="cs-title">Choose Your Impact</h2>
+      <p class="cs-text">
+        Every donation, no matter the size, helps us build the future of baseball. 
+        Your support directly funds facility development, equipment, and programs for young athletes.
+      </p>
+    </div>
+    
+    <div class="donation-grid">
+      <!-- Quick Donation Amounts -->
+      <div class="donation-card">
+        <h3>Quick Donation</h3>
+        <p>Choose a preset amount to make a quick impact</p>
+        <div class="donation-amounts">
+          <button class="donation-btn" data-amount="25">$25</button>
+          <button class="donation-btn" data-amount="50">$50</button>
+          <button class="donation-btn" data-amount="100">$100</button>
+          <button class="donation-btn" data-amount="250">$250</button>
+        </div>
+        <div class="custom-amount">
+          <label for="custom-amount">Custom Amount:</label>
+          <div class="amount-input">
+            <span class="currency">$</span>
+            <input type="number" id="custom-amount" placeholder="0.00" min="1" step="0.01">
+          </div>
+        </div>
+        <button class="button-solid donate-now-btn" id="donate-now">Donate Now</button>
+      </div>
+
+      <!-- Monthly Support -->
+      <div class="donation-card">
+        <h3>Monthly Support</h3>
+        <p>Become a monthly supporter and help us build sustainable programs</p>
+        <div class="monthly-amounts">
+          <button class="donation-btn monthly" data-amount="10">$10/month</button>
+          <button class="donation-btn monthly" data-amount="25">$25/month</button>
+          <button class="donation-btn monthly" data-amount="50">$50/month</button>
+        </div>
+        <div class="custom-amount">
+          <label for="custom-monthly">Custom Monthly:</label>
+          <div class="amount-input">
+            <span class="currency">$</span>
+            <input type="number" id="custom-monthly" placeholder="0.00" min="1" step="0.01">
+            <span class="period">/month</span>
+          </div>
+        </div>
+        <button class="button-solid donate-now-btn" id="donate-monthly">Start Monthly Support</button>
+      </div>
+
+      <!-- Equipment & Facility -->
+      <div class="donation-card">
+        <h3>Equipment & Facility</h3>
+        <p>Help us purchase specific equipment or fund facility improvements</p>
+        <div class="equipment-options">
+          <button class="donation-btn equipment" data-amount="500">Baseball Equipment - $500</button>
+          <button class="donation-btn equipment" data-amount="1000">Training Facility - $1,000</button>
+          <button class="donation-btn equipment" data-amount="2500">Field Improvements - $2,500</button>
+        </div>
+        <button class="button-solid donate-now-btn" id="donate-equipment">Support</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!--              Impact Stories                  -->
+<!-- ============================================ -->
+
+<section id="impact-stories">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Your Impact</span>
+      <h2 class="cs-title">How Your Donations Help</h2>
+    </div>
+    
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">⚾</div>
+        <h3>Youth Development</h3>
+        <p>Your donations fund training programs and mentorship opportunities for young baseball players in our community.</p>
+      </div>
+      
+      <div class="impact-card">
+        <div class="impact-icon">🏟️</div>
+        <h3>Facility Development</h3>
+        <p>Help us build state-of-the-art training facilities with modern equipment and safe playing surfaces.</p>
+      </div>
+      
+      <div class="impact-card">
+        <div class="impact-icon">👥</div>
+        <h3>Community Programs</h3>
+        <p>Support community outreach programs that make baseball accessible to all, regardless of background or financial situation.</p>
+      </div>
+      
+      <div class="impact-card">
+        <div class="impact-icon">🎯</div>
+        <h3>Coaching Excellence</h3>
+        <p>Fund coaching education and certification programs to ensure our athletes receive the best instruction possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Donation functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    let selectedAmount = 0;
+    let isMonthly = false;
+    let isEquipment = false;
+
+    // Handle donation amount selection
+    const donationBtns = document.querySelectorAll('.donation-btn');
+    donationBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        donationBtns.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        // Set amount and type
+        selectedAmount = parseFloat(this.dataset.amount);
+        isMonthly = this.classList.contains('monthly');
+        isEquipment = this.classList.contains('equipment');
+        
+        // Clear custom inputs
+        document.getElementById('custom-amount').value = '';
+        document.getElementById('custom-monthly').value = '';
+      });
+    });
+
+    // Handle custom amount input
+    const customAmountInput = document.getElementById('custom-amount');
+    const customMonthlyInput = document.getElementById('custom-monthly');
+    
+    customAmountInput.addEventListener('input', function() {
+      if (this.value) {
+        selectedAmount = parseFloat(this.value);
+        isMonthly = false;
+        isEquipment = false;
+        // Remove active class from preset buttons
+        donationBtns.forEach(b => b.classList.remove('active'));
+      }
+    });
+
+    customMonthlyInput.addEventListener('input', function() {
+      if (this.value) {
+        selectedAmount = parseFloat(this.value);
+        isMonthly = true;
+        isEquipment = false;
+        // Remove active class from preset buttons
+        donationBtns.forEach(b => b.classList.remove('active'));
+      }
+    });
+
+    // Handle donate buttons
+    const donateBtns = document.querySelectorAll('.donate-now-btn');
+    donateBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (selectedAmount > 0) {
+          // In a real implementation, this would integrate with a payment processor
+          alert(`Thank you for your ${isMonthly ? 'monthly ' : ''}donation of $${selectedAmount.toFixed(2)}${isMonthly ? '/month' : ''}! This would normally redirect to our secure payment processor.`);
+        } else {
+          alert('Please select or enter a donation amount.');
+        }
+      });
+    });
+  });
+</script>

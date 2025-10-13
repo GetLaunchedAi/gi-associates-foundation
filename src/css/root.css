@@ -164,6 +164,55 @@
     opacity: 0;
     z-index: -1111111;
   }
+
+  /* Global cs-topper styles - using higher specificity to override specific styles */
+  .cs-topper,
+  #hero .cs-topper,
+  #faq-254 .cs-topper,
+  #services-563 .cs-topper,
+  #cs-contact-242 .cs-topper,
+  #reviews .cs-topper,
+  #community-mission .cs-topper,
+  #community-programs .cs-topper,
+  #community-stories .cs-topper,
+  #upcoming-events .cs-topper,
+  #join-community .cs-topper,
+  #why-donate .cs-topper,
+  #donation-options .cs-topper,
+  #impact-stories .cs-topper,
+  #sbs .cs-topper,
+  #sbs-r .cs-topper,
+  #gallery .cs-topper {
+    font-size: var(--topperFontSize) !important;
+    line-height: 1.2em !important;
+    text-transform: uppercase !important;
+    letter-spacing: .1em !important;
+    font-weight: 700 !important;
+    color: var(--primary) !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+  }
+
+  /* Dark mode overrides for cs-topper */
+  body.dark-mode .cs-topper,
+  body.dark-mode #hero .cs-topper,
+  body.dark-mode #faq-254 .cs-topper,
+  body.dark-mode #services-563 .cs-topper,
+  body.dark-mode #cs-contact-242 .cs-topper,
+  body.dark-mode #reviews .cs-topper,
+  body.dark-mode #community-mission .cs-topper,
+  body.dark-mode #community-programs .cs-topper,
+  body.dark-mode #community-stories .cs-topper,
+  body.dark-mode #upcoming-events .cs-topper,
+  body.dark-mode #join-community .cs-topper,
+  body.dark-mode #why-donate .cs-topper,
+  body.dark-mode #donation-options .cs-topper,
+  body.dark-mode #impact-stories .cs-topper,
+  body.dark-mode #sbs .cs-topper,
+  body.dark-mode #sbs-r .cs-topper,
+  body.dark-mode #gallery .cs-topper {
+    color: var(--primary) !important;
+  }
 }
 
 /* Reset Margins */

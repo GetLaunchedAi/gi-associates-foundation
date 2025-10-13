@@ -342,7 +342,7 @@
   }
   body.dark-mode #cs-contact-242 .cs-icon {
     /* makes it so bright it turns white */
-    filter: brightness(900%);
+    /* filter: brightness(900%); */
   }
   body.dark-mode #cs-contact-242 .cs-header,
   body.dark-mode #cs-contact-242 .cs-link {

@@ -6,11 +6,10 @@
     <div class="container">
         <!-- Logo -->
         <a class="logo" aria-label="click to go to home page" href="/">
-            <!-- <img class="light" aria-hidden="true" src="/assets/images/logo.png" decoding="async" alt="logo" width="221"
+            <img class="light" aria-hidden="true" src="/assets/images/logo_dark.png" decoding="async" alt="logo" width="221"
                 height="66">
-            <img class="dark" aria-hidden="true" src="/assets/images/logo.png" decoding="async" loading="lazy"
-                alt="logo" width="221" height="66"> -->
-                <span class="logo-text">LOGO HERE</span>
+            <img class="dark" aria-hidden="true" src="/assets/images/logo_light.png" decoding="async" loading="lazy"
+                alt="logo" width="221" height="66">
         </a>
 
         <!-- Mobile Nav toggle -->
@@ -25,10 +24,11 @@
                 <li class="{% if entry.title == 'Services' %}dropdown{% endif %}" id="{{ entry.title }}">
                     {% if entry.title == 'Services' %}
                     <a class="dropdown-toggle" role="button" tabindex="0">{{ entry.title }}</a>
-                    <!-- <ul class="dropdown-menu">
-                        <li><a href="/vinyl-flooring/">Vinyl Flooring</a></li>
-                        <li><a href="/flooring-installation/">Flooring Installation</a></li>
-                    </ul> -->
+                     <ul class="dropdown-menu">
+                          <li><a href="/emergency-response/">Emergency Response</a></li>
+                          <li><a href="/legal-protection/">Legal & Protection</a></li>
+                          <li><a href="/long-term-support/">Long-term Support</a></li>
+                     </ul>
                     {% else %}
                     <a {% if entry.url==page.url %} class="active" {% endif %} href="{{ entry.url }}">{{ entry.title
                         }}</a>

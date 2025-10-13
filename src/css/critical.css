@@ -132,8 +132,9 @@
     width: 11.25rem;
     text-decoration: none;
     font-weight: 700;
+    text-transform: uppercase;
     margin: 0 0.5rem 1rem 0.5rem;
-    color: var(--headerColor);
+    color: #fff;
     padding: 0;
     background-color: var(--primary);
     display: inline-block;

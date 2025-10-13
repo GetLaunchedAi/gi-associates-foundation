@@ -4,12 +4,12 @@
 /* Mobile */
 @media only screen and (min-width: 0em) {
   :root {
-    --primary: #c90000;
-    /* Crimson Red */
---primaryShade: #ff3333;
-    /* Bright Red */
---primaryDark: #8a0000;
-    /* Dark Red */
+    --primary: #6a0dad;
+    /* Deep Purple - Primary Brand Color */
+    --primaryShade: #8b5cf6;
+    /* Light Purple */
+    --primaryDark: #4c1d95;
+    /* Dark Purple */
     --bodyTextColor: #4e4b66;
     --bodyTextColorWhite: #fafbfc;
     --headerColor: #1a1a1a;
@@ -29,7 +29,7 @@
     src: local(""),
       url("/assets/fonts/roboto-v29-latin-regular.woff2") format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/assets/fonts/roboto-v29-latin-regular.woff") format("woff");
+        url("/assets/fonts/roboto-v29-latin-regular.woff") format("woff");
 
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -42,7 +42,7 @@
     src: local(""),
       url("/assets/fonts/roboto-v29-latin-700.woff2") format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/assets/fonts/roboto-v29-latin-700.woff") format("woff");
+        url("/assets/fonts/roboto-v29-latin-700.woff") format("woff");
 
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -55,7 +55,7 @@
     src: local(""),
       url("/assets/fonts/roboto-v29-latin-900.woff2") format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/assets/fonts/roboto-v29-latin-900.woff") format("woff");
+        url("/assets/fonts/roboto-v29-latin-900.woff") format("woff");
 
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
@@ -130,7 +130,7 @@
     position: relative;
     z-index: 1;
     background-color: var(--primary);
-    color: #000;
+    color: #fff;
     transition: color 0.3s;
     transition-delay: 0.1s;
   }
@@ -168,7 +168,6 @@
 
 /* Reset Margins */
 @media only screen and (min-width: 1024px) {
-
   body,
   html {
     padding: 0;
@@ -178,7 +177,6 @@
 
 /* Scale full website with the viewport width */
 @media only screen and (min-width: 2000px) {
-
   body,
   html {
     font-size: 0.85vw;
@@ -204,7 +202,7 @@
   display: none !important;
   flex-direction: column;
   z-index: 9999;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, .1);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-menu li {
@@ -212,7 +210,7 @@
 }
 
 .dropdown-menu li a {
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
   display: block;
   color: #333;
   text-decoration: none;
@@ -249,15 +247,15 @@
     background-color: #fff;
     width: 100%;
     height: 100%;
-    box-shadow: rgba(149, 157, 165, .2) 0 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
   }
 
   #navigation .container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: .5rem;
-    padding: .8125rem 0;
+    gap: 0.5rem;
+    padding: 0.8125rem 0;
     width: 96%;
   }
 
@@ -284,7 +282,7 @@
   /* Hamburger */
   #navigation .hamburger-menu {
     position: absolute;
-    right: .25rem;
+    right: 0.25rem;
     border: none;
     height: 3rem;
     width: 3rem;
@@ -294,7 +292,7 @@
     padding: 0;
     top: 50%;
     transform: translateY(-50%);
-    transition: top .3s;
+    transition: top 0.3s;
   }
 
   #navigation .hamburger-menu span {
@@ -305,7 +303,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    transition: background-color .3s;
+    transition: background-color 0.3s;
   }
 
   #navigation .hamburger-menu span:before,
@@ -318,7 +316,7 @@
     background: #000;
     opacity: 1;
     left: 0;
-    transition: width .3s, left .3s, top .3s, transform .3s;
+    transition: width 0.3s, left 0.3s, top 0.3s, transform 0.3s;
   }
 
   #navigation .hamburger-menu span:before {
@@ -353,15 +351,15 @@
     right: 0;
     padding: 0;
     width: 100%;
-    border-radius: 0 0 .375em .375em;
+    border-radius: 0 0 0.375em 0.375em;
     z-index: 9999;
     overflow: hidden;
-    box-shadow: rgba(149, 157, 165, .2) 0 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
     background-color: #fff;
     top: 3.7rem;
     padding-top: 0;
     height: 0;
-    transition: height .3s, padding-top .3s, top .3s;
+    transition: height 0.3s, padding-top 0.3s, top 0.3s;
   }
 
   #navigation #navbar-menu {
@@ -379,36 +377,36 @@
     text-align: center;
     transform-style: preserve-3d;
     opacity: 0;
-    transform: translateY(-.4375rem) rotateX(90deg);
-    transition: opacity .5s, transform .5s;
+    transform: translateY(-0.4375rem) rotateX(90deg);
+    transition: opacity 0.5s, transform 0.5s;
   }
 
   #navigation #navbar-menu ul li:nth-of-type(1) {
-    transition-delay: .01s;
+    transition-delay: 0.01s;
   }
 
   #navigation #navbar-menu ul li:nth-of-type(2) {
-    transition-delay: .02s;
+    transition-delay: 0.02s;
   }
 
   #navigation #navbar-menu ul li:nth-of-type(3) {
-    transition-delay: .03s;
+    transition-delay: 0.03s;
   }
 
   #navigation #navbar-menu ul li:nth-of-type(4) {
-    transition-delay: .04s;
+    transition-delay: 0.04s;
   }
 
   #navigation #navbar-menu ul li:nth-of-type(5) {
-    transition-delay: .05s;
+    transition-delay: 0.05s;
   }
 
   #navigation #navbar-menu ul li:nth-of-type(6) {
-    transition-delay: .06s;
+    transition-delay: 0.06s;
   }
 
   #navigation #navbar-menu ul li:nth-of-type(7) {
-    transition-delay: .07s;
+    transition-delay: 0.07s;
   }
 
   #navigation #navbar-menu ul li a {
@@ -426,13 +424,13 @@
     content: "";
     position: absolute;
     display: block;
-    height: .5rem;
+    height: 0.5rem;
     background: var(--primary);
     opacity: 1;
     bottom: 5rem;
-    border-radius: .25rem;
-    left: -.375rem;
-    right: -.375rem;
+    border-radius: 0.25rem;
+    left: -0.375rem;
+    right: -0.375rem;
     z-index: -1;
   }
 
@@ -469,10 +467,10 @@
     width: 100%;
     padding: 1rem;
     background-color: var(--primary);
-    border-radius: .5rem;
-    gap: .75rem;
+    border-radius: 0.5rem;
+    gap: 0.75rem;
     z-index: 9999;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     overflow: visible;
   }
 
@@ -486,8 +484,8 @@
     font-weight: 700;
     font-size: 1rem;
     display: block;
-    padding: .75rem 1rem;
-    border-radius: .375rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
     text-decoration: none;
     background-color: transparent;
     overflow: visible;
@@ -508,7 +506,7 @@
    ============================================ */
 @media (min-width: 1024px) {
   ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 .375em rgba(0, 0, 0, .3);
+    -webkit-box-shadow: inset 0 0 0.375em rgba(0, 0, 0, 0.3);
     background-color: #fff;
   }
 
@@ -517,18 +515,18 @@
   }
 
   ::-webkit-scrollbar {
-    width: .75em;
+    width: 0.75em;
     background-color: #f5f5f5;
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: .625em;
+    border-radius: 0.625em;
     background: var(--primary);
   }
 
   body.scroll #navigation .background-color-div {
     height: 100%;
-    box-shadow: rgba(100, 100, 111, .2) 0 7px 29px 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
   }
 
   body.scroll #navigation .logo .light {
@@ -562,7 +560,7 @@
     width: 100%;
     background-color: #fff;
     height: 0;
-    transition: height .3s;
+    transition: height 0.3s;
   }
 
   #navigation .container {
@@ -570,7 +568,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: .75rem;
+    gap: 0.75rem;
   }
 
   #navigation .logo {
@@ -594,33 +592,33 @@
   #navigation #navbar-menu ul li {
     list-style: none;
     margin-left: 1.875rem;
-    padding-top: .1875rem;
+    padding-top: 0.1875rem;
   }
 
   #navigation #navbar-menu ul li a {
     text-decoration: none;
     font-weight: bold;
-    font-size: clamp(.875rem, 1.5vw, 1.125rem);
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
     text-transform: uppercase;
     position: relative;
     z-index: 1;
     color: #fff;
-    transition: color .3s;
+    transition: color 0.3s;
   }
 
   #navigation #navbar-menu ul li a:before {
     content: "";
     position: absolute;
     display: block;
-    height: .375rem;
-    border-radius: .1875rem;
+    height: 0.375rem;
+    border-radius: 0.1875rem;
     background: var(--primary);
     opacity: 1;
-    bottom: .125rem;
+    bottom: 0.125rem;
     z-index: -1;
     left: 0;
     width: 0%;
-    transition: width .3s;
+    transition: width 0.3s;
   }
 
   #navigation #navbar-menu ul li a:hover:before {
@@ -632,15 +630,15 @@
     position: absolute;
     display: block;
     width: 100%;
-    height: .375rem;
+    height: 0.375rem;
     background: var(--primary);
     opacity: 1;
-    bottom: .125rem;
-    border-radius: .1875rem;
+    bottom: 0.125rem;
+    border-radius: 0.1875rem;
     left: 0;
-    right: -.375rem;
+    right: -0.375rem;
     z-index: -1;
-    transition: bottom .3s;
+    transition: bottom 0.3s;
   }
 
   #navigation .hamburger-menu {
@@ -736,7 +734,7 @@
 #navigation .header-actions {
   display: flex;
   align-items: center;
-  gap: .6rem;
+  gap: 0.6rem;
   margin-left: 1rem;
   isolation: isolate;
   flex: 0 0 auto;
@@ -752,7 +750,7 @@
   inline-size: var(--icon-btn-size);
   block-size: var(--icon-btn-size);
   padding: 6px;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -766,21 +764,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 0
+  line-height: 0;
 }
 
 #dark-mode-toggle .moon {
   width: var(--icon-glyph-size);
   height: var(--icon-glyph-size);
-  display: block
+  display: block;
 }
 
 #dark-mode-toggle .moon path {
-  fill: currentColor
+  fill: currentColor;
 }
 
 #navigation .icon-btn:hover {
-  background-color: rgba(255, 255, 255, .12);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 /* Same glyph size for all icons */
@@ -835,9 +833,9 @@ body.dark-mode #dark-mode-toggle .sun {
 }
 
 #navigation .snipcart-total-price {
-  margin-left: .25rem;
+  margin-left: 0.25rem;
   font-weight: 600;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: inherit;
 }
 
@@ -854,7 +852,7 @@ body.dark-mode #dark-mode-toggle .sun {
   }
 
   body.scroll #navigation .icon-btn:hover {
-    background-color: rgba(0, 0, 0, .06);
+    background-color: rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -865,7 +863,7 @@ body.dark-mode #dark-mode-toggle .sun {
   #navigation .header-actions {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
     margin-left: auto;
   }
 
@@ -909,7 +907,6 @@ body.dark-mode #dark-mode-toggle .sun {
     fill: currentColor !important;
   }
 }
-
 
 /*-- -------------------------- -->
 <---   Interior Page Header     -->

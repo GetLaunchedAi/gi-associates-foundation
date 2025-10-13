@@ -186,7 +186,7 @@
     font-size: var(--topperFontSize) !important;
     line-height: 1.2em !important;
     text-transform: uppercase !important;
-    letter-spacing: .1em !important;
+    letter-spacing: 0.1em !important;
     font-weight: 700 !important;
     color: var(--primary) !important;
     margin-bottom: 1rem !important;
@@ -622,7 +622,7 @@
 
   #navigation .logo {
     margin-right: auto;
-    height: 3.75rem;
+    height: 4rem;
     width: auto;
   }
 

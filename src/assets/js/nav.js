@@ -6,10 +6,15 @@ const hamburgerMenu = document.querySelector("#navigation .hamburger-menu");
 const serviceMenu = document.querySelector("#navigation .dropdown");
 const about = document.querySelector('#About\\ Us')
 const contact = document.querySelector('#Contact')
+const donations = document.querySelector('#Donations')
 
-const screenWidth = window.screen.width;
 
+let screenWidth = window.innerWidth;
 
+// Update screen width on resize
+window.addEventListener('resize', function() {
+    screenWidth = window.innerWidth;
+});
 
 hamburgerMenu.addEventListener('click', function () {
     const isNavOpen = navbarMenu.classList.contains("open");
@@ -30,20 +35,17 @@ serviceMenu.addEventListener('click', function () {
         serviceMenu.setAttribute("aria-expanded", true);
         serviceMenu.classList.add("open");
         if (screenWidth < 770) {
-            about.style.display = 'none'
-            contact.style.display = 'none'
+            if (about) about.style.display = 'none';
+            if (contact) contact.style.display = 'none';
+            if (donations) donations.style.display = 'none';
         }
-
-
     } else {
         serviceMenu.setAttribute("aria-expanded", false);
         serviceMenu.classList.remove("open");
         if (screenWidth < 770) {
-            about.style.display = 'block'
-            contact.style.display = 'block'
+            if (about) about.style.display = 'block';
+            if (contact) contact.style.display = 'block';
+            if (donations) donations.style.display = 'block';
         }
-
-
-
     }
 });

@@ -54,6 +54,7 @@ function handleDropdownToggle(clickedDropdown) {
                 if (about) about.style.display = 'none';
                 if (contact) contact.style.display = 'none';
                 if (support) support.style.display = 'none';
+                if (shop) shop.style.display = 'none';
             } else if (clickedDropdown === supportMenu) {
                 // Support dropdown: only hide Contact
                 if (contact) contact.style.display = 'none';

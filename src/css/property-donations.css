@@ -1,0 +1,663 @@
+/*-- -------------------------- -->
+<---    Property Donations Page   -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+  /* Property Donation Info Section */
+  #property-donation-info {
+    padding: var(--sectionPadding);
+  }
+
+  #property-donation-info .cs-container {
+    width: 100%;
+    max-width: 75rem;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  #property-donation-info .cs-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3.125rem;
+  }
+
+  #property-donation-info .cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  #property-donation-info .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+  }
+  body.dark-mode #property-donation-info .cs-title {
+    color: var(--bodyTextColorWhite);
+  }
+
+  #property-donation-info .cs-text {
+    font-size: 1rem;
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0;
+    color: var(--bodyTextColor);
+  }
+  body.dark-mode #property-donation-info .cs-text {
+    color: var(--bodyTextColorWhite);
+  }
+  /* Property Benefits Grid */
+  .property-benefits-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .benefit-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--headerColor);
+    margin: 0 0 1rem 0;
+  }
+
+  .benefit-card p {
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    margin: 0;
+  }
+
+  /* How It Works Section */
+  #how-it-works {
+    padding: var(--sectionPadding);
+    background-color: #f7f7f7;
+  }
+
+  #how-it-works .cs-container {
+    width: 100%;
+    max-width: 75rem;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  #how-it-works .cs-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3.125rem;
+  }
+
+  #how-it-works .cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  #how-it-works .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+  }
+  body.dark-mode #how-it-works .cs-title {
+    color: var(--bodyTextColorWhite);
+  }
+
+  /* Process Steps */
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .step {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e5e5;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .step:hover {
+    transform: translateY(-2px);
+  }
+
+  .step-number {
+    background: var(--primary);
+    color: #fff;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--headerColor);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .step-content p {
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    margin: 0 0 1rem 0;
+  }
+
+  .step-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .step-details li {
+    font-size: 0.9rem;
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    margin: 0 0 0.5rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .step-details li:before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Property Types Section */
+  #property-types {
+    padding: var(--sectionPadding);
+  }
+
+  #property-types .cs-container {
+    width: 100%;
+    max-width: 75rem;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  #property-types .cs-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3.125rem;
+  }
+
+  #property-types .cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  #property-types .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+  }
+  body.dark-mode #property-types .cs-title {
+    color: var(--bodyTextColorWhite);
+  }
+  /* Property Types Grid */
+  .property-types-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .property-type-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .property-type-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .property-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .property-type-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--headerColor);
+    margin: 0 0 1rem 0;
+  }
+
+  .property-type-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+
+  .property-type-card li {
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    margin: 0 0 0.5rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .property-type-card li:before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Property Impact Section */
+  #property-impact {
+    padding: var(--sectionPadding);
+    background-color: #f7f7f7;
+  }
+
+  #property-impact .cs-container {
+    width: 100%;
+    max-width: 75rem;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  #property-impact .cs-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3.125rem;
+  }
+
+  #property-impact .cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  #property-impact .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+  }
+  body.dark-mode #property-impact .cs-title {
+    color: var(--bodyTextColorWhite);
+  }
+  #property-impact .cs-text {
+    font-size: 1rem;
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0;
+    color: var(--bodyTextColor);
+  }
+  body.dark-mode #property-impact .cs-text {
+    color: var(--bodyTextColorWhite);
+  }
+  /* Impact Grid */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .impact-item {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .impact-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .impact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .impact-item h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--headerColor);
+    margin: 0 0 1rem 0;
+  }
+
+  .impact-item p {
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    margin: 0;
+  }
+
+  /* Property Contact Section */
+  #property-contact {
+    padding: var(--sectionPadding);
+  }
+
+  #property-contact .cs-container {
+    width: 100%;
+    max-width: 75rem;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  #property-contact .cs-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #property-contact .cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  #property-contact .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+  }
+  body.dark-mode #property-contact .cs-title {
+    color: var(--bodyTextColorWhite);
+  }
+  #property-contact .cs-text {
+    font-size: 1rem;
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0 0 2rem 0;
+    color: var(--bodyTextColor);
+  }
+  body.dark-mode #property-contact .cs-text {
+    color: var(--bodyTextColorWhite);
+  }
+
+  /* Property Contact Buttons */
+  #property-contact .cs-button-solid {
+    font-size: 1rem;
+    line-height: clamp(2.875em, 5.5vw, 3.5em);
+    width: 11.25rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0.5rem 1rem 0.5rem;
+    color: #fff;
+    padding: 0;
+    background-color: var(--primary);
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: color .3s;
+    text-align: center;
+  }
+
+  #property-contact .cs-button-solid:before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: #000;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width .3s;
+  }
+
+  #property-contact .cs-button-solid:hover {
+    color: var(--bodyTextColorWhite);
+  }
+
+  #property-contact .cs-button-solid:hover:before {
+    width: 100%;
+  }
+
+  #property-contact .cs-button-transparent {
+    font-size: 1rem;
+    line-height: clamp(2.875em, 5.5vw, 3.5em);
+    width: 11.25rem;
+    height: clamp(2.875em, 5.5vw, 3.5em);
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 0.5rem;
+    color: #fff;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: color .3s;
+    overflow: hidden;
+  }
+
+  #property-contact .cs-button-transparent:before {
+    content: '';
+    position: absolute;
+    display: block;
+    background: #000;
+    opacity: 1;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform .3s;
+    transform-origin: left;
+  }
+
+  #property-contact .cs-button-transparent:hover:before {
+    transform: scaleX(1);
+  }
+
+  /* Contact Options */
+  .contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    max-width: 40rem;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    margin: 0;
+  }
+
+  .contact-info strong {
+    color: var(--headerColor);
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 48em) {
+  .property-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-options {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Small Desktop */
+@media only screen and (min-width: 64em) {
+  .impact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+  body.dark-mode #how-it-works,
+  body.dark-mode #property-impact {
+    background-color: var(--dark);
+  }
+
+  body.dark-mode .benefit-card,
+  body.dark-mode .step,
+  body.dark-mode .property-type-card,
+  body.dark-mode .impact-item {
+    background-color: var(--medium);
+    border-color: var(--accent);
+  }
+
+  body.dark-mode .benefit-card h3,
+  body.dark-mode .step-content h3,
+  body.dark-mode .property-type-card h3,
+  body.dark-mode .impact-item h3 {
+    color: #fff;
+  }
+
+  body.dark-mode .benefit-card p,
+  body.dark-mode .step-content p,
+  body.dark-mode .property-type-card li,
+  body.dark-mode .step-details li,
+  body.dark-mode .impact-item p,
+  body.dark-mode .contact-info p {
+    color: var(--bodyTextColorWhite);
+  }
+
+  body.dark-mode .contact-info strong {
+    color: #fff;
+  }
+}

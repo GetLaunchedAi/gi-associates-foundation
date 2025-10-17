@@ -21,13 +21,20 @@
         <nav id="navbar-menu" aria-label="main navigation">
             <ul>
                 {%- for entry in navPages %}
-                <li class="{% if entry.title == 'Services' %}dropdown{% endif %}" id="{{ entry.title }}">
+                <li class="{% if entry.title == 'Services' or entry.title == 'Support' %}dropdown{% endif %}" id="{{ entry.title }}">
                     {% if entry.title == 'Services' %}
                     <a class="dropdown-toggle" role="button" tabindex="0">{{ entry.title }}</a>
                      <ul class="dropdown-menu">
                           <li><a href="/emergency-response/">Emergency Response</a></li>
                           <li><a href="/legal-protection/">Legal & Protection</a></li>
                           <li><a href="/long-term-support/">Long-term Support</a></li>
+                     </ul>
+                    {% elseif entry.title == 'Support' %}
+                    <a class="dropdown-toggle" role="button" tabindex="0">{{ entry.title }}</a>
+                     <ul class="dropdown-menu">
+                          <li><a href="/donations/">Donations</a></li>
+                          <li><a href="/property-donations/">Property Donations</a></li>
+                          <li><a href="/victim-process/">Our Process</a></li>
                      </ul>
                     {% else %}
                     <a {% if entry.url==page.url %} class="active" {% endif %} href="{{ entry.url }}">{{ entry.title

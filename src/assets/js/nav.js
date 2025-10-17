@@ -3,10 +3,11 @@
 //
 const navbarMenu = document.querySelector("#navigation #navbar-menu");
 const hamburgerMenu = document.querySelector("#navigation .hamburger-menu");
-const serviceMenu = document.querySelector("#navigation .dropdown");
+const serviceMenu = document.querySelector("#Services");
+const supportMenu = document.querySelector("#Support");
 const about = document.querySelector('#About\\ Us')
 const contact = document.querySelector('#Contact')
-const donations = document.querySelector('#Donations')
+const support = document.querySelector('#Support')
 
 
 let screenWidth = window.innerWidth;
@@ -29,23 +30,59 @@ hamburgerMenu.addEventListener('click', function () {
     }
 });
 
-serviceMenu.addEventListener('click', function () {
-    const isServiceOpen = serviceMenu.classList.contains("open");
-    if (!isServiceOpen) {
-        serviceMenu.setAttribute("aria-expanded", true);
-        serviceMenu.classList.add("open");
+// Function to handle dropdown toggle
+function handleDropdownToggle(clickedDropdown) {
+    const isOpen = clickedDropdown.classList.contains("open");
+    
+    // Close all other dropdowns first
+    const allDropdowns = [serviceMenu, supportMenu];
+    allDropdowns.forEach(dropdown => {
+        if (dropdown && dropdown !== clickedDropdown) {
+            dropdown.setAttribute("aria-expanded", false);
+            dropdown.classList.remove("open");
+        }
+    });
+    
+    if (!isOpen) {
+        clickedDropdown.setAttribute("aria-expanded", true);
+        clickedDropdown.classList.add("open");
         if (screenWidth < 770) {
-            if (about) about.style.display = 'none';
-            if (contact) contact.style.display = 'none';
-            if (donations) donations.style.display = 'none';
+            if (clickedDropdown === serviceMenu) {
+                // Services dropdown: hide About, Contact, and Support
+                if (about) about.style.display = 'none';
+                if (contact) contact.style.display = 'none';
+                if (support) support.style.display = 'none';
+            } else if (clickedDropdown === supportMenu) {
+                // Support dropdown: only hide Contact
+                if (contact) contact.style.display = 'none';
+            }
         }
     } else {
-        serviceMenu.setAttribute("aria-expanded", false);
-        serviceMenu.classList.remove("open");
+        clickedDropdown.setAttribute("aria-expanded", false);
+        clickedDropdown.classList.remove("open");
         if (screenWidth < 770) {
-            if (about) about.style.display = 'block';
-            if (contact) contact.style.display = 'block';
-            if (donations) donations.style.display = 'block';
+            if (clickedDropdown === serviceMenu) {
+                // Services dropdown: show About, Contact, and Support
+                if (about) about.style.display = 'block';
+                if (contact) contact.style.display = 'block';
+                if (support) support.style.display = 'block';
+            } else if (clickedDropdown === supportMenu) {
+                // Support dropdown: only show Contact
+                if (contact) contact.style.display = 'block';
+            }
         }
     }
-});
+}
+
+// Add event listeners to both dropdowns
+if (serviceMenu) {
+    serviceMenu.addEventListener('click', function () {
+        handleDropdownToggle(serviceMenu);
+    });
+}
+
+if (supportMenu) {
+    supportMenu.addEventListener('click', function () {
+        handleDropdownToggle(supportMenu);
+    });
+}

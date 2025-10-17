@@ -8,7 +8,8 @@ preloadCSS: "/css/donations.css"
 permalink: "donations/"
 eleventyNavigation:
   key: Donations
-  order: 400
+  parent: Support
+  order: 410
 ---
 
 <!-- ============================================ -->
@@ -38,6 +39,38 @@ eleventyNavigation:
     </div>
   </div>
 </section> -->
+
+<!-- ============================================ -->
+<!--              Property Donations               -->
+<!-- ============================================ -->
+
+<section id="property-donations">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Tax Deductible</span>
+      <h2 class="cs-title">Donate Your Property</h2>
+      <p class="cs-text">
+        Donate your old or unwanted residential or commercial property while receiving a fair market tax deduction from our foundation. 
+        If you have a property that you want to donate, we can help you today.
+      </p>
+      <div class="property-benefits">
+        <div class="benefit-item">
+          <h3>Tax Benefits</h3>
+          <p>Receive a fair market tax deduction for your property donation</p>
+        </div>
+        <div class="benefit-item">
+          <h3>Support Victims</h3>
+          <p>All properties are used to house and support victims through housing, emergency shelter, resource centers, and feeding programs</p>
+        </div>
+        <div class="benefit-item">
+          <h3>24/7 Support</h3>
+          <p>Call or text us anytime for information about property donations</p>
+        </div>
+      </div>
+      <a href="/property-donations/" class="cs-button-solid">Learn More About Property Donations</a>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================ -->
 <!--              Donation Options                -->
@@ -72,6 +105,15 @@ eleventyNavigation:
             <input type="number" id="custom-amount" placeholder="0.00" min="1" step="0.01">
           </div>
         </div>
+        <!-- Payment Method Selection -->
+        <div class="payment-methods">
+          <label for="payment-method">Choose Payment Method:</label>
+          <select id="payment-method" class="payment-select">
+            <option value="cashapp">Cash App (@Supremework)</option>
+            <option value="stripe">Credit/Debit Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
+        </div>
         <button class="button-solid donate-now-btn" id="donate-now">Donate Now</button>
       </div>
 
@@ -92,6 +134,15 @@ eleventyNavigation:
             <span class="period">/month</span>
           </div>
         </div>
+        <!-- Payment Method Selection -->
+        <div class="payment-methods">
+          <label for="payment-method-monthly">Choose Payment Method:</label>
+          <select id="payment-method-monthly" class="payment-select">
+            <option value="cashapp">Cash App (@Supremework)</option>
+            <option value="stripe">Credit/Debit Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
+        </div>
         <button class="button-solid donate-now-btn" id="donate-monthly">Start Monthly Support</button>
       </div>
 
@@ -104,8 +155,92 @@ eleventyNavigation:
           <button class="donation-btn equipment" data-amount="1000">Legal Support - $1,000</button>
           <button class="donation-btn equipment" data-amount="2500">Long-term Recovery - $2,500</button>
         </div>
+        <!-- Payment Method Selection -->
+        <div class="payment-methods">
+          <label for="payment-method-equipment">Choose Payment Method:</label>
+          <select id="payment-method-equipment" class="payment-select">
+            <option value="cashapp">Cash App (@Supremework)</option>
+            <option value="stripe">Credit/Debit Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
+        </div>
         <button class="button-solid donate-now-btn" id="donate-equipment">Support</button>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!--              Donation Items Needed           -->
+<!-- ============================================ -->
+
+<section id="donation-items">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Urgently Needed</span>
+      <h2 class="cs-title">Acceptable Donations We Urgently Need</h2>
+      <p class="cs-text">
+        Your donations directly support victims of domestic violence and human trafficking. 
+        Call or text us to schedule a pickup today.
+      </p>
+    </div>
+    
+    <div class="donation-categories">
+      <div class="category-grid">
+        <div class="category-card">
+          <h3>🚗 Vehicles</h3>
+          <p>Motor vehicles, motor homes, campers and trailers, boats, etc.</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>💰 Cash</h3>
+          <p>Cash via Cash App @Supremework</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>🍎 Food Items</h3>
+          <p>Non-perishable food items, canned goods, water, juice, granola bars, etc.</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>👶 Baby Supplies</h3>
+          <p>Diapers, baby formula</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>🧴 Hygiene Products</h3>
+          <p>Women's deodorant, toothpaste, tooth brushes, mouth wash, etc.</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>👕 Clothing & Linens</h3>
+          <p>New blankets, new winter coats, new women's and children's clothing</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>🎁 Gift Cards</h3>
+          <p>Gift cards from Walmart, Meijer, or Kroger</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>🧸 Children's Items</h3>
+          <p>New children's toys, games, bikes, etc.</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>💻 Electronics</h3>
+          <p>Electronics, computers, cell phones</p>
+        </div>
+        
+        <div class="category-card">
+          <h3>🏠 Household & Valuables</h3>
+          <p>Furniture, beds, lamps, scrap jewelry, or anything of value</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="donation-note">
+      <p><strong>Important:</strong> Due to the nature of our business and victim safety, the public is not allowed at our locations.</p>
     </div>
   </div>
 </section>
@@ -145,6 +280,81 @@ eleventyNavigation:
         <h3>Long-term Recovery</h3>
         <p>Fund long-term housing assistance, vehicle support, and relocation services to help victims start fresh.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!--              Donation Usage                  -->
+<!-- ============================================ -->
+
+<section id="donation-usage">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">How We Use Donations</span>
+      <h2 class="cs-title">What We Will Use Donations For</h2>
+    </div>
+    
+    <div class="usage-grid">
+      <div class="usage-item">
+        <h3>🏠 Housing</h3>
+        <p>To purchase housing for victims</p>
+      </div>
+      
+      <div class="usage-item">
+        <h3>🚗 Transportation</h3>
+        <p>Vehicles for transporting victims</p>
+      </div>
+      
+      <div class="usage-item">
+        <h3>🆘 Emergency Support</h3>
+        <p>Emergency housing and hotel rooms</p>
+      </div>
+      
+      <div class="usage-item">
+        <h3>🏢 Resource Center</h3>
+        <p>Help and resource center for victims</p>
+      </div>
+      
+      <div class="usage-item">
+        <h3>🔄 Life Rebuilding</h3>
+        <p>To help victims rebuild their new life</p>
+      </div>
+    </div>
+    
+    <div class="continual-needs">
+      <h3>Continual Needs for Victims</h3>
+      <div class="needs-list">
+        <div class="needs-category">
+          <h4>Housing & Safety</h4>
+          <ul>
+            <li>Temporary housing</li>
+            <li>Permanent housing</li>
+            <li>Emergency shelter</li>
+          </ul>
+        </div>
+        
+        <div class="needs-category">
+          <h4>Basic Needs</h4>
+          <ul>
+            <li>Food</li>
+            <li>Hygiene needs and diapers</li>
+            <li>Baby formula/Enfamil</li>
+            <li>Clothing</li>
+          </ul>
+        </div>
+        
+        <div class="needs-category">
+          <h4>Support Services</h4>
+          <ul>
+            <li>Medical needs</li>
+            <li>Medical bills</li>
+            <li>Relocation costs</li>
+            <li>Job prep, resumes, etc.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="needs-note">This is just a small list of continual needs victims will need.</p>
     </div>
   </div>
 </section>
@@ -206,12 +416,106 @@ eleventyNavigation:
     donateBtns.forEach(btn => {
       btn.addEventListener('click', function() {
         if (selectedAmount > 0) {
-          // In a real implementation, this would integrate with a payment processor
-          alert(`Thank you for your ${isMonthly ? 'monthly ' : ''}donation of $${selectedAmount.toFixed(2)}${isMonthly ? '/month' : ''}! This would normally redirect to our secure payment processor.`);
+          // Get the payment method for this specific button
+          const card = this.closest('.donation-card');
+          const paymentSelect = card.querySelector('.payment-select');
+          const paymentMethod = paymentSelect ? paymentSelect.value : 'stripe';
+          
+          // Handle different payment methods
+          if (paymentMethod === 'cashapp') {
+            handleCashAppDonation(selectedAmount, isMonthly, isEquipment);
+          } else {
+            // For other payment methods, show the existing alert
+            alert(`Thank you for your ${isMonthly ? 'monthly ' : ''}donation of $${selectedAmount.toFixed(2)}${isMonthly ? '/month' : ''}! This would normally redirect to our secure payment processor.`);
+          }
         } else {
           alert('Please select or enter a donation amount.');
         }
       });
     });
+
+    // Cash App donation handler
+    function handleCashAppDonation(amount, isMonthly, isEquipment) {
+      const cashAppHandle = '@Supremework';
+      const donationType = isEquipment ? 'specific support' : (isMonthly ? 'monthly support' : 'one-time donation');
+      
+      // Create Cash App payment URL
+      const cashAppUrl = `https://cash.app/${cashAppHandle.replace('@', '')}`;
+      
+      // Show Cash App donation modal
+      showCashAppModal(amount, isMonthly, cashAppUrl, donationType);
+    }
+
+    // Cash App donation modal
+    function showCashAppModal(amount, isMonthly, cashAppUrl, donationType) {
+      // Create modal overlay
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'cashapp-modal-overlay';
+      modalOverlay.innerHTML = `
+        <div class="cashapp-modal">
+          <div class="cashapp-modal-header">
+            <h3>Complete Your Donation with Cash App</h3>
+            <button class="cashapp-close-btn" onclick="this.closest('.cashapp-modal-overlay').remove()">×</button>
+          </div>
+          <div class="cashapp-modal-content">
+            <div class="cashapp-info">
+              <div class="cashapp-logo">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="4" fill="#00D632"/>
+                  <path d="M12 6L8 10H10V14H14V10H16L12 6Z" fill="white"/>
+                </svg>
+                <span>Cash App</span>
+              </div>
+              <div class="donation-details">
+                <p><strong>Donation Amount:</strong> $${amount.toFixed(2)}${isMonthly ? '/month' : ''}</p>
+                <p><strong>Donation Type:</strong> ${donationType}</p>
+                <p><strong>Cash App Handle:</strong> @Supremework</p>
+              </div>
+            </div>
+            <div class="cashapp-instructions">
+              <h4>How to complete your donation:</h4>
+              <ol>
+                <li>Open Cash App on your phone</li>
+                <li>Tap the "Pay" button</li>
+                <li>Enter the amount: <strong>$${amount.toFixed(2)}</strong></li>
+                <li>Enter the recipient: <strong>@Supremework</strong></li>
+                <li>Add a note: "GI Associates Foundation Donation"</li>
+                <li>Complete the payment</li>
+              </ol>
+            </div>
+            <div class="cashapp-actions">
+              <a href="${cashAppUrl}" target="_blank" class="cashapp-button">
+                Open Cash App
+              </a>
+              <button class="cashapp-copy-btn" onclick="copyCashAppInfo('${amount.toFixed(2)}', '@Supremework')">
+                Copy Details
+              </button>
+            </div>
+            <div class="cashapp-note">
+              <p><strong>Note:</strong> Your donation will be processed through Cash App. Please keep your receipt for tax purposes.</p>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modalOverlay);
+    }
+
+    // Copy Cash App info to clipboard
+    function copyCashAppInfo(amount, handle) {
+      const text = `Donation Amount: $${amount}\nCash App Handle: ${handle}\nNote: GI Associates Foundation Donation`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Cash App details copied to clipboard!');
+      }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('Cash App details copied to clipboard!');
+      });
+    }
   });
 </script>

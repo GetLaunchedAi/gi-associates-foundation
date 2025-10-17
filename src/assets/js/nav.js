@@ -8,6 +8,8 @@ const supportMenu = document.querySelector("#Support");
 const about = document.querySelector('#About\\ Us')
 const contact = document.querySelector('#Contact')
 const support = document.querySelector('#Support')
+const shop = document.querySelector('#Shop')
+
 
 
 let screenWidth = window.innerWidth;
@@ -66,6 +68,7 @@ function handleDropdownToggle(clickedDropdown) {
                 if (about) about.style.display = 'block';
                 if (contact) contact.style.display = 'block';
                 if (support) support.style.display = 'block';
+                if (shop) shop.style.display = 'block';
             } else if (clickedDropdown === supportMenu) {
                 // Support dropdown: only show Contact
                 if (contact) contact.style.display = 'block';

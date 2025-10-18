@@ -1161,6 +1161,251 @@
 }
 
 /*-- -------------------------- -->
+<---      Vehicle Donations      -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+  /* Vehicle Donations Section */
+  #vehicle-donations {
+    padding: var(--sectionPadding);
+    background-color: #f7f7f7;
+  }
+
+  #vehicle-donations .cs-container {
+    width: 100%;
+    max-width: 75rem;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  #vehicle-donations .cs-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3.125rem;
+  }
+
+  #vehicle-donations .cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  #vehicle-donations .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+  }
+  body.dark-mode #vehicle-donations .cs-title {
+    color: var(--bodyTextColorWhite);
+  }
+
+  #vehicle-donations .cs-text {
+    font-size: 1rem;
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0;
+    color: var(--bodyTextColor);
+  }
+  body.dark-mode #vehicle-donations .cs-text {
+    color: var(--bodyTextColorWhite);
+  }
+
+  /* Vehicle Flyer Container */
+  .vehicle-flyer-container {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto 3rem auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .vehicle-flyer-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .vehicle-flyer-container picture {
+    display: block;
+    width: 100%;
+  }
+
+  .vehicle-flyer-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Vehicle CTA Section */
+  .vehicle-cta {
+    text-align: center;
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+
+  .vehicle-cta h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--headerColor);
+    margin: 0 0 1rem 0;
+  }
+  body.dark-mode .vehicle-cta h3 {
+    color: var(--bodyTextColorWhite);
+  }
+
+  .vehicle-cta > p {
+    font-size: 1.125rem;
+    line-height: 1.6em;
+    color: var(--bodyTextColor);
+    margin: 0 0 2.5rem 0;
+  }
+  body.dark-mode .vehicle-cta > p {
+    color: var(--bodyTextColorWhite);
+  }
+
+  /* Vehicle Benefits */
+  .vehicle-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .vehicle-benefit {
+    background: #fff;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .vehicle-benefit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .vehicle-benefit .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .vehicle-benefit h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--headerColor);
+    margin: 0 0 0.75rem 0;
+  }
+  body.dark-mode .vehicle-benefit h4 {
+    color: var(--bodyTextColorWhite);
+  }
+
+  .vehicle-benefit p {
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    margin: 0;
+  }
+  body.dark-mode .vehicle-benefit p {
+    color: var(--bodyTextColorWhite);
+  }
+
+  /* Vehicle Donations Button */
+  #vehicle-donations .cs-button-solid {
+    font-size: 1rem;
+    line-height: clamp(2.875em, 5.5vw, 3.5em);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0.5rem 1rem 0.5rem;
+    color: #fff;
+    padding: 0 2rem;
+    background-color: var(--primary);
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: color .3s;
+    text-align: center;
+    border-radius: 0.375rem;
+  }
+
+  #vehicle-donations .cs-button-solid:before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: #000;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width .3s;
+    border-radius: 0.375rem;
+  }
+
+  #vehicle-donations .cs-button-solid:hover {
+    color: var(--bodyTextColorWhite);
+  }
+
+  #vehicle-donations .cs-button-solid:hover:before {
+    width: 100%;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 48em) {
+  .vehicle-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .vehicle-flyer-container {
+    max-width: 60rem;
+  }
+}
+
+/* Small Desktop */
+@media only screen and (min-width: 64em) {
+  .vehicle-flyer-container {
+    max-width: 70rem;
+  }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+  body.dark-mode #vehicle-donations {
+    background-color: var(--dark);
+  }
+
+  body.dark-mode .vehicle-benefit {
+    background-color: var(--medium);
+    border-color: var(--accent);
+  }
+}
+
+/*-- -------------------------- -->
 <---        Support Page         -->
 <--- -------------------------- -*/
 

@@ -1680,3 +1680,58 @@
     color: var(--primary);
   }
 }
+
+#online-donations {
+  padding: var(--sectionPadding);
+}
+
+#online-donations .cs-content {
+  max-width: 43.75rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+#online-donations .cs-topper {
+  font-size: var(--topperFontSize);
+  line-height: 1.2em;
+  text-transform: uppercase;
+  text-align: inherit;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+#online-donations .cs-title {
+  font-size: var(--headerFontSize);
+  font-weight: 900;
+  line-height: 1.2em;
+  text-align: inherit;
+  max-width: 43.75rem;
+  margin: 0 0 1rem 0;
+  color: var(--headerColor);
+  position: relative;
+}
+#online-donations .cs-text {
+  font-size: 1rem;
+  line-height: 1.5em;
+  text-align: inherit;
+  width: 100%;
+  max-width: 40.625rem;
+  margin: 0;
+  color: var(--headerColor);
+
+}
+body.dark-mode #online-donations .cs-title {
+  color: var(--bodyTextColorWhite);
+}
+body.dark-mode #online-donations .cs-text {
+  color: var(--bodyTextColorWhite);
+}
+
+.zeffy-embed {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  margin-top: 2rem;
+}

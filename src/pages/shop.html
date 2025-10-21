@@ -21,6 +21,117 @@ eleventyNavigation:
   {% image './src/images/banner_img.png', 'Shop - Support Victims of Domestic Violence and Human Trafficking', '', 'lazy',
   '(max-width: 850px) 850px, 1920px'%}
 </section>
+
+<!-- ============================================ -->
+<!--                FOUNDATION STORE INFO         -->
+<!-- ============================================ -->
+
+<section id="foundation-store-info" class="foundation-store-info">
+  <div class="container">
+    <div class="store-welcome">
+      <h2>Hello and welcome to our store</h2>
+      <p class="mission-statement">
+        <strong>All profits go directly to our Foundation to support victims of Domestic Violence & Human Trafficking.</strong>
+      </p>
+    </div>
+
+    <div class="store-details">
+      <div class="product-info">
+        <h3>About Our Products</h3>
+        <p>All beaded jewelry can be custom made to fit any body if you have a special size request please let us know.</p>
+        <p><strong>Most items are made by victims, this is how they earn temporary income while rebuilding their new life.</strong></p>
+        <p>We offer bulk orders, school colors, motivational sayings, custom colors and 1 of a kind items made just for you.</p>
+      </div>
+
+      <div class="pricing-info">
+        <h3>Pricing & Payment</h3>
+        <p><strong>All orders are paid by fair donation, so in other words you name your own price.</strong></p>
+        <p>We desperately need your help - place your order today!</p>
+      </div>
+
+      <div class="shipping-info">
+        <h3>Shipping & Policies</h3>
+        <ul>
+          <li><strong>Shipping & Handling:</strong> $4 for all orders</li>
+          <li><strong>Shipping Time:</strong> All orders will be shipped within 24 to 48 hours via standard shipping</li>
+          <li><strong>Sales Policy:</strong> All sales are Final</li>
+        </ul>
+      </div>
+
+      <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p>For questions or special requests, contact us by email or for a quick response text us during normal business hours:</p>
+        <p><strong>Text: 248 678 5685</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!--                ORDER FORM                    -->
+<!-- ============================================ -->
+
+<section id="order-form-section" class="order-form-section">
+  <div class="container">
+    <h2>Product Order Form</h2>
+    <form id="product-order-form" class="order-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="item-number">Item #</label>
+          <input type="text" id="item-number" name="item-number" required>
+        </div>
+        <div class="form-group">
+          <label for="customer-name">Name</label>
+          <input type="text" id="customer-name" name="customer-name" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="zip-code">Zip Code</label>
+          <input type="text" id="zip-code" name="zip-code" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Area Code & Phone #</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label for="payment-method">Payment Method Used</label>
+          <select id="payment-method" name="payment-method" required>
+            <option value="">Select Payment Method</option>
+            <option value="paypal">PayPal</option>
+            <option value="venmo">Venmo</option>
+            <option value="cashapp">Cash App</option>
+            <option value="check">Check</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label for="special-instructions">Special Instructions</label>
+          <textarea id="special-instructions" name="special-instructions" rows="3" placeholder="Please provide any special instructions, custom requests, or additional information..."></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="submit-order-btn">Submit Order</button>
+        <button type="reset" class="reset-form-btn">Reset Form</button>
+      </div>
+    </form>
+  </div>
+</section>
 <!-- ============================================ -->
 <!--                Advanced Filter System        -->
 <!-- ============================================ -->
@@ -868,5 +979,58 @@ eleventyNavigation:
 
     // Load products into the advanced filter system
     filterSystem.loadProducts();
+  })();
+
+  // Order Form Handling
+  (function() {
+    const orderForm = document.getElementById('product-order-form');
+    
+    if (orderForm) {
+      orderForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(orderForm);
+        const orderData = {
+          itemNumber: formData.get('item-number'),
+          customerName: formData.get('customer-name'),
+          address: formData.get('address'),
+          zipCode: formData.get('zip-code'),
+          phone: formData.get('phone'),
+          paymentMethod: formData.get('payment-method'),
+          specialInstructions: formData.get('special-instructions')
+        };
+        
+        // Validate required fields
+        if (!orderData.itemNumber || !orderData.customerName || !orderData.address || 
+            !orderData.zipCode || !orderData.phone || !orderData.paymentMethod) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+        
+        // Create order summary
+        const orderSummary = `
+Order Summary:
+Item #: ${orderData.itemNumber}
+Name: ${orderData.customerName}
+Address: ${orderData.address}
+Zip Code: ${orderData.zipCode}
+Phone: ${orderData.phone}
+Payment Method: ${orderData.paymentMethod}
+Special Instructions: ${orderData.specialInstructions || 'None'}
+
+Please contact us at 248 678 5685 to complete your order and arrange payment.
+        `;
+        
+        // Show order summary
+        alert(orderSummary);
+        
+        // Reset form
+        orderForm.reset();
+        
+        // Optional: Send to email or save to database
+        console.log('Order submitted:', orderData);
+      });
+    }
   })();
 </script>

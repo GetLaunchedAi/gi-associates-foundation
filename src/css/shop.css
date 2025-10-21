@@ -352,6 +352,263 @@ body.dark-mode{
 #catalog{ margin-top: 10px; }
 
 /* ============================================
+   Foundation Store Info Styles
+   ============================================ */
+
+.foundation-store-info {
+  background: var(--bg);
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.foundation-store-info .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.store-welcome {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.store-welcome h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.mission-statement {
+  font-size: 1.25rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.store-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.store-details h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+}
+
+.store-details p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.store-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.store-details li {
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.store-details li::before {
+  content: "•";
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.product-info,
+.pricing-info,
+.shipping-info,
+.contact-info {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-info p:last-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
+/* ============================================
+   Order Form Styles
+   ============================================ */
+
+.order-form-section {
+  background: var(--bg);
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-form-section .container {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.order-form-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+.order-form {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  flex: 1 1 100%;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+  background: var(--dark);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0, 112, 201, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.submit-order-btn,
+.reset-form-btn {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-order-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.submit-order-btn:hover {
+  background: var(--primary-dark, #0056b3);
+  transform: translateY(-1px);
+}
+
+.reset-form-btn {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.reset-form-btn:hover {
+  background: var(--light-bg, #f8f9fa);
+  border-color: var(--primary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .store-details {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .submit-order-btn,
+  .reset-form-btn {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .foundation-store-info,
+body.dark-mode .order-form-section {
+  background: var(--dark);
+  border-color: var(--border);
+}
+
+body.dark-mode .product-info,
+body.dark-mode .pricing-info,
+body.dark-mode .shipping-info,
+body.dark-mode .contact-info,
+body.dark-mode .order-form {
+  background: var(--dark);
+  border-color: var(--card-border);
+}
+
+/* ============================================
    Advanced Filter System Styles
    ============================================ */
 

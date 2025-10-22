@@ -1,5 +1,6 @@
 // imports for the various eleventy plugins (navigation & image)
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const sitemapPlugin = require('@quasibit/eleventy-plugin-sitemap');
 const { DateTime } = require('luxon');
 const Image = require('@11ty/eleventy-img');
 const path = require('path');
@@ -53,6 +54,40 @@ ${Object.values(metadata)
   // adds the navigation plugin for easy navs
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
+  // adds the sitemap plugin
+  eleventyConfig.addPlugin(sitemapPlugin, {
+    sitemap: {
+      hostname: 'https://reallove1969.org',
+      exclude: ['/admin/**', '/api/**'],
+      priority: {
+        '/': 1.0,
+        '/about/': 0.8,
+        '/contact/': 0.8,
+        '/services/': 0.8,
+        '/donations/': 0.8,
+        '/property-donations/': 0.8,
+        '/victim-process/': 0.8,
+        '/shop/': 0.8,
+        '/support/': 0.8,
+        '/servicepages/': 0.8,
+        '/products/': 0.6
+      },
+      changefreq: {
+        '/': 'weekly',
+        '/about/': 'monthly',
+        '/contact/': 'monthly',
+        '/services/': 'monthly',
+        '/donations/': 'monthly',
+        '/property-donations/': 'monthly',
+        '/victim-process/': 'monthly',
+        '/shop/': 'weekly',
+        '/support/': 'monthly',
+        '/servicepages/': 'monthly',
+        '/products/': 'weekly'
+      }
+    }
+  });
+
   // allows css, assets, robots.txt and CMS config files to be passed into /public
   eleventyConfig.addPassthroughCopy('./src/css/**/*.css');
   eleventyConfig.addPassthroughCopy('./src/assets');
@@ -62,6 +97,7 @@ ${Object.values(metadata)
   eleventyConfig.addPassthroughCopy('src/images');
   eleventyConfig.addPassthroughCopy({ 'src/admin': 'admin' }); // copies to /admin
   eleventyConfig.addPassthroughCopy({ 'src/_data/products.json': 'products.json' });
+  eleventyConfig.addPassthroughCopy({ 'sitemap.xml': '/sitemap.xml' }); // copies sitemap to root
   eleventyConfig.addWatchTarget('src/_data/products.json');
 
   // Expose a dev flag to templates (true when running `eleventy --serve`)

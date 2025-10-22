@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy && node scripts/generate-sitemap.js",
+    "build:eleventy": "eleventy",
+    "sitemap": "node scripts/generate-sitemap.js"
   },
   "repository": {
     "type": "git",

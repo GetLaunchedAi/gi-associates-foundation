@@ -194,7 +194,7 @@ eleventyNavigation:
         <div class="payment-methods">
           <label for="payment-method">Choose Payment Method:</label>
           <select id="payment-method" class="payment-select">
-            <option value="cashapp">Cash App (@Supremework)</option>
+            <option value="cashapp">Cash App ($Supremework)</option>
             <option value="stripe">Credit/Debit Card</option>
             <option value="paypal">PayPal</option>
           </select>
@@ -223,7 +223,7 @@ eleventyNavigation:
         <div class="payment-methods">
           <label for="payment-method-monthly">Choose Payment Method:</label>
           <select id="payment-method-monthly" class="payment-select">
-            <option value="cashapp">Cash App (@Supremework)</option>
+            <option value="cashapp">Cash App ($Supremework)</option>
             <option value="stripe">Credit/Debit Card</option>
             <option value="paypal">PayPal</option>
           </select>
@@ -244,7 +244,7 @@ eleventyNavigation:
         <div class="payment-methods">
           <label for="payment-method-equipment">Choose Payment Method:</label>
           <select id="payment-method-equipment" class="payment-select">
-            <option value="cashapp">Cash App (@Supremework)</option>
+            <option value="cashapp">Cash App ($Supremework)</option>
             <option value="stripe">Credit/Debit Card</option>
             <option value="paypal">PayPal</option>
           </select>
@@ -279,7 +279,7 @@ eleventyNavigation:
         
         <div class="category-card">
           <h3>💰 Cash</h3>
-          <p>Cash via Cash App @Supremework</p>
+          <p>Cash via Cash App $Supremework</p>
         </div>
         
         <div class="category-card">
@@ -521,11 +521,11 @@ eleventyNavigation:
 
     // Cash App donation handler
     function handleCashAppDonation(amount, isMonthly, isEquipment) {
-      const cashAppHandle = '@Supremework';
+      const cashAppHandle = '$Supremework';
       const donationType = isEquipment ? 'specific support' : (isMonthly ? 'monthly support' : 'one-time donation');
       
       // Create Cash App payment URL
-      const cashAppUrl = `https://cash.app/${cashAppHandle.replace('@', '')}`;
+      const cashAppUrl = `https://cash.app/${cashAppHandle.replace('$', '')}`;
       
       // Show Cash App donation modal
       showCashAppModal(amount, isMonthly, cashAppUrl, donationType);
@@ -554,7 +554,7 @@ eleventyNavigation:
               <div class="donation-details">
                 <p><strong>Donation Amount:</strong> $${amount.toFixed(2)}${isMonthly ? '/month' : ''}</p>
                 <p><strong>Donation Type:</strong> ${donationType}</p>
-                <p><strong>Cash App Handle:</strong> @Supremework</p>
+                <p><strong>Cash App Handle:</strong> $Supremework</p>
               </div>
             </div>
             <div class="cashapp-instructions">
@@ -563,7 +563,7 @@ eleventyNavigation:
                 <li>Open Cash App on your phone</li>
                 <li>Tap the "Pay" button</li>
                 <li>Enter the amount: <strong>$${amount.toFixed(2)}</strong></li>
-                <li>Enter the recipient: <strong>@Supremework</strong></li>
+                <li>Enter the recipient: <strong>$Supremework</strong></li>
                 <li>Add a note: "GI Associates Foundation Donation"</li>
                 <li>Complete the payment</li>
               </ol>
@@ -572,7 +572,7 @@ eleventyNavigation:
               <a href="${cashAppUrl}" target="_blank" class="cashapp-button">
                 Open Cash App
               </a>
-              <button class="cashapp-copy-btn" onclick="copyCashAppInfo('${amount.toFixed(2)}', '@Supremework')">
+              <button class="cashapp-copy-btn" onclick="copyCashAppInfo('${amount.toFixed(2)}', '$Supremework')">
                 Copy Details
               </button>
             </div>

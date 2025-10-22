@@ -158,25 +158,6 @@ eleventyNavigation:
 
     <div class="filter-content">
 
-      <!-- Price Range Filter -->
-      <div class="filter-group">
-        <div class="filter-group-header" data-toggle="price-options">
-          <h4>PRICE</h4>
-          <svg class="angle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
-            <polyline points="6,9 12,15 18,9"></polyline>
-          </svg>
-        </div>
-        <div class="filter-options" id="price-options">
-          <div class="price-range">
-            <div class="price-inputs">
-              <input type="number" id="price-from" placeholder="From" min="0" step="0.01">
-              <span class="price-separator">-</span>
-              <input type="number" id="price-to" placeholder="To" min="0" step="0.01">
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- In Stock Filter -->
       <div class="filter-group">
@@ -198,21 +179,6 @@ eleventyNavigation:
       </div>
 
 
-      <!-- Material Filter -->
-      <div class="filter-group">
-        <div class="filter-group-header" data-toggle="material-options">
-          <h4>MATERIAL</h4>
-          <svg class="angle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
-            <polyline points="6,9 12,15 18,9"></polyline>
-          </svg>
-        </div>
-        <div class="filter-options" id="material-options">
-          <div class="checkbox-options">
-            <!-- Materials will be populated dynamically -->
-          </div>
-        </div>
-      </div>
 
 
       <!-- Category Filter -->
@@ -251,7 +217,7 @@ eleventyNavigation:
   <div class="main-content">
     <!-- Products Header -->
     <div class="products-header">
-      <h2 id="products-title">Baseball Apparel <span id="products-count">(0)</span></h2>
+      <h2 id="products-title">Foundation Store <span id="products-count">(0)</span></h2>
       <div class="products-controls">
         <button id="hide-filters" class="hide-filters-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -270,8 +236,6 @@ eleventyNavigation:
           <label for="sort-select">Sort by:</label>
           <select id="sort-select" class="sort-select">
             <option value="default">Default</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
             <option value="name-asc">Name: A to Z</option>
             <option value="name-desc">Name: Z to A</option>
           </select>
@@ -334,10 +298,7 @@ eleventyNavigation:
         this.allProducts = [];
         this.filteredProducts = [];
         this.currentFilters = {
-          priceMin: null,
-          priceMax: null,
           inStock: false,
-          materials: [],
           categories: []
         };
         this.sortBy = 'default';
@@ -382,10 +343,7 @@ eleventyNavigation:
         this.filterContainer = document.querySelector('.filter-container');
 
         // Filter inputs
-        this.priceFrom = document.getElementById('price-from');
-        this.priceTo = document.getElementById('price-to');
         this.inStockToggle = document.getElementById('in-stock-toggle');
-        this.materialOptions = document.getElementById('material-options');
         this.categoryOptions = document.getElementById('category-options');
 
         // Main content
@@ -403,10 +361,6 @@ eleventyNavigation:
         this.filterClose?.addEventListener('click', () => this.closeSidebar());
         this.filterOverlay?.addEventListener('click', () => this.closeSidebar());
 
-
-        // Price filter
-        this.priceFrom?.addEventListener('input', () => this.updatePriceFilter());
-        this.priceTo?.addEventListener('input', () => this.updatePriceFilter());
 
         // In stock filter
         this.inStockToggle?.addEventListener('change', () => this.updateInStockFilter());
@@ -524,20 +478,6 @@ eleventyNavigation:
 
       // Filter methods
 
-      updatePriceFilter() {
-        this.currentFilters.priceMin = this.priceFrom?.value ? parseFloat(this.priceFrom.value) : null;
-        this.currentFilters.priceMax = this.priceTo?.value ? parseFloat(this.priceTo.value) : null;
-
-        // Auto-swap if min > max
-        if (this.currentFilters.priceMin !== null && this.currentFilters.priceMax !== null &&
-          this.currentFilters.priceMin > this.currentFilters.priceMax) {
-          [this.currentFilters.priceMin, this.currentFilters.priceMax] = [this.currentFilters.priceMax, this.currentFilters.priceMin];
-          this.priceFrom.value = this.currentFilters.priceMin;
-          this.priceTo.value = this.currentFilters.priceMax;
-        }
-
-        this.applyFilters();
-      }
 
       updateInStockFilter() {
         this.currentFilters.inStock = this.inStockToggle?.checked || false;
@@ -552,20 +492,15 @@ eleventyNavigation:
 
       clearAllFilters() {
         this.currentFilters = {
-          priceMin: null,
-          priceMax: null,
           inStock: false,
-          materials: [],
           categories: []
         };
 
         // Reset UI
-        this.priceFrom.value = '';
-        this.priceTo.value = '';
         this.inStockToggle.checked = false;
         this.sortSelect.value = 'default';
 
-        // Clear material selections
+        // Clear category selections
         document.querySelectorAll('.checkbox-option input[type="checkbox"]').forEach(checkbox => {
           checkbox.checked = false;
         });
@@ -578,46 +513,11 @@ eleventyNavigation:
 
       // Populate filter options
       populateFilterOptions() {
-        this.populateMaterialOptions();
         this.populateCategoryOptions();
         this.updateCounts();
       }
 
 
-      populateMaterialOptions() {
-        const materials = [...new Set(this.allProducts.map(p => p.material).filter(Boolean))];
-
-        const materialCheckboxOptions = this.materialOptions.querySelector('.checkbox-options');
-        if (materialCheckboxOptions) {
-          materialCheckboxOptions.innerHTML = materials.map(material => {
-            const count = this.allProducts.filter(p => p.material === material).length;
-            return `
-            <label class="checkbox-option">
-              <input type="checkbox" data-material="${material}">
-              <span class="checkmark"></span>
-              <span class="checkbox-label">${toTitle(material)} <span class="count">(${count})</span></span>
-            </label>
-          `;
-          }).join('');
-
-          // Bind material selection events
-          materialCheckboxOptions.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-              const material = checkbox.dataset.material;
-
-              if (checkbox.checked) {
-                if (!this.currentFilters.materials.includes(material)) {
-                  this.currentFilters.materials.push(material);
-                }
-              } else {
-                this.currentFilters.materials = this.currentFilters.materials.filter(m => m !== material);
-              }
-
-              this.applyFilters();
-            });
-          });
-        }
-      }
 
       populateCategoryOptions() {
         // Get categories from products
@@ -676,22 +576,9 @@ eleventyNavigation:
         this.currentPage = 1; // Reset to first page when filters change
         let filtered = [...this.allProducts];
 
-        // Price filter
-        if (this.currentFilters.priceMin !== null) {
-          filtered = filtered.filter(p => p.price >= this.currentFilters.priceMin);
-        }
-        if (this.currentFilters.priceMax !== null) {
-          filtered = filtered.filter(p => p.price <= this.currentFilters.priceMax);
-        }
-
         // In stock filter
         if (this.currentFilters.inStock) {
           filtered = filtered.filter(p => p.inStock === true);
-        }
-
-        // Material filter
-        if (this.currentFilters.materials.length > 0) {
-          filtered = filtered.filter(p => this.currentFilters.materials.includes(p.material));
         }
 
         // Category filter
@@ -710,10 +597,6 @@ eleventyNavigation:
         const sorted = [...products];
 
         switch (this.sortBy) {
-          case 'price-low':
-            return sorted.sort((a, b) => (a.price || 0) - (b.price || 0));
-          case 'price-high':
-            return sorted.sort((a, b) => (b.price || 0) - (a.price || 0));
           case 'name-asc':
             return sorted.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
           case 'name-desc':
@@ -839,14 +722,9 @@ eleventyNavigation:
 
       getCategoryDescriptions() {
         return {
-          'Spinners': 'CHOOSE A CATEGORY FROM ABOVE OR SCROLL DOWN FOR OUR ENTIRE INVENTORY<br><br>*One of the largest selections of laser cut wind spinners in the USA<br><br>* Mesmerizing indoors or out<br><br>* Stainless steel',
-          'Tails': 'Tails help stabilize the spinners in the wind. The mesmerizing spinning tail has a jaw dropping optical illusion, revealing another dimension of the wind spinner experience.<br><br><strong>Colored Ball options:</strong><br>Amber, Aqua, Blue, Crystal, Glow In the Dark, Green, Multi, Orange, Pink, Purple, Red, Yellow<br><br><strong>Mini Twister Tails</strong> are 7.5" long<br>Color: Copper, Gold, Silver<br>2 balls (30mm, 20mm)<br>Hanging crystal drop*<br><br><strong>Spiral Tails</strong> are 11" long<br>Color: Copper, Gold, or Silver<br>2" glass colored ball<br><br><strong>Twisted Tails</strong> are 14" long<br>Color: Copper, Gold, Silver<br>2 balls (50mm, 30mm)<br>Hanging crystal drop*<br><br>* The hanging drop crystal catches the light and reflects rainbows.',
-          'Accessories': 'BATTERY MOTOR (optional)<br><br>The battery motor runs with a D cell battery. The motor turns 30 rpms to show off the spinners and give it them a constant spin. The motor has an on/off switch.<br><br><strong>HOOKS (optional)</strong><br>The hook allows you to hang your spinner. The hooks come in 7" or 15" length and come in copper or silver color.<br><br><strong>SWIVEL HOOKS</strong><br>The dual swivel allows for the spinner to spin freely in the wind. If you are using a motor, you will have to disengage the swivel by clipping it to the S hook and bypass the swivel.<br><br>A swivel is included in every spinner purchase.',
-          'Sun Catcher/Dream Catcher': 'We don\'t have any products to show here right now.<br><br><strong>SUN CATCHERS</strong><br>Decorative pieces that hang indoors near a window to *catch the light* from the reflecting crystals or beads.<br><br>Our beautiful handmade Alaskans Sun Catchers are wrapped in leather and made with glass beads and swarovski crystals. We bead the catchers by hand, sending our love to you with every rainbow it catches.<br><br>Our hope is that these rainbows remind you of the beauty life has in store for you.<br><br><strong>DREAM CATCHERS</strong><br>The Legend Of the Dream Catcher The Ojibwa (Chippewa) believe that night is full of both good and bad dreams. When a dream catcher is hung above the place where you sleep it moves freely in the night air and catches the dreams as they drift by.',
-          'Woolly Mammoth Ivory': 'Woolly Mammoth Ivory Jewelry<br><br>Did you know that Woolly Mammoths are being unearthed all over Alaska and Siberia? At Alaskans Art-n-Around, we are able to offer some truly one-of-a-kind jewelry carved out of these prehistoric bones. Aged for thousands of years under the Alaskan tundra, they can now become part of your collection. If you would prefer to wear something grown in this century, consider our stunning collection of carved bone jewelry from responsibly sourced cow bones.<br><br><strong>Unearthed in Alaska--Carved by Masters in Bali</strong><br><br>Our woolly mammoth jewelry is created out of a mammoth that was unearthed in Alaska. The bones and ivory were shipped off to Bali, where master carvers created a collection of pendants, bracelets, necklaces, and carvings. Each piece is a conversation piece in itself while maintaining its innate beauty. The last mammoth walked the Earth about 4,000 years ago, but these pieces are entirely timeless.<br><br><strong>Maintain Tradition with Responsibly Sourced Carved Bone Jewelry</strong><br><br>If you love the look of ivory, but want a more eco-conscious 21st century option, check out our line of carved bone jewelry. These pieces are crafted by local artisans from responsibly sourced cow bones. You enjoy the warmth and feel of ivory and support a traditional craft. Make your choice from pins, necklaces, and pendants. Many items reflect the spirit animals of the North like the polar bear, sea otter, sea turtle, eagle, bear, and wolf.<br><br>Alaskans Art-n-Around stocks many beautiful examples of bone carving. Order yours from our online store or give us a call to make the purchase over the phone. While we are often traveling, so does our inventory, so we can box up your purchase and ship it out ASAP. See us in person! We are often found at art and folk festivals and fairs all across the nation every year.',
-          'Carved Cow Bone': 'Carved Cow Bone<br><br><strong>Maintain Tradition with Responsibly Sourced Carved Bone Jewelry</strong><br><br>If you love the look of ivory, but want a more eco-conscious 21st century option, check out our line of carved bone jewelry. Our carved cow bone jewelry is hand carved, in the Bali Islands, by master and apprentice carvers. Some of the bone has been dyed in coffee or tea to bring out the details of the carvings. Make your choice from pins, necklaces, and pendants. Many items reflect the spirit animals of the North like the polar bear, sea otter, sea turtle, eagle, bear, and wolf.<br><br>Alaskans Art-n-Around stock many beautiful examples of bone carving. Order yours from our online store or give us a call to make the purchase over the phone. While we are often traveling, so does our inventory, so we can box up your purchase and ship it out ASAP. See us in person! We are often found at art and folk festivals and fairs all across the nation every year.<br>Carved Bone (cow)',
-          'Necklaces': 'We hand make our necklaces with inspiration from nature and our travels.<br><br>Alaskans Art-n-Around makes one of a kind unique nature inspired necklaces. We use a variety of beading material ranging from semi precious stones, turquoise, glass pony beads, shells, crystals, carved bone, abalone, Woolly Mammoth and Mastodon Ivories, to name a few. Our pendants are skillfully carved in great detail from mammoth ivory and cow bone with sterling silver findings.<br><br>The pendants are all handmade so slight variations in size and color may occur. Necklaces are hand made by Marla and Ruth Olsen and strung on a strong, flexible, coated wire and finished with either a powerful magnetic clasp or a silver lobster clasp.<br><br>We do not have product to display. Please contact us by phone or email for current inventory.',
-          'Semi Precious Stone Jewelry': 'Exquisite jewelry crafted from semi-precious stones including turquoise, tiger eye, moonstone, and other natural gemstones.'
+          'Ladies jewelry and accessories': 'Beautiful jewelry and accessories designed specifically for women. Our collection includes delicate pieces like butterflies, hearts, flowers, and feminine symbols. Each piece is handcrafted with love and attention to detail, perfect for adding elegance to any outfit.<br><br><strong>Featured Items:</strong><br>• Butterfly designs in various styles<br>• Heart-shaped pieces<br>• Floral and nature-inspired jewelry<br>• Delicate chains and pendants<br>• Semi-precious stone jewelry<br><br>All items are made by victims of domestic violence and human trafficking as they rebuild their lives. Your purchase directly supports their journey to independence.',
+          'Mens jewelry and accessories': 'Bold and masculine jewelry and accessories designed for men. Our collection features strong symbols like wolves, bears, eagles, and tribal designs that reflect power and strength.<br><br><strong>Featured Items:</strong><br>• Wolf and bear carvings<br>• Eagle and tribal designs<br>• Masculine chains and pendants<br>• Carved bone and ivory pieces<br>• Tiger eye and turquoise jewelry<br><br>Each piece is carefully crafted to embody masculine energy and style. Your purchase supports victims as they create new opportunities for themselves.',
+          'Miscellaneous': 'A diverse collection of unique items that don\'t fit into traditional categories. This includes decorative pieces, functional accessories, and one-of-a-kind items that make perfect gifts or personal treasures.<br><br><strong>Featured Items:</strong><br>• Wind spinners and decorative pieces<br>• Functional accessories and tools<br>• Unique gift items<br>• Seasonal and holiday pieces<br>• Custom and specialty items<br><br>Every purchase helps support our foundation\'s mission to help victims of domestic violence and human trafficking rebuild their lives.'
         };
       }
 
@@ -954,9 +832,7 @@ eleventyNavigation:
       const href = productUrl(p);
       const img = p.image || '/images/placeholder.jpg';
       const title = esc(p.title || p.name || 'Untitled');
-      const price = p.price ? money(p.price) : '0.00';
-      const currency = p.currency || 'USD';
-      const isOutOfStock = p.price === 0 || !p.inStock;
+      const isOutOfStock = !p.inStock;
 
       return `<article class="card ${isOutOfStock ? 'out-of-stock' : ''}">
         <a href="${esc(href)}" class="card__link">
@@ -968,9 +844,9 @@ eleventyNavigation:
           <h3 class="card__title">
             <a href="${esc(href)}" data-title="${esc(title)}">${title}</a>
           </h3>
-          <p class="card__price">${isOutOfStock ? 'Out of Stock' : `$${price} ${currency}`}</p>
+          <p class="card__price">${isOutOfStock ? 'Out of Stock' : 'Pay what you want to donate'}</p>
         </div>
-        <a class="add-to-cart ${isOutOfStock ? 'disabled' : ''}" href="${esc(href)}">${isOutOfStock ? 'Out of Stock' : 'Add to cart'}</a>
+        <a class="add-to-cart ${isOutOfStock ? 'disabled' : ''}" href="${esc(href)}">${isOutOfStock ? 'Out of Stock' : 'Donate & Order'}</a>
       </article>`;
     }
 

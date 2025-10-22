@@ -112,6 +112,9 @@
     width: 100%;
     max-width: 40.625rem;
     margin: 0;
+    color: var(--bodyTextColor);
+  }
+  body.dark-mode #donation-options .cs-text {
     color: var(--bodyTextColorWhite);
   }
 

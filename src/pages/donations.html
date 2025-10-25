@@ -195,8 +195,7 @@ eleventyNavigation:
           <label for="payment-method">Choose Payment Method:</label>
           <select id="payment-method" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
-            <option value="stripe">Credit/Debit Card</option>
-            <option value="paypal">PayPal</option>
+            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-now">Donate Now</button>
@@ -224,8 +223,7 @@ eleventyNavigation:
           <label for="payment-method-monthly">Choose Payment Method:</label>
           <select id="payment-method-monthly" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
-            <option value="stripe">Credit/Debit Card</option>
-            <option value="paypal">PayPal</option>
+            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-monthly">Start Monthly Support</button>
@@ -245,8 +243,7 @@ eleventyNavigation:
           <label for="payment-method-equipment">Choose Payment Method:</label>
           <select id="payment-method-equipment" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
-            <option value="stripe">Credit/Debit Card</option>
-            <option value="paypal">PayPal</option>
+            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-equipment">Support</button>
@@ -504,17 +501,16 @@ eleventyNavigation:
           // Get the payment method for this specific button
           const card = this.closest('.donation-card');
           const paymentSelect = card.querySelector('.payment-select');
-          const paymentMethod = paymentSelect ? paymentSelect.value : 'stripe';
+          const paymentMethod = paymentSelect ? paymentSelect.value : 'square';
           
           // Handle different payment methods
           if (paymentMethod === 'cashapp') {
             handleCashAppDonation(selectedAmount, isMonthly, isEquipment);
-          } else {
-            // For other payment methods, show the existing alert
-            alert(`Thank you for your ${isMonthly ? 'monthly ' : ''}donation of $${selectedAmount.toFixed(2)}${isMonthly ? '/month' : ''}! This would normally redirect to our secure payment processor.`);
+          } else if (paymentMethod === 'square') {
+            handleSquareDonation(selectedAmount, isMonthly, isEquipment);
           }
         } else {
-          alert('Please select or enter a donation amount.');
+          showModernAlert('Required', 'Please select or enter a donation amount.', 'warning');
         }
       });
     });
@@ -529,6 +525,14 @@ eleventyNavigation:
       
       // Show Cash App donation modal
       showCashAppModal(amount, isMonthly, cashAppUrl, donationType);
+    }
+
+    // Square donation handler
+    function handleSquareDonation(amount, isMonthly, isEquipment) {
+      const donationType = isEquipment ? 'specific support' : (isMonthly ? 'monthly support' : 'one-time donation');
+      
+      // Show Square donation modal
+      showSquareModal(amount, isMonthly, donationType);
     }
 
     // Cash App donation modal
@@ -572,7 +576,7 @@ eleventyNavigation:
               <a href="${cashAppUrl}" target="_blank" class="cashapp-button">
                 Open Cash App
               </a>
-              <button class="cashapp-copy-btn" onclick="copyCashAppInfo('${amount.toFixed(2)}', '$Supremework')">
+              <button class="cashapp-copy-btn" data-amount="${amount.toFixed(2)}" data-handle="$Supremework">
                 Copy Details
               </button>
             </div>
@@ -584,13 +588,23 @@ eleventyNavigation:
       `;
       
       document.body.appendChild(modalOverlay);
+      
+      // Add event listener for Cash App copy button
+      const copyButton = modalOverlay.querySelector('.cashapp-copy-btn');
+      if (copyButton) {
+        copyButton.addEventListener('click', function() {
+          const amount = this.dataset.amount;
+          const handle = this.dataset.handle;
+          copyCashAppInfo(amount, handle);
+        });
+      }
     }
 
     // Copy Cash App info to clipboard
     function copyCashAppInfo(amount, handle) {
       const text = `Donation Amount: $${amount}\nCash App Handle: ${handle}\nNote: GI Associates Foundation Donation`;
       navigator.clipboard.writeText(text).then(() => {
-        alert('Cash App details copied to clipboard!');
+        showModernAlert('Success!', 'Cash App details copied to clipboard!', 'success');
       }).catch(() => {
         // Fallback for older browsers
         const textArea = document.createElement('textarea');
@@ -599,8 +613,132 @@ eleventyNavigation:
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('Cash App details copied to clipboard!');
+        showModernAlert('Success!', 'Cash App details copied to clipboard!', 'success');
       });
+    }
+
+    // Square donation modal
+    function showSquareModal(amount, isMonthly, donationType) {
+      // Create modal overlay
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'square-modal-overlay';
+      modalOverlay.innerHTML = `
+        <div class="square-modal">
+          <div class="square-modal-header">
+            <h3>Complete Your Donation with Square</h3>
+            <button class="square-close-btn" onclick="this.closest('.square-modal-overlay').remove()">×</button>
+          </div>
+          <div class="square-modal-content">
+            <div class="square-info">
+              <div class="square-logo">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="4" fill="#00A651"/>
+                  <path d="M8 6h8v2H8V6zm0 4h8v2H8v-2zm0 4h8v2H8v-2z" fill="white"/>
+                </svg>
+                <span>Square</span>
+              </div>
+              <div class="donation-details">
+                <p><strong>Donation Amount:</strong> $${amount.toFixed(2)}${isMonthly ? '/month' : ''}</p>
+                <p><strong>Donation Type:</strong> ${donationType}</p>
+                <p><strong>Payment Method:</strong> Square Payment Processing</p>
+              </div>
+            </div>
+            <div class="square-instructions">
+              <h4>How to complete your donation:</h4>
+              <ol>
+                <li>Click the "Pay with Square" button below</li>
+                <li>You'll be redirected to our secure Square payment page</li>
+                <li>Enter your payment information</li>
+                <li>Complete your donation securely</li>
+                <li>You'll receive a confirmation email</li>
+              </ol>
+            </div>
+            <div class="square-actions">
+              <button class="square-button" data-amount="${amount}" data-monthly="${isMonthly}">
+                Pay with Square - $${amount.toFixed(2)}
+              </button>
+            </div>
+            <div class="square-note">
+              <p><strong>Note:</strong> Your donation will be processed securely through Square. You'll receive a receipt for tax purposes.</p>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modalOverlay);
+      
+      // Add event listener for Square button
+      const squareButton = modalOverlay.querySelector('.square-button');
+      if (squareButton) {
+        squareButton.addEventListener('click', function() {
+          const amount = parseFloat(this.dataset.amount);
+          const isMonthly = this.dataset.monthly === 'true';
+          processSquarePayment(amount, isMonthly);
+        });
+      }
+    }
+
+    // Process Square payment (placeholder for actual Square integration)
+    function processSquarePayment(amount, isMonthly) {
+      // This would integrate with Square's payment API
+      // For now, show a message about the integration
+      showModernAlert(
+        'Square Payment', 
+        `Square payment integration for $${amount.toFixed(2)}${isMonthly ? '/month' : ''} would be processed here. This requires Square API setup.`, 
+        'info'
+      );
+      
+      // Close the modal
+      document.querySelector('.square-modal-overlay')?.remove();
+    }
+
+    // Modern Alert System
+    function showModernAlert(title, message, type = 'info') {
+      const alertOverlay = document.createElement('div');
+      alertOverlay.className = 'modern-alert-overlay';
+      
+      const iconMap = {
+        success: '✓',
+        error: '✕',
+        warning: '⚠',
+        info: 'ℹ'
+      };
+      
+      const colorMap = {
+        success: '#10B981',
+        error: '#EF4444',
+        warning: '#F59E0B',
+        info: '#3B82F6'
+      };
+      
+      alertOverlay.innerHTML = `
+        <div class="modern-alert">
+          <div class="modern-alert-header">
+            <div class="modern-alert-icon" style="background-color: ${colorMap[type]}">
+              ${iconMap[type]}
+            </div>
+            <h3 class="modern-alert-title">${title}</h3>
+            <button class="modern-alert-close" onclick="this.closest('.modern-alert-overlay').remove()">×</button>
+          </div>
+          <div class="modern-alert-content">
+            <p>${message}</p>
+          </div>
+          <div class="modern-alert-actions">
+            <button class="modern-alert-btn" onclick="this.closest('.modern-alert-overlay').remove()">OK</button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(alertOverlay);
+      
+      // Auto-close after 5 seconds for success messages
+      if (type === 'success') {
+        setTimeout(() => {
+          if (alertOverlay.parentNode) {
+            alertOverlay.remove();
+          }
+        }, 5000);
+      }
     }
   });
 </script>

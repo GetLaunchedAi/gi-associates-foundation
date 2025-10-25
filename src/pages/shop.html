@@ -109,11 +109,8 @@ eleventyNavigation:
           <label for="payment-method">Payment Method Used</label>
           <select id="payment-method" name="payment-method" required>
             <option value="">Select Payment Method</option>
-            <option value="paypal">PayPal</option>
-            <option value="venmo">Venmo</option>
             <option value="cashapp">Cash App</option>
-            <option value="check">Check</option>
-            <option value="other">Other</option>
+            <option value="square">Square</option>
           </select>
         </div>
       </div>
@@ -880,7 +877,7 @@ eleventyNavigation:
         // Validate required fields
         if (!orderData.itemNumber || !orderData.customerName || !orderData.address || 
             !orderData.zipCode || !orderData.phone || !orderData.paymentMethod) {
-          alert('Please fill in all required fields.');
+          showModernAlert('Required Fields', 'Please fill in all required fields.', 'warning');
           return;
         }
         
@@ -899,7 +896,7 @@ Please contact us at 248 678 5685 to complete your order and arrange payment.
         `;
         
         // Show order summary
-        alert(orderSummary);
+        showModernAlert('Order Submitted', orderSummary, 'success');
         
         // Reset form
         orderForm.reset();
@@ -909,4 +906,53 @@ Please contact us at 248 678 5685 to complete your order and arrange payment.
       });
     }
   })();
+
+  // Modern Alert System
+  function showModernAlert(title, message, type = 'info') {
+    const alertOverlay = document.createElement('div');
+    alertOverlay.className = 'modern-alert-overlay';
+    
+    const iconMap = {
+      success: '✓',
+      error: '✕',
+      warning: '⚠',
+      info: 'ℹ'
+    };
+    
+    const colorMap = {
+      success: '#10B981',
+      error: '#EF4444',
+      warning: '#F59E0B',
+      info: '#3B82F6'
+    };
+    
+    alertOverlay.innerHTML = `
+      <div class="modern-alert">
+        <div class="modern-alert-header">
+          <div class="modern-alert-icon" style="background-color: ${colorMap[type]}">
+            ${iconMap[type]}
+          </div>
+          <h3 class="modern-alert-title">${title}</h3>
+          <button class="modern-alert-close" onclick="this.closest('.modern-alert-overlay').remove()">×</button>
+        </div>
+        <div class="modern-alert-content">
+          <p>${message}</p>
+        </div>
+        <div class="modern-alert-actions">
+          <button class="modern-alert-btn" onclick="this.closest('.modern-alert-overlay').remove()">OK</button>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(alertOverlay);
+    
+    // Auto-close after 5 seconds for success messages
+    if (type === 'success') {
+      setTimeout(() => {
+        if (alertOverlay.parentNode) {
+          alertOverlay.remove();
+        }
+      }, 5000);
+    }
+  }
 </script>

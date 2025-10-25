@@ -59,6 +59,10 @@
     <script async src="https://cdn.snipcart.com/themes/v3.6.0/default/snipcart.js"></script>
     <link rel="preload" as="image" href="{{ preloadImg }}" />
 
+    <!-- Square Payment Integration -->
+    <link rel="stylesheet" href="/css/square-payments-enhanced.css" />
+    <script defer src="/assets/js/square-payments.js"></script>
+
     <!-- Loading in page specific CSS sheets from css block -->
     <link rel="stylesheet" href="/css/critical.css" />
     <link rel="stylesheet" href="{{ preloadCSS }}">
@@ -73,6 +77,9 @@
         {{ tagTitle }} | {{ client.name }}
         {% endif %}
     </title>
+
+     <!-- Load the Square Web Payments SDK -->
+     <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
 </head>
 
 <body>

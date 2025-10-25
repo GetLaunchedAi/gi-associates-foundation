@@ -678,18 +678,33 @@ eleventyNavigation:
       }
     }
 
-    // Process Square payment (placeholder for actual Square integration)
-    function processSquarePayment(amount, isMonthly) {
-      // This would integrate with Square's payment API
-      // For now, show a message about the integration
-      showModernAlert(
-        'Square Payment', 
-        `Square payment integration for $${amount.toFixed(2)}${isMonthly ? '/month' : ''} would be processed here. This requires Square API setup.`, 
-        'info'
-      );
-      
-      // Close the modal
-      document.querySelector('.square-modal-overlay')?.remove();
+    // Process Square payment with real Square SDK
+    async function processSquarePayment(amount, isMonthly) {
+      try {
+        // Prepare donation data for Square payment
+        const donationData = {
+          amount: amount,
+          customer: {
+            name: '', // Will be collected in the payment form
+            email: '' // Will be collected in the payment form
+          },
+          note: isMonthly ? 'Monthly donation to GI Associates Foundation' : 'One-time donation to GI Associates Foundation'
+        };
+        
+        // Show Square payment modal with real Square SDK
+        if (window.squarePaymentHandler) {
+          await window.squarePaymentHandler.showDonationPaymentModal(donationData);
+        } else {
+          showModernAlert('Error', 'Square payment system is not available. Please try again later.', 'error');
+        }
+        
+        // Close the current modal
+        document.querySelector('.square-modal-overlay')?.remove();
+        
+      } catch (error) {
+        console.error('Square payment error:', error);
+        showModernAlert('Error', 'Failed to initialize payment. Please try again.', 'error');
+      }
     }
 
     // Modern Alert System

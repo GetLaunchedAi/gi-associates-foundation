@@ -215,7 +215,17 @@
       </a>
       <h3 class="rel-card__title"><a href="${esc(productUrl(p))}">${esc(p.title || p.name || p.slug)}</a></h3>
       <div class="rel-card__price">$${money(p.price ?? p.base_price ?? 0)}</div>
-      <a class="rel-card__cta" href="${esc(productUrl(p))}">Add to cart</a>
+      <button class="rel-card__cta" 
+              onclick="addToCart({
+                id: '${esc(p.id || p.slug)}',
+                title: '${esc(p.title || p.name || p.slug)}',
+                image: '${esc(p.image || '')}',
+                description: '${esc(p.description || '')}',
+                price: ${p.price || 0},
+                currency: '${p.currency || 'USD'}'
+              })">
+        Add to cart
+      </button>
     </article>`;
 
   function pickRelated(list, me, limit=20){

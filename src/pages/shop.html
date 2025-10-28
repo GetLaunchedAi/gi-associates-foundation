@@ -134,7 +134,7 @@ eleventyNavigation:
 <!--                SQUARE PAYMENT SECTION         -->
 <!-- ============================================ -->
 
-<section id="square-payment-section" class="square-payment-section">
+<!-- <section id="square-payment-section" class="square-payment-section">
   <div class="container">
     <div class="square-payment-info">
       <h4>Secure Online Payment</h4>
@@ -146,7 +146,7 @@ eleventyNavigation:
       </button>
     </div>
   </div>
-</section>
+</section> -->
 <!-- ============================================ -->
 <!--                Advanced Filter System        -->
 <!-- ============================================ -->
@@ -844,24 +844,34 @@ eleventyNavigation:
 
     // Product card function
     function card(p) {
-      const href = productUrl(p);
       const img = p.image || '/images/placeholder.jpg';
       const title = esc(p.title || p.name || 'Untitled');
       const isOutOfStock = !p.inStock;
 
       return `<article class="card ${isOutOfStock ? 'out-of-stock' : ''}">
-        <a href="${esc(href)}" class="card__link">
-          <picture class="card__img">
+        <div class="card__img">
+          <picture>
             <img src="${esc(img)}" alt="${esc(title)}" loading="lazy" decoding="async">
           </picture>
-        </a>
+        </div>
         <div class="card__content">
-          <h3 class="card__title">
-            <a href="${esc(href)}" data-title="${esc(title)}">${title}</a>
-          </h3>
+          <h3 class="card__title">${title}</h3>
           <p class="card__price">${isOutOfStock ? 'Out of Stock' : 'Pay what you want to donate'}</p>
         </div>
-        <a class="add-to-cart ${isOutOfStock ? 'disabled' : ''}" href="${esc(href)}">${isOutOfStock ? 'Out of Stock' : 'Donate & Order'}</a>
+        ${isOutOfStock ? 
+          '<button class="add-to-cart disabled" disabled>Out of Stock</button>' : 
+          `<button class="add-to-cart" 
+                   onclick="addToCart({
+                     id: '${esc(p.id || p.slug)}',
+                     title: '${esc(p.title || p.name || p.slug)}',
+                     image: '${esc(p.image || '')}',
+                     description: '${esc(p.description || '')}',
+                     price: ${p.price || 0},
+                     currency: '${p.currency || 'USD'}'
+                   })">
+            Donate & Order
+          </button>`
+        }
       </article>`;
     }
 
@@ -974,7 +984,7 @@ Please contact us at 248 678 5685 to complete your order and arrange payment.
     }
   }
 
-  // Square Payment Integration
+  // Square Payment Integration - Only initialize when needed
   async function handleSquarePayment() {
     try {
       // Get form data
@@ -1013,6 +1023,28 @@ Please contact us at 248 678 5685 to complete your order and arrange payment.
           address: `${orderData.address}, ${orderData.zipCode}`
         }
       };
+      
+      // Initialize Square payment system only when needed
+      if (!window.squarePaymentHandler || !window.squarePaymentHandler.isInitialized) {
+        try {
+          // Get Square configuration
+          const response = await fetch('/api/square-config.php');
+          if (!response.ok) {
+            throw new Error(`Configuration API returned ${response.status}: ${response.statusText}`);
+          }
+          
+          const config = await response.json();
+          if (config && config.app_id && config.environment) {
+            await window.squarePaymentHandler.initialize(config.app_id, config.environment);
+          } else {
+            throw new Error('Square configuration incomplete - missing app_id or environment');
+          }
+        } catch (error) {
+          console.error('Failed to initialize Square payment system:', error);
+          showModernAlert('Payment Error', 'Unable to initialize payment system. Please contact us directly at 248 678 5685 to complete your order.', 'error');
+          return;
+        }
+      }
       
       // Show Square payment modal
       if (window.squarePaymentHandler) {

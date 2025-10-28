@@ -484,13 +484,22 @@ window.squarePaymentHandler = {
     initialize: initializeSquareSDK,
     showShopPaymentModal: showShopPaymentModal,
     showDonationPaymentModal: showDonationPaymentModal,
-    closeModal: closeModal
+    closeModal: closeModal,
+    get isInitialized() {
+        return squarePaymentState.isInitialized;
+    }
 };
 
-// Initialize when DOM is ready
+// Initialize when DOM is ready - but only on pages that need it (not shop page)
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('🔧 [DEBUG] DOMContentLoaded event fired');
     console.log('🔧 [DEBUG] window.squarePaymentHandler exists:', !!window.squarePaymentHandler);
+    
+    // Skip auto-initialization on shop page - it will initialize when needed
+    if (window.location.pathname.includes('/shop/') || window.location.pathname.endsWith('/shop')) {
+        console.log('🔧 [DEBUG] Skipping auto-initialization on shop page');
+        return;
+    }
     
     try {
         // Get Square configuration
@@ -530,8 +539,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             response: error.response
         });
         
-        // Show user-friendly error message
-        if (window.showModernAlert) {
+        // Show user-friendly error message only on non-shop pages
+        if (window.showModernAlert && !window.location.pathname.includes('/shop/') && !window.location.pathname.endsWith('/shop')) {
             window.showModernAlert('Payment System Error', 'Square payment system is not available. Please try again later.', 'error');
         }
     }

@@ -338,6 +338,9 @@ body.dark-mode .card-container label {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-radius: 12px 12px 0 0;
 }
+body.dark-mode .square-message-header {
+    background: var(--medium) !important;
+}
 
 .square-message-icon {
     width: 48px;
@@ -378,6 +381,10 @@ body.dark-mode .card-container label {
 
 .square-message-content {
     padding: 24px;
+    background: var(--bg) !important;
+}
+body.dark-mode .square-message-content {
+    background: var(--medium) !important;
 }
 
 .square-message-content p {
@@ -389,6 +396,10 @@ body.dark-mode .card-container label {
 .square-message-actions {
     padding: 0 24px 24px;
     text-align: center;
+    background: var(--bg) !important;
+}
+body.dark-mode .square-message-actions {
+    background: var(--medium) !important;
 }
 
 .square-message-btn {

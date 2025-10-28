@@ -182,6 +182,7 @@ body.dark-mode{
   box-shadow: var(--shadow);
   transition: box-shadow .2s ease, transform .2s ease;
   position: relative;
+  max-width: 218px;
 }
 
 .card:hover{

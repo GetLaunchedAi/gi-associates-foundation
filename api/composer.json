@@ -1,0 +1,6 @@
+{
+    "name": "square/api",
+    "require": {
+        "square/square": "^43.2"
+    }
+}

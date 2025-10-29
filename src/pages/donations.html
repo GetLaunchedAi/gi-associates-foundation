@@ -195,7 +195,6 @@ eleventyNavigation:
           <label for="payment-method">Choose Payment Method:</label>
           <select id="payment-method" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
-            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-now">Donate Now</button>
@@ -223,7 +222,6 @@ eleventyNavigation:
           <label for="payment-method-monthly">Choose Payment Method:</label>
           <select id="payment-method-monthly" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
-            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-monthly">Start Monthly Support</button>
@@ -243,7 +241,6 @@ eleventyNavigation:
           <label for="payment-method-equipment">Choose Payment Method:</label>
           <select id="payment-method-equipment" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
-            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-equipment">Support</button>
@@ -501,13 +498,11 @@ eleventyNavigation:
           // Get the payment method for this specific button
           const card = this.closest('.donation-card');
           const paymentSelect = card.querySelector('.payment-select');
-          const paymentMethod = paymentSelect ? paymentSelect.value : 'square';
+          const paymentMethod = paymentSelect ? paymentSelect.value : 'cashapp';
           
           // Handle different payment methods
           if (paymentMethod === 'cashapp') {
             handleCashAppDonation(selectedAmount, isMonthly, isEquipment);
-          } else if (paymentMethod === 'square') {
-            handleSquareDonation(selectedAmount, isMonthly, isEquipment);
           }
         } else {
           showModernAlert('Required', 'Please select or enter a donation amount.', 'warning');
@@ -527,13 +522,6 @@ eleventyNavigation:
       showCashAppModal(amount, isMonthly, cashAppUrl, donationType);
     }
 
-    // Square donation handler
-    function handleSquareDonation(amount, isMonthly, isEquipment) {
-      const donationType = isEquipment ? 'specific support' : (isMonthly ? 'monthly support' : 'one-time donation');
-      
-      // Show Square donation modal
-      showSquareModal(amount, isMonthly, donationType);
-    }
 
     // Cash App donation modal
     function showCashAppModal(amount, isMonthly, cashAppUrl, donationType) {
@@ -617,95 +605,6 @@ eleventyNavigation:
       });
     }
 
-    // Square donation modal
-    function showSquareModal(amount, isMonthly, donationType) {
-      // Create modal overlay
-      const modalOverlay = document.createElement('div');
-      modalOverlay.className = 'square-modal-overlay';
-      modalOverlay.innerHTML = `
-        <div class="square-modal">
-          <div class="square-modal-header">
-            <h3>Complete Your Donation with Square</h3>
-            <button class="square-close-btn" onclick="this.closest('.square-modal-overlay').remove()">×</button>
-          </div>
-          <div class="square-modal-content">
-            <div class="square-info">
-              <div class="square-logo">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="24" height="24" rx="4" fill="#00A651"/>
-                  <path d="M8 6h8v2H8V6zm0 4h8v2H8v-2zm0 4h8v2H8v-2z" fill="white"/>
-                </svg>
-                <span>Square</span>
-              </div>
-              <div class="donation-details">
-                <p><strong>Donation Amount:</strong> $${amount.toFixed(2)}${isMonthly ? '/month' : ''}</p>
-                <p><strong>Donation Type:</strong> ${donationType}</p>
-                <p><strong>Payment Method:</strong> Square Payment Processing</p>
-              </div>
-            </div>
-            <div class="square-instructions">
-              <h4>How to complete your donation:</h4>
-              <ol>
-                <li>Click the "Pay with Square" button below</li>
-                <li>You'll be redirected to our secure Square payment page</li>
-                <li>Enter your payment information</li>
-                <li>Complete your donation securely</li>
-                <li>You'll receive a confirmation email</li>
-              </ol>
-            </div>
-            <div class="square-actions">
-              <button class="square-button" data-amount="${amount}" data-monthly="${isMonthly}">
-                Pay with Square - $${amount.toFixed(2)}
-              </button>
-            </div>
-            <div class="square-note">
-              <p><strong>Note:</strong> Your donation will be processed securely through Square. You'll receive a receipt for tax purposes.</p>
-            </div>
-          </div>
-        </div>
-      `;
-      
-      document.body.appendChild(modalOverlay);
-      
-      // Add event listener for Square button
-      const squareButton = modalOverlay.querySelector('.square-button');
-      if (squareButton) {
-        squareButton.addEventListener('click', function() {
-          const amount = parseFloat(this.dataset.amount);
-          const isMonthly = this.dataset.monthly === 'true';
-          processSquarePayment(amount, isMonthly);
-        });
-      }
-    }
-
-    // Process Square payment with real Square SDK
-    async function processSquarePayment(amount, isMonthly) {
-      try {
-        // Prepare donation data for Square payment
-        const donationData = {
-          amount: amount,
-          customer: {
-            name: '', // Will be collected in the payment form
-            email: '' // Will be collected in the payment form
-          },
-          note: isMonthly ? 'Monthly donation to GI Associates Foundation' : 'One-time donation to GI Associates Foundation'
-        };
-        
-        // Show Square payment modal with real Square SDK
-        if (window.squarePaymentHandler) {
-          await window.squarePaymentHandler.showDonationPaymentModal(donationData);
-        } else {
-          showModernAlert('Error', 'Square payment system is not available. Please try again later.', 'error');
-        }
-        
-        // Close the current modal
-        document.querySelector('.square-modal-overlay')?.remove();
-        
-      } catch (error) {
-        console.error('Square payment error:', error);
-        showModernAlert('Error', 'Failed to initialize payment. Please try again.', 'error');
-      }
-    }
 
     // Modern Alert System
     function showModernAlert(title, message, type = 'info') {

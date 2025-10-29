@@ -198,14 +198,6 @@ function closeCart() {
   // Also clear any inline scroll locks that may have been applied elsewhere
   document.body.style.overflow = '';
   document.documentElement.style.overflow = '';
-  // If URL hash was changed by third-party (e.g., Snipcart), clear it
-  if (location.hash === '#/cart') {
-    try {
-      history.replaceState(null, '', location.pathname + location.search);
-    } catch (_) {
-      location.hash = '';
-    }
-  }
 }
 
 function toggleCart() {
@@ -297,12 +289,9 @@ function updateCartTotals() {
 
 function updateCartIcon() {
   const cartIcon = document.querySelector('.cart-btn');
-  const badge = document.querySelector('.snipcart-items-count');
-  const total = document.querySelector('.snipcart-total-price');
+  const badge = document.querySelector('.badge');
   
   if (cartIcon) {
-    // Ensure third-party handlers don't hijack the click
-    cartIcon.classList.remove('snipcart-checkout');
     cartIcon.setAttribute('type', 'button');
     
     // Remove existing listeners to prevent duplicates
@@ -315,10 +304,6 @@ function updateCartIcon() {
     badge.textContent = count > 0 ? count : '';
     badge.style.display = count > 0 ? 'block' : 'none';
     badge.setAttribute('aria-label', count > 0 ? `${count} items in cart` : 'Cart is empty');
-  }
-  
-  if (total) {
-    total.textContent = `$${getTotalDonation().toFixed(2)}`;
   }
 }
 
@@ -363,27 +348,12 @@ function handleCheckout() {
   // Close cart
   closeCart();
   
-  // Integrate with existing Square payment system
-  if (window.squarePaymentHandler && window.squarePaymentHandler.showShopPaymentModal) {
-    const cartData = {
-      total: checkoutData.total,
-      items: checkoutData.items,
-      customer: {
-        name: '',
-        email: '',
-        address: ''
-      }
-    };
-    
-    window.squarePaymentHandler.showShopPaymentModal(cartData);
-  } else {
-    // Fallback: Show alert with cart summary
-    const summary = checkoutData.items.map(item => 
-      `${item.name} x${item.quantity}`
-    ).join('\n');
-    
-    alert(`Checkout Summary:\n${summary}\n\nTotal: $${checkoutData.total.toFixed(2)}\n\nPayment integration not available.`);
-  }
+  // Show cart summary
+  const summary = checkoutData.items.map(item => 
+    `${item.name} x${item.quantity}`
+  ).join('\n');
+  
+  alert(`Checkout Summary:\n${summary}\n\nTotal: $${checkoutData.total.toFixed(2)}\n\nPlease contact us to complete your order.`);
 }
 
 // ====== EVENT LISTENERS ======
@@ -415,30 +385,6 @@ function setupCartEventListeners() {
     }
   });
   
-  // Intercept any clicks on elements with snipcart-checkout to prevent hash changes
-  document.addEventListener('click', (e) => {
-    const snipBtn = e.target.closest('.snipcart-checkout');
-    if (snipBtn) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
-      toggleCart();
-    }
-  }, true);
-
-  // Normalize URL if third-party sets #/cart
-  const clearCartHash = () => {
-    if (location.hash === '#/cart') {
-      try {
-        history.replaceState(null, '', location.pathname + location.search);
-      } catch (_) {
-        location.hash = '';
-      }
-    }
-  };
-  window.addEventListener('hashchange', clearCartHash);
-  // Run once on init in case page loaded with #/cart
-  clearCartHash();
 
   // Close cart when clicking outside
   document.addEventListener('click', (e) => {

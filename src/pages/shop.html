@@ -110,7 +110,6 @@ eleventyNavigation:
           <select id="payment-method" name="payment-method" required>
             <option value="">Select Payment Method</option>
             <option value="cashapp">Cash App</option>
-            <option value="square">Square</option>
           </select>
         </div>
       </div>
@@ -130,23 +129,22 @@ eleventyNavigation:
   </div>
 </section>
 
+<section class="payment">
+  <h1>Make a Payment</h1>
+
+  <div id="payment-form">
+    <div id="card-container"></div>
+    <button id="card-button">Pay $1.00</button>
+    <div id="payment-status"></div>
+  </div>
+
+  <script src="/assets/js/square-pay.js"></script>
+</section>
+
 <!-- ============================================ -->
 <!--                SQUARE PAYMENT SECTION         -->
 <!-- ============================================ -->
 
-<!-- <section id="square-payment-section" class="square-payment-section">
-  <div class="container">
-    <div class="square-payment-info">
-      <h4>Secure Online Payment</h4>
-      <p>Pay securely with your credit or debit card through Square. All payments are processed securely and you'll receive an instant confirmation.</p>
-    </div>
-    <div class="square-payment-actions">
-      <button class="square-pay-button" id="square-pay-button" onclick="handleSquarePayment()">
-        Pay with Square
-      </button>
-    </div>
-  </div>
-</section> -->
 <!-- ============================================ -->
 <!--                Advanced Filter System        -->
 <!-- ============================================ -->
@@ -984,78 +982,4 @@ Please contact us at 248 678 5685 to complete your order and arrange payment.
     }
   }
 
-  // Square Payment Integration - Only initialize when needed
-  async function handleSquarePayment() {
-    try {
-      // Get form data
-      const formData = new FormData(document.getElementById('product-order-form'));
-      const orderData = {
-        itemNumber: formData.get('item-number'),
-        customerName: formData.get('customer-name'),
-        address: formData.get('address'),
-        zipCode: formData.get('zip-code'),
-        phone: formData.get('phone'),
-        specialInstructions: formData.get('special-instructions')
-      };
-      
-      // Validate required fields
-      if (!orderData.itemNumber || !orderData.customerName || !orderData.address || 
-          !orderData.zipCode || !orderData.phone) {
-        showModernAlert('Required Fields', 'Please fill in all required fields before proceeding with payment.', 'warning');
-        return;
-      }
-      
-      // For now, we'll use a default amount since products are "pay what you want"
-      // In a real implementation, you might want to add an amount input field
-      const amount = 25.00; // Default donation amount
-      
-      // Prepare cart data for Square payment
-      const cartData = {
-        total: amount,
-        items: [{
-          name: `Item #${orderData.itemNumber}`,
-          quantity: 1,
-          price: amount
-        }],
-        customer: {
-          name: orderData.customerName,
-          email: '', // You might want to add email field to the form
-          address: `${orderData.address}, ${orderData.zipCode}`
-        }
-      };
-      
-      // Initialize Square payment system only when needed
-      if (!window.squarePaymentHandler || !window.squarePaymentHandler.isInitialized) {
-        try {
-          // Get Square configuration
-          const response = await fetch('/api/square-config.php');
-          if (!response.ok) {
-            throw new Error(`Configuration API returned ${response.status}: ${response.statusText}`);
-          }
-          
-          const config = await response.json();
-          if (config && config.app_id && config.environment) {
-            await window.squarePaymentHandler.initialize(config.app_id, config.environment);
-          } else {
-            throw new Error('Square configuration incomplete - missing app_id or environment');
-          }
-        } catch (error) {
-          console.error('Failed to initialize Square payment system:', error);
-          showModernAlert('Payment Error', 'Unable to initialize payment system. Please contact us directly at 248 678 5685 to complete your order.', 'error');
-          return;
-        }
-      }
-      
-      // Show Square payment modal
-      if (window.squarePaymentHandler) {
-        await window.squarePaymentHandler.showShopPaymentModal(cartData);
-      } else {
-        showModernAlert('Error', 'Square payment system is not available. Please try again later.', 'error');
-      }
-      
-    } catch (error) {
-      console.error('Square payment error:', error);
-      showModernAlert('Error', 'Failed to initialize payment. Please try again.', 'error');
-    }
-  }
 </script>

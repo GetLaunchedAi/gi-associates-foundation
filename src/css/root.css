@@ -790,7 +790,6 @@
   flex: 0 0 auto;
   z-index: 11000;
 }
-
 /* Generic icon button styles (moon, login, cart)
    NOTE: no #dark-mode-toggle in this selector (avoids ID specificity issues) */
 #navigation .icon-btn {
@@ -808,6 +807,9 @@
   cursor: pointer;
   position: relative;
   flex: 0 0 var(--icon-btn-size);
+}
+body.dark-mode #navigation .icon-btn {
+  color: #fff !important;
 }
 
 #navigation .icon-btn {

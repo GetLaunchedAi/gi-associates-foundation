@@ -1,68 +1,85 @@
 // /src/assets/js/square-pay.js
-document.addEventListener("DOMContentLoaded", async () => {
-  const appId = "sandbox-sq0idb-gcWsDO_XVdN-VQxoPxS1iQ"; // Square dashboard
-  const locationId = "LTT4WRVJPJD7K"; // Square dashboard
+// Expose a global initializer to start Square payment with dynamic amount and selectors
+(function () {
+  const appId = "sandbox-sq0idb-gcWsDO_XVdN-VQxoPxS1iQ"; // Square sandbox App ID
+  const locationId = "LTT4WRVJPJD7K"; // Square sandbox Location ID
 
-  const statusEl = document.getElementById("payment-status");
-  const buttonEl = document.getElementById("card-button");
+  async function initSquareInlinePayment(options) {
+    const {
+      amountCents,
+      cardContainerSelector = "#card-container",
+      payButtonSelector = "#card-button",
+      statusSelector = "#payment-status",
+      endpoint = "/api/process-payment.php",
+      onSuccess,
+      onError
+    } = options || {};
 
-  if (!window.Square) {
-    statusEl.innerText = "Square SDK not loaded.";
-    return;
+    const statusEl = document.querySelector(statusSelector);
+    const buttonEl = document.querySelector(payButtonSelector);
+
+    if (!window.Square) {
+      if (statusEl) statusEl.innerText = "Square SDK not loaded.";
+      if (typeof onError === 'function') onError(new Error('Square SDK not loaded'));
+      return;
+    }
+
+    const payments = Square.payments(appId, locationId);
+    const card = await payments.card();
+    await card.attach(cardContainerSelector);
+
+    // Remove any previous listeners to avoid duplicates
+    if (buttonEl) {
+      const newButtonEl = buttonEl.cloneNode(true);
+      buttonEl.parentNode.replaceChild(newButtonEl, buttonEl);
+    }
+    const payBtn = document.querySelector(payButtonSelector);
+    if (!payBtn) return;
+
+    payBtn.addEventListener("click", async () => {
+      payBtn.disabled = true;
+      if (statusEl) statusEl.innerText = "Processing payment...";
+      try {
+        const result = await card.tokenize();
+        if (result.status === "OK") {
+          const token = result.token;
+          const resp = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token, amount: amountCents })
+          });
+          const text = await resp.text();
+          let data;
+          try {
+            data = JSON.parse(text);
+          } catch (e) {
+            console.error("Non-JSON response from server:", text);
+            if (statusEl) statusEl.innerText = "Server error. Check console.";
+            if (typeof onError === 'function') onError(e);
+            return;
+          }
+          if (resp.ok && data.payment && data.payment.status === "COMPLETED") {
+            if (statusEl) statusEl.innerText = "Payment succeeded!";
+            if (typeof onSuccess === 'function') onSuccess(data);
+          } else {
+            const err = data.errors ? new Error(JSON.stringify(data.errors)) : new Error(JSON.stringify(data));
+            if (statusEl) statusEl.innerText = "Payment failed.";
+            if (typeof onError === 'function') onError(err);
+          }
+        } else {
+          const err = new Error(JSON.stringify(result.errors || {}));
+          if (statusEl) statusEl.innerText = "Card validation failed.";
+          if (typeof onError === 'function') onError(err);
+        }
+      } catch (err) {
+        console.error(err);
+        if (statusEl) statusEl.innerText = "Unexpected error.";
+        if (typeof onError === 'function') onError(err);
+      } finally {
+        payBtn.disabled = false;
+      }
+    });
   }
 
-  // Initialize Square payments object
-  const payments = Square.payments(appId, locationId);
-
-  // Create and attach card input
-  const card = await payments.card();
-  await card.attach("#card-container");
-
-  // Handle button click
-  buttonEl.addEventListener("click", async () => {
-    // Disable button to prevent double-click
-    buttonEl.disabled = true;
-    statusEl.innerText = "Processing payment...";
-
-    try {
-      // Tokenize card
-      const result = await card.tokenize();
-
-      if (result.status === "OK") {
-        const token = result.token;
-
-        // POST token to server
-        const resp = await fetch("/api/process-payment.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token, amount: 100 }) // $1.00 in cents
-        });
-
-        const text = await resp.text();
-        let data;
-        try {
-          data = JSON.parse(text);
-        } catch (e) {
-          console.error("Non-JSON response from server:", text);
-          statusEl.innerText = "Server error. Check console.";
-          return;
-        }
-
-        if (resp.ok && data.payment && data.payment.status === "COMPLETED") {
-          statusEl.innerText = "Payment succeeded!";
-        } else if (data.errors) {
-          statusEl.innerText = "Payment failed: " + JSON.stringify(data.errors);
-        } else {
-          statusEl.innerText = "Payment failed: " + JSON.stringify(data);
-        }
-      } else {
-        statusEl.innerText = "Tokenization errors: " + JSON.stringify(result.errors);
-      }
-    } catch (err) {
-      console.error(err);
-      statusEl.innerText = "Unexpected error: " + err;
-    } finally {
-      buttonEl.disabled = false;
-    }
-  });
-});
+  window.initSquareInlinePayment = initSquareInlinePayment;
+})();

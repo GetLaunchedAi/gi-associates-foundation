@@ -195,6 +195,7 @@ eleventyNavigation:
           <label for="payment-method">Choose Payment Method:</label>
           <select id="payment-method" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
+            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-now">Donate Now</button>
@@ -222,6 +223,7 @@ eleventyNavigation:
           <label for="payment-method-monthly">Choose Payment Method:</label>
           <select id="payment-method-monthly" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
+            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-monthly">Start Monthly Support</button>
@@ -241,6 +243,7 @@ eleventyNavigation:
           <label for="payment-method-equipment">Choose Payment Method:</label>
           <select id="payment-method-equipment" class="payment-select">
             <option value="cashapp">Cash App ($Supremework)</option>
+            <option value="square">Square</option>
           </select>
         </div>
         <button class="button-solid donate-now-btn" id="donate-equipment">Support</button>
@@ -438,6 +441,21 @@ eleventyNavigation:
   </div>
 </section>
 
+<style>
+  /* Square modal basic styles (scoped to this page) */
+  .square-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 10000; }
+  .square-modal { background: #fff; width: 92%; max-width: 520px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; }
+  .square-modal-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #eee; }
+  .square-modal-content { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .square-close-btn { background: transparent; border: none; font-size: 24px; line-height: 1; cursor: pointer; }
+  .square-status { margin-top: 8px; min-height: 20px; font-size: 14px; color: #555; }
+  #square-card-container { margin: 8px 0 4px; }
+  .square-modal .button-solid { width: 100%; margin-top: 8px; }
+</style>
+
+<script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+<script src="/assets/js/square-pay.js"></script>
+
 <script>
   // Donation functionality
   document.addEventListener('DOMContentLoaded', function() {
@@ -500,8 +518,12 @@ eleventyNavigation:
           const paymentSelect = card.querySelector('.payment-select');
           const paymentMethod = paymentSelect ? paymentSelect.value : 'cashapp';
           
-          // Handle different payment methods
-          if (paymentMethod === 'cashapp') {
+        // Handle different payment methods
+        if (paymentMethod === 'square') {
+          showSquareModal(selectedAmount, isMonthly, isEquipment);
+          return;
+        }
+        if (paymentMethod === 'cashapp') {
             handleCashAppDonation(selectedAmount, isMonthly, isEquipment);
           }
         } else {
@@ -520,6 +542,55 @@ eleventyNavigation:
       
       // Show Cash App donation modal
       showCashAppModal(amount, isMonthly, cashAppUrl, donationType);
+    }
+
+    // Square donation modal
+    function showSquareModal(amount, isMonthly, isEquipment) {
+      const donationType = isEquipment ? 'specific support' : (isMonthly ? 'monthly support' : 'one-time donation');
+      const overlay = document.createElement('div');
+      overlay.className = 'square-modal-overlay';
+      overlay.innerHTML = `
+        <div class="square-modal">
+          <div class="square-modal-header">
+            <h3>Pay Securely with Square</h3>
+            <button class="square-close-btn" onclick="this.closest('.square-modal-overlay').remove()">×</button>
+          </div>
+          <div class="square-modal-content">
+            <div class="square-info">
+              <div class="donation-details">
+                <p><strong>Donation Amount:</strong> $${amount.toFixed(2)}${isMonthly ? '/month' : ''}</p>
+                <p><strong>Donation Type:</strong> ${donationType}</p>
+              </div>
+            </div>
+            <div id="square-card-container"></div>
+            <button id="square-pay-button" class="button-solid">Pay with Square</button>
+            <div id="square-payment-status" class="square-status"></div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+
+      const amountCents = Math.round(amount * 100);
+      if (window.initSquareInlinePayment) {
+        window.initSquareInlinePayment({
+          amountCents,
+          cardContainerSelector: '#square-card-container',
+          payButtonSelector: '#square-pay-button',
+          statusSelector: '#square-payment-status',
+          endpoint: '/api/process-payment.php',
+          onSuccess: (data) => {
+            document.querySelector('.square-modal-overlay')?.remove();
+            showModernAlert('Success!', 'Thank you for your donation.', 'success');
+          },
+          onError: (err) => {
+            showModernAlert('Error', 'Payment failed. Please try again.', 'error');
+          }
+        });
+      } else {
+        const statusEl = document.getElementById('square-payment-status');
+        if (statusEl) statusEl.textContent = 'Square payment is unavailable. Please try again later.';
+        showModernAlert('Error', 'Square payment is unavailable. Please try again later.', 'error');
+      }
     }
 
 

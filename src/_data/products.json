@@ -312,6 +312,576 @@
       "price": 0,
       "currency": "USD",
       "inStock": true
+  },
+    {
+      "id": "0032",
+      "slug": "0032",
+      "title": "Purple gold faceted sparkle strength awareness bracelet",
+      "image": "/images/products/0032.png",
+      "description": "Radiant bracelet featuring alternating faceted deep purple and warm golden-amber beads, accented with shimmering silver rhinestone spacer rings and a single gold-foil focal bead. The rich color palette and brilliant facets catch the light beautifully, creating a luxe, celebratory look that symbolizes strength, dignity, and perseverance. Crafted on a comfortable stretch cord to fit most wrists. Your donation helps fund our strength and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
     }
+    ,
+    {
+      "id": "0033",
+      "slug": "0033",
+      "title": "Coral crackle rhinestone infinity hope awareness bracelet",
+      "image": "/images/products/0033.png",
+      "description": "Delicate bracelet featuring translucent coral-pink crackle glass beads with warm golden spacer accents, finished with an elegant infinity connector embellished with clear rhinestones and a tiny red blossom detail. The soft peach and coral tones glow beautifully under light, while the infinity symbol represents enduring hope and connection. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our hope and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0034",
+      "slug": "0034",
+      "title": "Rose pink oval bead gold accent compassion awareness bracelet",
+      "image": "/images/products/0034.png",
+      "description": "Elegant bracelet featuring smooth rose‑pink oval beads with natural marbled variations, linked by petite gold spacer beads and a polished gold‑tone lobster clasp. The soft blush tones and minimalist hardware create a refined, timeless look that symbolizes compassion, calm, and gentle strength. Crafted for everyday wear and support of our mission. Your donation helps fund our compassion and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0035",
+      "slug": "0035",
+      "title": "Pink pearl rhinestone bar hope awareness bracelet",
+      "image": "/images/products/0035.png",
+      "description": "Glamorous bracelet featuring glossy pink pearl beads accented with sparkling rhinestone rondelle spacers, a dazzling pave disco ball bead, and a curved rhinestone bar centerpiece. The soft blush pearls and brilliant crystal accents create a radiant, uplifting look that symbolizes hope and encouragement. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our hope and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0036",
+      "slug": "0036",
+      "title": "Purple rhinestone elephant charm courage awareness bracelet",
+      "image": "/images/products/0036.png",
+      "description": "Vibrant bracelet featuring smooth purple round beads accented with sparkling rhinestone spacer rings and glossy gunmetal beads, finished with a petite silver-tone elephant charm. The playful charm symbolizes wisdom, courage, and good luck, while the crystal accents add a touch of shimmer. Crafted on a comfortable stretch cord to fit most wrists. Your donation helps fund our courage and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0037",
+      "slug": "0037",
+      "title": "Gold metallic bead minimalist awareness bracelet",
+      "image": "/images/products/0037.png",
+      "description": "Timeless bracelet featuring uniform polished gold-tone round beads strung on a comfortable stretch cord. The sleek, minimalist design offers effortless shine that layers beautifully or stands alone as a classic statement, symbolizing resilience and unity. Your donation helps fund our awareness and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0038",
+      "slug": "0038",
+      "title": "Red rhinestone bar courage awareness bracelet",
+      "image": "/images/products/0038.png",
+      "description": "Striking bracelet featuring deep ruby-red pave rhinestone beads paired with sparkling clear disco-ball accents and matching rhinestone spacer rings. A curved red rhinestone bar forms the radiant centerpiece, catching light from every angle for bold, celebratory shine. Crafted on a comfortable stretch cord to fit most wrists. Your donation helps fund our courage and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0039",
+      "slug": "0039",
+      "title": "Red green crackle bicone joy awareness bracelet",
+      "image": "/images/products/0039.png",
+      "description": "Festive bracelet featuring alternating translucent red bicone beads and round crackle glass beads that blend red and green with sparkling silver inclusions. The lively color mix and faceted shapes create cheerful movement and light play, symbolizing joy, unity, and community spirit. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our joy and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0040",
+      "slug": "0040",
+      "title": "Pastel faceted gold pave heart serenity awareness bracelet",
+      "image": "/images/products/0040.png",
+      "description": "Soft and luminous bracelet featuring pastel faceted round beads that shift from blush to lilac and opal tones, accented by a sparkling gold pave disco bead and two petite heart charms. The airy palette and delicate details evoke serenity, kindness, and gentle encouragement. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our serenity and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0041",
+      "slug": "0041",
+      "title": "White pearl gold accent grace awareness bracelet",
+      "image": "/images/products/0041.png",
+      "description": "Classic bracelet featuring lustrous white pearl-like beads in alternating sizes, highlighted with soft champagne and gold accent beads for subtle warmth. This refined, timeless design symbolizes grace, compassion, and enduring support. Crafted on a comfortable stretch cord to fit most wrists. Your donation helps fund our grace and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0042",
+      "slug": "0042",
+      "title": "Mocha pearl bronze medallion empowerment awareness bracelet",
+      "image": "/images/products/0042.png",
+      "description": "Sophisticated bracelet featuring deep mocha-brown pearl beads paired with faceted bronze crystals, finished with a statement coin-style medallion charm in warm rose-gold tones. The rich palette and regal pendant evoke confidence, empowerment, and refined style. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our empowerment and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0043",
+      "slug": "0043",
+      "title": "Aqua oval heart spacer serenity awareness bracelet",
+      "image": "/images/products/0043.png",
+      "description": "Refreshing bracelet featuring translucent aqua-blue oval beads with swirls of green and yellow, accented by petite silver heart spacer beads. The airy colors and playful hearts create a calming, uplifting look that symbolizes serenity and kindness. Crafted on a comfortable stretch cord to fit most wrists. Your donation helps fund our serenity and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0044",
+      "slug": "0044",
+      "title": "Copper pearl pave heart charm love awareness bracelet",
+      "image": "/images/products/0044.png",
+      "description": "Elegant bracelet featuring glossy copper-toned pearl beads accented with glittering gold pave rounds and a dangling crystal heart charm framed in warm gold. The radiant combination symbolizes love, gratitude, and steadfast support. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our love and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0045",
+      "slug": "0045",
+      "title": "Opal faceted heart charm hope awareness bracelet",
+      "image": "/images/products/0045.png",
+      "description": "Delicate bracelet featuring iridescent opal-like faceted round beads that shimmer with soft rainbow hues, accented by a petite silver heart charm. The airy glow and minimalist design create a calming, uplifting look that symbolizes hope and gentle encouragement. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our hope and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0046",
+      "slug": "0046",
+      "title": "Opal faceted bead serenity awareness bracelet",
+      "image": "/images/products/0046.png",
+      "description": "Ethereal bracelet featuring translucent opal-like faceted round beads that shimmer with soft rainbow fire. Minimalist and luminous, it layers beautifully or shines on its own, symbolizing serenity, clarity, and renewed hope. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our serenity and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    },
+    {
+      "id": "0047",
+      "slug": "0047",
+      "title": "White pearl silver spacer elegance awareness bracelet",
+      "image": "/images/products/0047.png",
+      "description": "Refined bracelet featuring luminous white pearl-like beads accented with petite polished silver spacer beads. The crisp, monochrome palette offers timeless elegance that pairs with any look, symbolizing purity, hope, and steadfast support. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our awareness and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0048",
+      "slug": "0048",
+      "title": "Red crackle pearl heart spacer courage awareness bracelet",
+      "image": "/images/products/0048.png",
+      "description": "Vibrant bracelet featuring a playful half‑and‑half design: sparkling red and gold crackle glass beads on one side and glossy deep red pearl beads on the other, joined by petite silver heart spacers. The lively contrast symbolizes courage, passion, and optimism. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our courage and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    },
+    {
+      "id": "0049",
+      "slug": "0049",
+      "title": "Black letter bead pray for peace awareness bracelet",
+      "image": "/images/products/0049.png",
+      "description": "Meaningful bracelet featuring glossy black round beads and bold black‑and‑white letter cubes spelling PRAY FOR PEACE. The minimalist monochrome palette keeps the message front and center, promoting unity, reflection, and hope. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our peace and community support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0050",
+      "slug": "0050",
+      "title": "Blue cube iridescent harmony awareness bracelet",
+      "image": "/images/products/0050.png",
+      "description": "Modern bracelet featuring reflective blue‑green iridescent cube beads paired with matte frosted aqua rounds, deep navy pearls, and petite crystal spacers. The shifting colors evoke ocean hues and calm balance, symbolizing harmony and emotional wellbeing. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our harmony and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0051",
+      "slug": "0051",
+      "title": "Mocha oval bead gold spacer resilience awareness bracelet",
+      "image": "/images/products/0051.png",
+      "description": "Sleek bracelet featuring smooth mocha-brown oval beads separated by petite warm gold spacer beads. The minimalist, earthy palette offers quiet strength and everyday versatility, symbolizing resilience and grounded confidence. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our resilience and recovery programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0052",
+      "slug": "0052",
+      "title": "White red splatter bead empowerment awareness bracelet",
+      "image": "/images/products/0052.png",
+      "description": "Bold bracelet featuring glossy white round beads with striking red splatter patterns for an edgy, artistic look. The high‑contrast design symbolizes courage, voice, and empowerment, making a confident statement while supporting our mission. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our empowerment and advocacy programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0053",
+      "slug": "0053",
+      "title": "Rainbow crackle starfish charm joy awareness bracelet",
+      "image": "/images/products/0053.png",
+      "description": "Playful bracelet featuring a full spectrum of sparkling crackle glass beads in rainbow hues, finished with a petite gold-tone starfish charm. The cheerful colors and ocean-inspired accent celebrate joy, resilience, and community spirit. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our joy and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0054",
+      "slug": "0054",
+      "title": "Black letter bead calm down mindfulness awareness bracelet",
+      "image": "/images/products/0054.png",
+      "description": "Meaningful bracelet featuring glossy black round beads with bold black‑and‑white letter cubes spelling CALM DOWN. The minimalist monochrome style serves as a gentle reminder to pause, breathe, and center ourselves, promoting mindfulness and emotional wellbeing. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our mental wellness and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0055",
+      "slug": "0055",
+      "title": "White pearl red rhinestone spacer awareness bracelet",
+      "image": "/images/products/0055.png",
+      "description": "Elegant bracelet featuring lustrous white pearl-like beads accented with sparkling red rhinestone rondelle spacers and a petite silver heart detail. The classic white-and-red palette adds festive shine while symbolizing love, strength, and support. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our awareness and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0056",
+      "slug": "0056",
+      "title": "Gold bead NURSE heart appreciation awareness bracelet",
+      "image": "/images/products/0056.png",
+      "description": "Meaningful bracelet featuring polished gold-tone round beads accented with white letter cubes spelling NURSE and a tiny heart. This clean, modern design honors caregivers and frontline heroes, symbolizing gratitude, compassion, and dedication. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our healthcare appreciation and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0057",
+      "slug": "0057",
+      "title": "Black letter bead dont give up resilience awareness bracelet",
+      "image": "/images/products/0057.png",
+      "description": "Inspiring bracelet featuring glossy black round beads with bold black‑and‑white letter cubes spelling DONT GIVE UP. The clean monochrome style offers an encouraging reminder to persevere through challenges, symbolizing resilience and hope. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our resilience and recovery programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0058",
+      "slug": "0058",
+      "title": "White pearl champagne accent grace awareness bracelet",
+      "image": "/images/products/0058.png",
+      "description": "Timeless bracelet featuring luminous white pearl-like beads in varied sizes accented with soft champagne and gold-toned beads for a warm, elegant touch. The refined palette symbolizes grace, compassion, and steadfast support. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our grace and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0059",
+      "slug": "0059",
+      "title": "White pearl bronze pave spacer elegance awareness bracelet",
+      "image": "/images/products/0059.png",
+      "description": "Refined bracelet featuring lustrous white pearl-like beads accented with three shimmering bronze pave rondelle spacers and tiny gold seed beads. The warm metallic sparkle against classic pearls creates an elevated, timeless look that symbolizes elegance, gratitude, and support. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our awareness and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0060",
+      "slug": "0060",
+      "title": "White pearl red rhinestone heart spacer awareness bracelet",
+      "image": "/images/products/0060.png",
+      "description": "Elegant bracelet featuring lustrous white pearl-like beads accented with sparkling red rhinestone rondelle spacers and a petite heart detail near the clasp. The bright red accents add celebratory shine to a timeless design, symbolizing love, strength, and community support. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our awareness and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0061",
+      "slug": "0061",
+      "title": "Pink marble bead rhinestone purse charm empowerment awareness bracelet",
+      "image": "/images/products/0061.png",
+      "description": "Statement bracelet featuring glossy pink marble‑style round beads accented with sparkling crystal rhinestone rondelle spacers and two shimmering gold pave rounds. A dazzling pink rhinestone purse charm in a gold setting adds a fashionable focal point, symbolizing empowerment, confidence, and self‑expression. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our empowerment and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0062",
+      "slug": "0062",
+      "title": "Gray matte black bead LV logo empowerment awareness bracelet",
+      "image": "/images/products/0062.png",
+      "description": "Modern bracelet featuring alternating matte gray and satin black round beads with slim gold spacer rings, finished with a bold silver LV logo charm. The sleek neutral palette and statement pendant symbolize confidence, empowerment, and refined style. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our empowerment and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0063",
+      "slug": "0063",
+      "title": "White frosted bead silver butterfly charm serenity awareness bracelet",
+      "image": "/images/products/0063.png",
+      "description": "Graceful bracelet featuring soft frosted white round beads paired with polished silver spacer beads and two iridescent accent beads. A sparkling crystal butterfly charm and a delicate dangle chain add movement and light, symbolizing serenity, transformation, and gentle strength. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our serenity and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0064",
+      "slug": "0064",
+      "title": "Bronze gold boho bead mosaic resilience awareness bracelet",
+      "image": "/images/products/0064.png",
+      "description": "Artful bracelet featuring a bohemian mix of ornate barrel beads with red and turquoise enamel details, textured antiqued gold rounds, and warm bronze pearls. The eclectic pattern and earthy palette create a handcrafted mosaic look that symbolizes resilience, heritage, and community. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our resilience and cultural wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0065",
+      "slug": "0065",
+      "title": "Black heishi bead GREATFUL word empowerment awareness bracelet",
+      "image": "/images/products/0065.png",
+      "description": "Modern bracelet featuring matte black heishi discs with petite gold spacer beads and black round letter beads spelling GREATFUL in metallic gold. The sleek monochrome-and-gold palette makes a bold statement of gratitude and empowerment. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our empowerment and gratitude programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0066",
+      "slug": "0066",
+      "title": "Royal blue faceted rhinestone sparkle hope awareness bracelet",
+      "image": "/images/products/0066.png",
+      "description": "Dazzling bracelet featuring vivid royal‑blue faceted beads separated by shimmering clear rhinestone rondelle spacers. The crisp sparkle and bold color create an uplifting look that symbolizes hope and confidence. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our hope and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0067",
+      "slug": "0067",
+      "title": "White pearl gold rhinestone bar hope awareness bracelet",
+      "image": "/images/products/0067.png",
+      "description": "Radiant bracelet featuring luminous white pearl-like beads paired with sparkling gold pave disco rounds and a curved rhinestone bar centerpiece. The bright crystal shimmer and classic pearls create an elegant, uplifting look that symbolizes hope and celebration. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our hope and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0068",
+      "slug": "0068",
+      "title": "Purple faceted green foil bead renewal awareness bracelet",
+      "image": "/images/products/0068.png",
+      "description": "Elegant bracelet featuring alternating amethyst‑purple faceted rondelle beads and round green foil‑glass beads with subtle gold and rose accents. The shimmering textures and rich colors create a refined look that symbolizes renewal, growth, and calm. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our renewal and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0069",
+      "slug": "0069",
+      "title": "White pearl classic elegance awareness bracelet",
+      "image": "/images/products/0069.png",
+      "description": "Timeless bracelet featuring uniform lustrous white pearl-like beads in a continuous loop. Simple and refined, this everyday piece layers beautifully or shines on its own, symbolizing grace, hope, and enduring support. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our awareness and care programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0070",
+      "slug": "0070",
+      "title": "Black bead cobalt accent resilience awareness bracelet",
+      "image": "/images/products/0070.png",
+      "description": "Sleek bracelet featuring glossy black round beads accented with three vivid cobalt-blue pearl beads spaced evenly around the band. The understated contrast delivers modern style while symbolizing calm focus and resilience. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our resilience and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0071",
+      "slug": "0071",
+      "title": "Green pearl yin yang charm harmony awareness bracelet",
+      "image": "/images/products/0071.png",
+      "description": "Elegant bracelet featuring glossy emerald‑green pearl beads with slim silver rhinestone spacer rings and a striking yin‑yang style connector accented with abalone‑like blues and sparkling crystals. The balanced design symbolizes harmony, healing, and unity. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our harmony and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    ,
+    {
+      "id": "0072",
+      "slug": "0072",
+      "title": "Purple banded agate mini bead healing awareness bracelet",
+      "image": "/images/products/0072.png",
+      "description": "Delicate bracelet featuring small round banded agate beads in varying shades of purple and lilac with natural stripe patterns. Lightweight and easy to stack, this calming piece symbolizes healing, balance, and inner peace. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our healing and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0073",
+      "slug": "0073",
+      "title": "Rhodium plated cubic zirconia size 9 empowerment awareness ring",
+      "image": "/images/products/0073.png",
+      "description": "Sophisticated rhodium‑plated ring featuring a brilliant round‑cut cubic zirconia center stone flanked by triple rows of pavé crystals on each side. The high‑shine rhodium finish offers lasting sparkle and a luxe, modern look. Size 9. This meaningful piece symbolizes confidence and empowerment. Your donation helps fund our empowerment and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0074",
+      "slug": "0074",
+      "title": "Silver pearl blue crystal centerpiece empowerment awareness bracelet set",
+      "image": "/images/products/0074.png",
+      "description": "Glamorous stretch bracelet set featuring lustrous silver‑tone pearl beads, deep sapphire faceted crystals, and shimmering aqua pave rounds. Each bracelet is finished with an ornate vintage‑inspired silver centerpiece set with a brilliant marquise blue stone and tiny rhinestones. Wear stacked for stunning sparkle that symbolizes empowerment, confidence, and celebration. Your donation helps fund our empowerment and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0075",
+      "slug": "0075",
+      "title": "Rainbow crackle EAT HEALTHY letter bead wellness awareness bracelet",
+      "image": "/images/products/0075.png",
+      "description": "Cheerful bracelet featuring petite rainbow crackle‑glass beads accented with white letter cubes spelling EAT HEALTHY. The bright, positive design is a daily reminder to nourish body and mind while supporting community wellness. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our nutrition and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0076",
+      "slug": "0076",
+      "title": "Midnight oval gold accent strength awareness bracelet",
+      "image": "/images/products/0076.png",
+      "description": "Sleek bracelet featuring glossy midnight‑black oval beads with subtle starry sparkle, accented by a single ribbed metallic gold focal bead. The minimalist contrast creates a refined, powerful look that symbolizes strength, dignity, and perseverance. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our strength and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0077",
+      "slug": "0077",
+      "title": "Taupe gray agate natural stone grounding awareness bracelet",
+      "image": "/images/products/0077.png",
+      "description": "Earthy bracelet featuring polished round agate beads in soothing shades of taupe, sand, and soft gray with natural marbling. The neutral palette and smooth stones create a calming, grounded look that pairs with anything while symbolizing stability and balance. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our grounding and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0078",
+      "slug": "0078",
+      "title": "Red pearl rhinestone spacer cross faith awareness bracelet",
+      "image": "/images/products/0078.png",
+      "description": "Meaningful bracelet featuring glossy red pearl-like beads accented with sparkling clear rhinestone rondelle spacers and a sleek horizontal silver cross centerpiece. The radiant red and crystal shine create a bold expression of faith, hope, and support. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our faith-based community and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0079",
+      "slug": "0079",
+      "title": "Gunmetal pave crystal bead empowerment awareness bracelet",
+      "image": "/images/products/0079.png",
+      "description": "Bold bracelet featuring uniform gunmetal pave crystal beads that shimmer with a subtle rainbow sheen. The monochrome sparkle delivers modern edge and confident style, symbolizing empowerment and inner strength. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our empowerment and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0080",
+      "slug": "0080",
+      "title": "Amber glass bead butterfly charm joy awareness bracelet",
+      "image": "/images/products/0080.png",
+      "description": "Delicate bracelet featuring translucent amber glass beads accented with textured gold spacer beads and finished with a graceful gold butterfly charm. The warm glow and airy design symbolize joy, transformation, and hopeful new beginnings. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our joy and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0080",
+      "slug": "0080",
+      "title": "Amber bead gold butterfly charm renewal awareness bracelet",
+      "image": "/images/products/0080.png",
+      "description": "Delicate bracelet featuring warm amber‑gold translucent beads accented with textured gold spacer beads, finished with a petite gold butterfly charm. Light, airy, and easy to stack, this piece symbolizes renewal, growth, and transformation. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our renewal and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0081",
+      "slug": "0081",
+      "title": "Green stone rhinestone clover charm prosperity awareness bracelet",
+      "image": "/images/products/0081.png",
+      "description": "Striking bracelet featuring deep green and blue natural stone beads with subtle variations, accented by slim gold rhinestone spacer rings. A sparkling green crystal clover charm in a gold setting adds a bold focal point, symbolizing prosperity, hope, and good fortune. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our prosperity and support programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
   ]
 }

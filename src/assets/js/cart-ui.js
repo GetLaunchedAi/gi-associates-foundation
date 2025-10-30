@@ -7,7 +7,8 @@ let cartUI = {
   isInitialized: false,
   sidebar: null,
   overlay: null,
-  cartIcon: null
+  cartIcon: null,
+  suppressNextOutsideClose: false
 };
 
 // ====== CART UI INITIALIZATION ======
@@ -99,7 +100,7 @@ function getCartSidebarHTML() {
         <div class="cart-total__items">${getItemCount()} items</div>
         <div class="cart-total__amount" id="cart-total-amount">$0.00</div>
       </div>
-      <button class="cart-checkout-btn" id="cart-checkout-btn" onclick="handleCheckout()">
+      <button type="button" class="cart-checkout-btn" id="cart-checkout-btn" onclick="event.preventDefault(); event.stopPropagation(); handleCheckout()">
         Proceed to Checkout
       </button>
     </div>
@@ -149,7 +150,7 @@ function getCartOverlayHTML() {
         <div class="cart-total__items">${getItemCount()} items</div>
         <div class="cart-total__amount" id="cart-total-amount-mobile">$0.00</div>
       </div>
-      <button class="cart-checkout-btn" id="cart-checkout-btn-mobile" onclick="handleCheckout()">
+      <button type="button" class="cart-checkout-btn" id="cart-checkout-btn-mobile" onclick="event.preventDefault(); event.stopPropagation(); handleCheckout()">
         Proceed to Checkout
       </button>
     </div>
@@ -172,12 +173,14 @@ function openCart() {
       cartUI.overlay.classList.add('cart-overlay--open');
     }
     document.body.classList.add('cart-open');
+    document.documentElement.classList.add('cart-open');
   } else {
     // Desktop: Show sidebar
     if (cartUI.sidebar) {
       cartUI.sidebar.classList.add('cart-sidebar--open');
     }
     document.body.classList.add('cart-open');
+    document.documentElement.classList.add('cart-open');
   }
   
   renderCartItems();
@@ -195,6 +198,7 @@ function closeCart() {
     cartUI.overlay.classList.remove('cart-overlay--open');
   }
   document.body.classList.remove('cart-open');
+  document.documentElement.classList.remove('cart-open');
   // Also clear any inline scroll locks that may have been applied elsewhere
   document.body.style.overflow = '';
   document.documentElement.style.overflow = '';
@@ -338,22 +342,38 @@ function handleDonationChange(value) {
 }
 
 function handleCheckout() {
-  const checkoutData = prepareCheckout();
-  
-  if (!checkoutData.success) {
-    alert(checkoutData.error);
-    return;
+  // Open inline checkout inside the cart panel
+  if (!cartUI.isInitialized) {
+    initCartUI();
   }
-  
-  // Close cart
-  closeCart();
-  
-  // Show cart summary
-  const summary = checkoutData.items.map(item => 
-    `${item.name} x${item.quantity}`
-  ).join('\n');
-  
-  alert(`Checkout Summary:\n${summary}\n\nTotal: $${checkoutData.total.toFixed(2)}\n\nPlease contact us to complete your order.`);
+  const container = cartUI.sidebar || cartUI.overlay;
+  if (!container) return;
+
+  // Find the scrollable content area to host the checkout panel (keep footer pinned)
+  const content = container.querySelector('.cart-sidebar__content') || container.querySelector('.cart-overlay__content');
+  if (!content) return;
+
+  // Mark container as being in checkout mode so we can adjust UI (e.g., hide footer)
+  container.classList.add('cart-has-checkout');
+
+  // Suppress the outside-click close for this interaction cycle
+  cartUI.suppressNextOutsideClose = true;
+
+  content.innerHTML = getCheckoutPanelHTML();
+  attachCheckoutEventHandlers();
+  updateCheckoutTotals();
+
+  // Smoothly reveal the checkout panel without closing the cart
+  const panel = content.querySelector('.checkout-panel');
+  if (panel) {
+    requestAnimationFrame(() => {
+      panel.classList.add('checkout-panel--open');
+      const firstField = panel.querySelector('#co-name');
+      if (firstField && typeof firstField.focus === 'function') {
+        firstField.focus();
+      }
+    });
+  }
 }
 
 // ====== EVENT LISTENERS ======
@@ -388,6 +408,11 @@ function setupCartEventListeners() {
 
   // Close cart when clicking outside
   document.addEventListener('click', (e) => {
+    if (cartUI.suppressNextOutsideClose) {
+      // Allow one click cycle without closing (e.g., after swapping in checkout panel)
+      cartUI.suppressNextOutsideClose = false;
+      return;
+    }
     if (cartState.isOpen && 
         !e.target.closest('.cart-sidebar') && 
         !e.target.closest('.cart-overlay') &&
@@ -428,4 +453,154 @@ if (document.readyState === 'loading') {
   initCartUI();
   // Ensure cart icon is updated immediately after initialization
   setTimeout(updateCartIcon, 100);
+}
+
+// ====== CHECKOUT INLINE PANEL ======
+
+function getCheckoutPanelHTML() {
+  const itemCount = getItemCount();
+  const subtotal = (cartState.totalDonation || 0).toFixed(2);
+  return `
+    <div class="checkout-panel">
+      <div class="checkout-panel__section">
+        <h4 class="checkout-panel__title">Contact & Shipping</h4>
+        <div class="checkout-form">
+          <input id="co-name" class="checkout-input" type="text" placeholder="Full name" autocomplete="name">
+          <input id="co-email" class="checkout-input" type="email" placeholder="Email" autocomplete="email">
+          <input id="co-address" class="checkout-input" type="text" placeholder="Address" autocomplete="address-line1">
+          <div class="checkout-row">
+            <input id="co-city" class="checkout-input" type="text" placeholder="City" autocomplete="address-level2">
+            <input id="co-state" class="checkout-input" type="text" placeholder="State" maxlength="2" autocomplete="address-level1">
+            <input id="co-zip" class="checkout-input" type="text" placeholder="ZIP" autocomplete="postal-code">
+          </div>
+        </div>
+      </div>
+
+      <div class="checkout-panel__section">
+        <h4 class="checkout-panel__title">Order Summary</h4>
+        <div class="checkout-summary">
+          <div class="checkout-line"><span>${itemCount} items</span></div>
+          <div class="checkout-line"><span>Subtotal</span><span id="co-subtotal">$${subtotal}</span></div>
+          <div class="checkout-line"><span>Tax</span><span id="co-tax">$0.00</span></div>
+          <div class="checkout-total"><span>Total</span><span id="co-total">$${subtotal}</span></div>
+        </div>
+      </div>
+
+      <div class="checkout-panel__section">
+        <h4 class="checkout-panel__title">Payment</h4>
+        <div id="card-container"></div>
+        <div class="checkout-actions">
+          <button id="card-button" class="cart-checkout-btn">Pay Now</button>
+          <button id="co-cancel" class="cart-checkout-btn" style="background:#eee;color:#333;">Back</button>
+        </div>
+        <div id="payment-status" class="checkout-status"></div>
+      </div>
+    </div>
+  `;
+}
+
+function attachCheckoutEventHandlers() {
+  const inputs = ['co-name','co-email','co-address','co-city','co-state','co-zip']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  inputs.forEach(el => el.addEventListener('input', updateCheckoutTotals));
+
+  const cancelBtn = document.getElementById('co-cancel');
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', () => {
+      // Recreate containers and reopen cart to restore default view
+      createCartSidebar();
+      createCartOverlay();
+      openCart();
+    });
+  }
+}
+
+function parseState(value) {
+  return (value || '').trim().toUpperCase();
+}
+
+function estimateTax(subtotal, state) {
+  const defaultRate = 0.07; // 7% default
+  const rates = {
+    CA: 0.0825,
+    NY: 0.08875,
+    TX: 0.0825,
+    WA: 0.095,
+    FL: 0.07,
+    IL: 0.1025
+  };
+  const rate = rates[state] != null ? rates[state] : defaultRate;
+  return Math.max(0, subtotal * rate);
+}
+
+function getCheckoutAmounts() {
+  const subtotal = Number(cartState.totalDonation || 0);
+  const state = parseState(document.getElementById('co-state')?.value);
+  const tax = estimateTax(subtotal, state);
+  const total = subtotal + tax;
+  return { subtotal, tax, total };
+}
+
+function updateCheckoutTotals() {
+  const { subtotal, tax, total } = getCheckoutAmounts();
+  const subEl = document.getElementById('co-subtotal');
+  const taxEl = document.getElementById('co-tax');
+  const totalEl = document.getElementById('co-total');
+  if (subEl) subEl.textContent = `$${subtotal.toFixed(2)}`;
+  if (taxEl) taxEl.textContent = `$${tax.toFixed(2)}`;
+  if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+
+  // Update pay button label and disabled state
+  const payBtn = document.getElementById('card-button');
+  if (payBtn) {
+    const labelAmount = `$${total.toFixed(2)}`;
+    payBtn.textContent = total > 0 ? `Pay ${labelAmount}` : 'Pay Now';
+    payBtn.disabled = !(total > 0);
+  }
+
+  // Initialize/refresh Square payment binding
+  if (window.initSquareInlinePayment) {
+    const amountCents = Math.round(total * 100);
+    window.initSquareInlinePayment({
+      amountCents,
+      cardContainerSelector: '#card-container',
+      payButtonSelector: '#card-button',
+      statusSelector: '#payment-status',
+      endpoint: '/api/process-payment.php',
+      onSuccess: (data) => {
+        if (typeof cart?.clear === 'function') cart.clear();
+        closeCart();
+        if (typeof window.openModal === 'function') {
+          const paymentId = data?.payment?.id || '';
+          window.openModal({
+            type: 'success',
+            title: 'Payment Successful',
+            message: 'Thank you for your donation. Your payment has been processed.',
+            details: paymentId ? `Transaction ID: ${paymentId}` : '',
+            actions: [
+              { label: 'Continue Shopping', variant: 'primary', onClick: () => { window.closeModal(); } }
+            ]
+          });
+        }
+      },
+      onError: (err) => {
+        console.error('Payment error', err);
+        if (typeof window.openModal === 'function') {
+          let details = '';
+          try { details = typeof err === 'string' ? err : JSON.stringify(err); } catch (e) {}
+          window.openModal({
+            type: 'error',
+            title: 'Payment Failed',
+            message: 'We could not process your payment. Please try again.',
+            details,
+            actions: [
+              { label: 'Retry', variant: 'primary', onClick: () => { window.closeModal(); /* user can try again */ } },
+              { label: 'Close', variant: 'secondary', onClick: () => window.closeModal() }
+            ]
+          });
+        }
+      }
+    });
+  }
 }

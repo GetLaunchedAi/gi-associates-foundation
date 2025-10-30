@@ -305,9 +305,13 @@ function updateCartIcon() {
   
   if (badge) {
     const count = getItemCount();
-    badge.textContent = count > 0 ? count : '';
+    const MAX_BADGE_COUNT = 99;
+    const display = count > MAX_BADGE_COUNT ? `${MAX_BADGE_COUNT}+` : `${count}`;
+
+    badge.textContent = count > 0 ? display : '';
     badge.style.display = count > 0 ? 'block' : 'none';
     badge.setAttribute('aria-label', count > 0 ? `${count} items in cart` : 'Cart is empty');
+    badge.setAttribute('title', count > 0 ? `${count} items in cart` : 'Cart is empty');
   }
 }
 

@@ -32,6 +32,8 @@ function loadCartFromStorage() {
         ...parsed,
         isOpen: false // Always start with cart closed
       };
+      // Ensure derived totals are consistent with stored items
+      updateCartTotals();
     }
   } catch (error) {
     console.error('Error loading cart from storage:', error);
@@ -258,6 +260,9 @@ function triggerCartEvent(event, data) {
 
 function initCart() {
   loadCartFromStorage();
+  // Recalculate totals on startup and notify listeners so UI (badge) syncs
+  updateCartTotals();
+  triggerCartEvent('cartUpdated', cartState);
   triggerCartEvent('cartLoaded', cartState);
 }
 

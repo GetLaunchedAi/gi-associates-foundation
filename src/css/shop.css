@@ -329,6 +329,9 @@ body.dark-mode{
 }
 
 .add-to-cart {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
@@ -1262,12 +1265,15 @@ body.dark-mode .order-form {
   .filter-toggle {
     display: flex;
     margin: 12px;
+    position: relative;
+    z-index: 200001 !important;
   }
 
   .filter-sidebar {
     position: fixed;
     width: 77.5%;
     transform: translateX(-100%);
+    z-index: 200005 !important;
   }
 
   .filter-sidebar.open {

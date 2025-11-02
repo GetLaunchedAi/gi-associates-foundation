@@ -8,7 +8,9 @@ let cartUI = {
   sidebar: null,
   overlay: null,
   cartIcon: null,
-  suppressNextOutsideClose: false
+  suppressNextOutsideClose: false,
+  checkoutFormSubmitted: false,
+  squarePaymentInitialized: false
 };
 
 // ====== CART UI INITIALIZATION ======
@@ -100,7 +102,7 @@ function getCartSidebarHTML() {
         <div class="cart-total__items">${getItemCount()} items</div>
         <div class="cart-total__amount" id="cart-total-amount">$0.00</div>
       </div>
-      <button type="button" class="cart-checkout-btn" id="cart-checkout-btn" onclick="event.preventDefault(); event.stopPropagation(); handleCheckout()">
+      <button type="button" class="cart-checkout-btn" id="cart-checkout-btn">
         Proceed to Checkout
       </button>
     </div>
@@ -150,7 +152,7 @@ function getCartOverlayHTML() {
         <div class="cart-total__items">${getItemCount()} items</div>
         <div class="cart-total__amount" id="cart-total-amount-mobile">$0.00</div>
       </div>
-      <button type="button" class="cart-checkout-btn" id="cart-checkout-btn-mobile" onclick="event.preventDefault(); event.stopPropagation(); handleCheckout()">
+      <button type="button" class="cart-checkout-btn" id="cart-checkout-btn-mobile">
         Proceed to Checkout
       </button>
     </div>
@@ -185,6 +187,11 @@ function openCart() {
   
   renderCartItems();
   updateCartTotals();
+  
+  // Setup checkout button event listeners after cart is opened
+  setTimeout(() => {
+    setupCheckoutButtons();
+  }, 50);
 }
 
 function closeCart() {
@@ -293,7 +300,10 @@ function updateCartTotals() {
 
 function updateCartIcon() {
   const cartIcon = document.querySelector('.cart-btn');
-  const badge = document.querySelector('.badge');
+  // Use more specific selector to find badge
+  const badge = document.querySelector('#navigation .cart-btn .badge') || 
+                document.querySelector('.cart-btn .badge') || 
+                document.querySelector('.badge');
   
   if (cartIcon) {
     cartIcon.setAttribute('type', 'button');
@@ -309,7 +319,8 @@ function updateCartIcon() {
     const display = count > MAX_BADGE_COUNT ? `${MAX_BADGE_COUNT}+` : `${count}`;
 
     badge.textContent = count > 0 ? display : '';
-    badge.style.display = count > 0 ? 'block' : 'none';
+    // Use flex to match CSS - inline style overrides CSS :empty rule
+    badge.style.display = count > 0 ? 'flex' : 'none';
     badge.setAttribute('aria-label', count > 0 ? `${count} items in cart` : 'Cart is empty');
     badge.setAttribute('title', count > 0 ? `${count} items in cart` : 'Cart is empty');
   }
@@ -320,6 +331,49 @@ function handleCartIconClick(e) {
   e.stopPropagation();
   if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
   toggleCart();
+}
+
+// ====== TOAST NOTIFICATION ======
+
+function showToast(message, type = 'success') {
+  // Remove existing toast if any
+  const existingToast = document.getElementById('cart-toast');
+  if (existingToast) {
+    existingToast.remove();
+  }
+
+  // Create toast element
+  const toast = document.createElement('div');
+  toast.id = 'cart-toast';
+  toast.className = `cart-toast cart-toast--${type}`;
+  toast.setAttribute('role', 'alert');
+  toast.setAttribute('aria-live', 'polite');
+  
+  toast.innerHTML = `
+    <div class="cart-toast__content">
+      <svg class="cart-toast__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+      <span class="cart-toast__message">${message}</span>
+    </div>
+  `;
+
+  document.body.appendChild(toast);
+
+  // Trigger animation
+  requestAnimationFrame(() => {
+    toast.classList.add('cart-toast--show');
+  });
+
+  // Auto remove after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove('cart-toast--show');
+    setTimeout(() => {
+      if (toast.parentNode) {
+        toast.remove();
+      }
+    }, 300); // Wait for fade-out animation
+  }, 3000);
 }
 
 // ====== EVENT HANDLERS ======
@@ -350,7 +404,17 @@ function handleCheckout() {
   if (!cartUI.isInitialized) {
     initCartUI();
   }
-  const container = cartUI.sidebar || cartUI.overlay;
+  
+  // Check screen width to select correct container (matching openCart logic)
+  let container;
+  if (window.innerWidth <= 768) {
+    // Mobile: Use overlay
+    container = cartUI.overlay;
+  } else {
+    // Desktop: Use sidebar
+    container = cartUI.sidebar;
+  }
+  
   if (!container) return;
 
   // Find the scrollable content area to host the checkout panel (keep footer pinned)
@@ -362,6 +426,10 @@ function handleCheckout() {
 
   // Suppress the outside-click close for this interaction cycle
   cartUI.suppressNextOutsideClose = true;
+  
+  // Reset form submission flag and Square payment initialization flag
+  cartUI.checkoutFormSubmitted = false;
+  cartUI.squarePaymentInitialized = false;
 
   content.innerHTML = getCheckoutPanelHTML();
   attachCheckoutEventHandlers();
@@ -389,6 +457,16 @@ function setupCartEventListeners() {
     updateCartTotals();
     updateCartIcon(); // Ensure cart icon is updated on every cart change
   });
+  
+  // Listen for item added event to show toast
+  cart.addCartEventListener('itemAdded', (data) => {
+    const product = data.product;
+    const productTitle = product.title || product.name || 'Item';
+    showToast(`${productTitle} added to cart!`);
+  });
+  
+  // Setup checkout button event listeners
+  setupCheckoutButtons();
   
   // Listen for window resize to handle mobile/desktop switching
   window.addEventListener('resize', () => {
@@ -424,6 +502,34 @@ function setupCartEventListeners() {
       closeCart();
     }
   });
+}
+
+function setupCheckoutButtons() {
+  // Helper function to attach checkout button handlers
+  function attachCheckoutButtonHandler(buttonId) {
+    const button = document.getElementById(buttonId);
+    if (button && !button.dataset.listenerAttached) {
+      // Mark as having listener attached to avoid duplicates
+      button.dataset.listenerAttached = 'true';
+      
+      // Attach event listener with both click and touchend for mobile
+      const handler = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === 'function') {
+          e.stopImmediatePropagation();
+        }
+        handleCheckout();
+      };
+      
+      button.addEventListener('click', handler, { passive: false });
+      button.addEventListener('touchend', handler, { passive: false });
+    }
+  }
+  
+  // Attach handlers for both desktop and mobile buttons
+  attachCheckoutButtonHandler('cart-checkout-btn');
+  attachCheckoutButtonHandler('cart-checkout-btn-mobile');
 }
 
 // ====== GLOBAL FUNCTIONS ======
@@ -469,13 +575,31 @@ function getCheckoutPanelHTML() {
       <div class="checkout-panel__section">
         <h4 class="checkout-panel__title">Contact & Shipping</h4>
         <div class="checkout-form">
-          <input id="co-name" class="checkout-input" type="text" placeholder="Full name" autocomplete="name">
-          <input id="co-email" class="checkout-input" type="email" placeholder="Email" autocomplete="email">
-          <input id="co-address" class="checkout-input" type="text" placeholder="Address" autocomplete="address-line1">
+          <div class="checkout-field">
+            <input id="co-name" class="checkout-input" type="text" placeholder="Full name" autocomplete="name">
+            <span class="checkout-error" id="co-name-error"></span>
+          </div>
+          <div class="checkout-field">
+            <input id="co-email" class="checkout-input" type="email" placeholder="Email" autocomplete="email">
+            <span class="checkout-error" id="co-email-error"></span>
+          </div>
+          <div class="checkout-field">
+            <input id="co-address" class="checkout-input" type="text" placeholder="Address" autocomplete="address-line1">
+            <span class="checkout-error" id="co-address-error"></span>
+          </div>
           <div class="checkout-row">
-            <input id="co-city" class="checkout-input" type="text" placeholder="City" autocomplete="address-level2">
-            <input id="co-state" class="checkout-input" type="text" placeholder="State" maxlength="2" autocomplete="address-level1">
-            <input id="co-zip" class="checkout-input" type="text" placeholder="ZIP" autocomplete="postal-code">
+            <div class="checkout-field">
+              <input id="co-city" class="checkout-input" type="text" placeholder="City" autocomplete="address-level2">
+              <span class="checkout-error" id="co-city-error"></span>
+            </div>
+            <div class="checkout-field">
+              <input id="co-state" class="checkout-input" type="text" placeholder="State" maxlength="2" autocomplete="address-level1">
+              <span class="checkout-error" id="co-state-error"></span>
+            </div>
+            <div class="checkout-field">
+              <input id="co-zip" class="checkout-input" type="text" placeholder="ZIP" autocomplete="postal-code">
+              <span class="checkout-error" id="co-zip-error"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -503,15 +627,230 @@ function getCheckoutPanelHTML() {
   `;
 }
 
+// ====== CHECKOUT VALIDATION ======
+
+function validateCheckoutName(name) {
+  if (!name || name.trim().length === 0) {
+    return { isValid: false, message: 'Name is required' };
+  }
+  if (name.trim().length < 2) {
+    return { isValid: false, message: 'Name must be at least 2 characters' };
+  }
+  // Allow letters, spaces, hyphens, and apostrophes
+  const namePattern = /^[a-zA-Z\s'-]+$/;
+  if (!namePattern.test(name.trim())) {
+    return { isValid: false, message: 'Name can only contain letters, spaces, hyphens, and apostrophes' };
+  }
+  return { isValid: true, message: '' };
+}
+
+function validateCheckoutEmail(email) {
+  if (!email || email.trim().length === 0) {
+    return { isValid: false, message: 'Email is required' };
+  }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email.trim())) {
+    return { isValid: false, message: 'Please enter a valid email address' };
+  }
+  return { isValid: true, message: '' };
+}
+
+function validateCheckoutAddress(address) {
+  if (!address || address.trim().length === 0) {
+    return { isValid: false, message: 'Address is required' };
+  }
+  if (address.trim().length < 5) {
+    return { isValid: false, message: 'Address must be at least 5 characters' };
+  }
+  return { isValid: true, message: '' };
+}
+
+function validateCheckoutCity(city) {
+  if (!city || city.trim().length === 0) {
+    return { isValid: false, message: 'City is required' };
+  }
+  if (city.trim().length < 2) {
+    return { isValid: false, message: 'City must be at least 2 characters' };
+  }
+  return { isValid: true, message: '' };
+}
+
+function validateCheckoutState(state) {
+  if (!state || state.trim().length === 0) {
+    return { isValid: false, message: 'State is required' };
+  }
+  const stateUpper = state.trim().toUpperCase();
+  if (stateUpper.length !== 2) {
+    return { isValid: false, message: 'State must be exactly 2 letters' };
+  }
+  if (!/^[A-Z]{2}$/.test(stateUpper)) {
+    return { isValid: false, message: 'State must be 2 uppercase letters' };
+  }
+  return { isValid: true, message: '' };
+}
+
+function validateCheckoutZip(zip) {
+  if (!zip || zip.trim().length === 0) {
+    return { isValid: false, message: 'ZIP code is required' };
+  }
+  const zipClean = zip.trim().replace(/[^0-9-]/g, '');
+  // 5 digits or 9 digits with dash (12345 or 12345-6789)
+  const zipPattern = /^(\d{5}|\d{5}-\d{4})$/;
+  if (!zipPattern.test(zipClean)) {
+    return { isValid: false, message: 'ZIP code must be 5 digits or 9 digits with dash (12345-6789)' };
+  }
+  return { isValid: true, message: '' };
+}
+
+function validateCheckoutForm() {
+  const name = document.getElementById('co-name')?.value || '';
+  const email = document.getElementById('co-email')?.value || '';
+  const address = document.getElementById('co-address')?.value || '';
+  const city = document.getElementById('co-city')?.value || '';
+  const state = document.getElementById('co-state')?.value || '';
+  const zip = document.getElementById('co-zip')?.value || '';
+
+  const validation = {
+    name: validateCheckoutName(name),
+    email: validateCheckoutEmail(email),
+    address: validateCheckoutAddress(address),
+    city: validateCheckoutCity(city),
+    state: validateCheckoutState(state),
+    zip: validateCheckoutZip(zip)
+  };
+
+  const isValid = Object.values(validation).every(v => v.isValid);
+  return { isValid, validation };
+}
+
+function showFieldError(fieldId, errorMessage) {
+  const field = document.getElementById(fieldId);
+  const errorEl = document.getElementById(`${fieldId}-error`);
+  
+  if (field) {
+    if (errorMessage) {
+      field.classList.add('checkout-input--error');
+    } else {
+      field.classList.remove('checkout-input--error');
+    }
+  }
+  
+  if (errorEl) {
+    errorEl.textContent = errorMessage || '';
+    errorEl.style.display = errorMessage ? 'block' : 'none';
+  }
+}
+
+function updateFieldValidation(fieldId, validator, showErrors = false) {
+  const field = document.getElementById(fieldId);
+  if (!field) return;
+  
+  const value = field.value;
+  const validation = validator(value);
+  
+  // Only show errors if form has been submitted or showErrors is true
+  if (showErrors || cartUI.checkoutFormSubmitted) {
+    showFieldError(fieldId, validation.isValid ? '' : validation.message);
+  }
+  
+  return validation.isValid;
+}
+
 function attachCheckoutEventHandlers() {
-  const inputs = ['co-name','co-email','co-address','co-city','co-state','co-zip']
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-  inputs.forEach(el => el.addEventListener('input', updateCheckoutTotals));
+  // Name field
+  const nameField = document.getElementById('co-name');
+  if (nameField) {
+    nameField.addEventListener('input', () => {
+      updateFieldValidation('co-name', validateCheckoutName, false);
+      updateCheckoutTotals();
+    });
+    nameField.addEventListener('blur', () => {
+      if (cartUI.checkoutFormSubmitted) {
+        updateFieldValidation('co-name', validateCheckoutName, true);
+      }
+    });
+  }
+
+  // Email field
+  const emailField = document.getElementById('co-email');
+  if (emailField) {
+    emailField.addEventListener('input', () => {
+      updateFieldValidation('co-email', validateCheckoutEmail, false);
+      updateCheckoutTotals();
+    });
+    emailField.addEventListener('blur', () => {
+      if (cartUI.checkoutFormSubmitted) {
+        updateFieldValidation('co-email', validateCheckoutEmail, true);
+      }
+    });
+  }
+
+  // Address field
+  const addressField = document.getElementById('co-address');
+  if (addressField) {
+    addressField.addEventListener('input', () => {
+      updateFieldValidation('co-address', validateCheckoutAddress, false);
+      updateCheckoutTotals();
+    });
+    addressField.addEventListener('blur', () => {
+      if (cartUI.checkoutFormSubmitted) {
+        updateFieldValidation('co-address', validateCheckoutAddress, true);
+      }
+    });
+  }
+
+  // City field
+  const cityField = document.getElementById('co-city');
+  if (cityField) {
+    cityField.addEventListener('input', () => {
+      updateFieldValidation('co-city', validateCheckoutCity, false);
+      updateCheckoutTotals();
+    });
+    cityField.addEventListener('blur', () => {
+      if (cartUI.checkoutFormSubmitted) {
+        updateFieldValidation('co-city', validateCheckoutCity, true);
+      }
+    });
+  }
+
+  // State field - auto-uppercase
+  const stateField = document.getElementById('co-state');
+  if (stateField) {
+    stateField.addEventListener('input', (e) => {
+      // Auto-uppercase the input
+      e.target.value = e.target.value.toUpperCase();
+      updateFieldValidation('co-state', validateCheckoutState, false);
+      updateCheckoutTotals();
+    });
+    stateField.addEventListener('blur', () => {
+      if (cartUI.checkoutFormSubmitted) {
+        updateFieldValidation('co-state', validateCheckoutState, true);
+      }
+    });
+  }
+
+  // ZIP field - filter to digits and dash only
+  const zipField = document.getElementById('co-zip');
+  if (zipField) {
+    zipField.addEventListener('input', (e) => {
+      // Filter to digits and dash only
+      e.target.value = e.target.value.replace(/[^0-9-]/g, '');
+      updateFieldValidation('co-zip', validateCheckoutZip, false);
+      updateCheckoutTotals();
+    });
+    zipField.addEventListener('blur', () => {
+      if (cartUI.checkoutFormSubmitted) {
+        updateFieldValidation('co-zip', validateCheckoutZip, true);
+      }
+    });
+  }
 
   const cancelBtn = document.getElementById('co-cancel');
   if (cancelBtn) {
     cancelBtn.addEventListener('click', () => {
+      // Reset flags
+      cartUI.checkoutFormSubmitted = false;
+      cartUI.squarePaymentInitialized = false;
       // Recreate containers and reopen cart to restore default view
       createCartSidebar();
       createCartOverlay();
@@ -555,23 +894,68 @@ function updateCheckoutTotals() {
   if (taxEl) taxEl.textContent = `$${tax.toFixed(2)}`;
   if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
 
-  // Update pay button label and disabled state
-  const payBtn = document.getElementById('card-button');
-  if (payBtn) {
-    const labelAmount = `$${total.toFixed(2)}`;
-    payBtn.textContent = total > 0 ? `Pay ${labelAmount}` : 'Pay Now';
-    payBtn.disabled = !(total > 0);
-  }
-
-  // Initialize/refresh Square payment binding
-  if (window.initSquareInlinePayment) {
+  // Initialize Square payment only once per checkout panel opening
+  if (window.initSquareInlinePayment && !cartUI.squarePaymentInitialized) {
     const amountCents = Math.round(total * 100);
+    cartUI.squarePaymentInitialized = true;
+    
+    // Update pay button label before Square initializes (Square will clone it, so set it first)
+    const payBtn = document.getElementById('card-button');
+    if (payBtn) {
+      const labelAmount = `$${total.toFixed(2)}`;
+      payBtn.textContent = total > 0 ? `Pay ${labelAmount}` : 'Pay Now';
+      // Don't set disabled here - let Square handle it after initialization
+    }
+    
     window.initSquareInlinePayment({
       amountCents,
       cardContainerSelector: '#card-container',
       payButtonSelector: '#card-button',
       statusSelector: '#payment-status',
       endpoint: '/api/process-payment.php',
+      beforeTokenize: () => {
+        // Validate form before processing payment
+        const validation = validateCheckoutForm();
+        
+        if (!validation.isValid) {
+          // Mark form as submitted to show errors
+          cartUI.checkoutFormSubmitted = true;
+          
+          // Show all validation errors
+          showFieldError('co-name', validation.validation.name.isValid ? '' : validation.validation.name.message);
+          showFieldError('co-email', validation.validation.email.isValid ? '' : validation.validation.email.message);
+          showFieldError('co-address', validation.validation.address.isValid ? '' : validation.validation.address.message);
+          showFieldError('co-city', validation.validation.city.isValid ? '' : validation.validation.city.message);
+          showFieldError('co-state', validation.validation.state.isValid ? '' : validation.validation.state.message);
+          showFieldError('co-zip', validation.validation.zip.isValid ? '' : validation.validation.zip.message);
+          
+          // Find first error field and scroll to it
+          const fieldMapping = {
+            'co-name': 'name',
+            'co-email': 'email',
+            'co-address': 'address',
+            'co-city': 'city',
+            'co-state': 'state',
+            'co-zip': 'zip'
+          };
+          const firstErrorField = ['co-name', 'co-email', 'co-address', 'co-city', 'co-state', 'co-zip']
+            .find(id => !validation.validation[fieldMapping[id]].isValid);
+          
+          if (firstErrorField) {
+            const fieldEl = document.getElementById(firstErrorField);
+            if (fieldEl) {
+              fieldEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              fieldEl.focus();
+            }
+          }
+          
+          // Return false to prevent payment
+          return false;
+        }
+        
+        // Return true to proceed with payment
+        return true;
+      },
       onSuccess: (data) => {
         if (typeof cart?.clear === 'function') cart.clear();
         closeCart();
@@ -606,5 +990,30 @@ function updateCheckoutTotals() {
         }
       }
     });
+    
+    // Use a small delay to ensure Square has finished cloning/replacing the button
+    setTimeout(() => {
+      const payBtn = document.getElementById('card-button');
+      if (payBtn) {
+        // Enable button if total > 0, update text
+        if (total > 0) {
+          payBtn.disabled = false;
+          const labelAmount = `$${total.toFixed(2)}`;
+          payBtn.textContent = `Pay ${labelAmount}`;
+        } else {
+          payBtn.disabled = true;
+          payBtn.textContent = 'Pay Now';
+        }
+      }
+    }, 100);
+  } else {
+    // Square already initialized, just update the button text if needed
+    const payBtn = document.getElementById('card-button');
+    if (payBtn && total > 0) {
+      const labelAmount = `$${total.toFixed(2)}`;
+      if (!payBtn.disabled) {
+        payBtn.textContent = `Pay ${labelAmount}`;
+      }
+    }
   }
 }

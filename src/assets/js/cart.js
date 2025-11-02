@@ -46,6 +46,9 @@ function saveCartToStorage() {
   try {
     cartState.lastUpdated = new Date().toISOString();
     localStorage.setItem(CART_CONFIG.storageKey, JSON.stringify(cartState));
+    // Update badge immediately (doesn't wait for event listeners)
+    updateBadgeDirectly();
+    // Also trigger event for other UI updates
     triggerCartEvent('cartUpdated', cartState);
   } catch (error) {
     console.error('Error saving cart to storage:', error);
@@ -65,6 +68,43 @@ function getEmptyCartState() {
 function updateCartTotals() {
   cartState.itemCount = cartState.items.reduce((total, item) => total + item.quantity, 0);
   return cartState.itemCount;
+}
+
+// Direct badge update function (works immediately, doesn't wait for event listeners)
+function updateBadgeDirectly() {
+  function doUpdate() {
+    // Try multiple selectors to find the badge
+    const badge = document.querySelector('#navigation .cart-btn .badge') || 
+                  document.querySelector('.cart-btn .badge') || 
+                  document.querySelector('.badge');
+    
+    if (badge) {
+      // Recalculate count directly from items to ensure accuracy
+      const count = cartState.items.reduce((total, item) => total + (item.quantity || 0), 0);
+      const MAX_BADGE_COUNT = 99;
+      const display = count > MAX_BADGE_COUNT ? `${MAX_BADGE_COUNT}+` : `${count}`;
+      
+      // Update badge content and visibility
+      badge.textContent = count > 0 ? display : '';
+      // Force display update - inline style overrides CSS :empty rule
+      if (count > 0) {
+        badge.style.display = 'flex'; // CSS uses flex, not block
+      } else {
+        badge.style.display = 'none';
+      }
+      badge.setAttribute('aria-label', count > 0 ? `${count} items in cart` : 'Cart is empty');
+      badge.setAttribute('title', count > 0 ? `${count} items in cart` : 'Cart is empty');
+    }
+  }
+  
+  // If DOM is still loading, wait for it
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', doUpdate);
+    return;
+  }
+  
+  // Use requestAnimationFrame to ensure DOM updates are visible
+  requestAnimationFrame(doUpdate);
 }
 
 // ====== CART OPERATIONS ======
@@ -262,6 +302,10 @@ function initCart() {
   loadCartFromStorage();
   // Recalculate totals on startup and notify listeners so UI (badge) syncs
   updateCartTotals();
+  // Update badge - use setTimeout to ensure DOM is fully ready (even with defer)
+  setTimeout(() => {
+    updateBadgeDirectly();
+  }, 0);
   triggerCartEvent('cartUpdated', cartState);
   triggerCartEvent('cartLoaded', cartState);
 }

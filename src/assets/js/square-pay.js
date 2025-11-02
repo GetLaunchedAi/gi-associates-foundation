@@ -11,6 +11,7 @@
       payButtonSelector = "#card-button",
       statusSelector = "#payment-status",
       endpoint = "/api/process-payment.php",
+      beforeTokenize,
       onSuccess,
       onError
     } = options || {};
@@ -34,9 +35,25 @@
       buttonEl.parentNode.replaceChild(newButtonEl, buttonEl);
     }
     const payBtn = document.querySelector(payButtonSelector);
-    if (!payBtn) return;
+    if (!payBtn) {
+      if (typeof onError === 'function') onError(new Error('Pay button not found'));
+      return;
+    }
+
+    // Ensure button is enabled before attaching listener (unless total is 0)
+    // The calling code will update the disabled state after initialization if needed
+    payBtn.disabled = false;
 
     payBtn.addEventListener("click", async () => {
+      // Run beforeTokenize callback if provided
+      if (typeof beforeTokenize === 'function') {
+        const shouldProceed = beforeTokenize();
+        if (shouldProceed === false) {
+          // Validation failed, don't proceed with payment
+          return;
+        }
+      }
+      
       payBtn.disabled = true;
       if (statusEl) statusEl.innerText = "Processing payment...";
       try {

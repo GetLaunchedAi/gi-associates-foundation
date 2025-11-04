@@ -979,5 +979,29 @@
       "inStock": true
     }
     
+    ,
+    {
+      "id": "0090",
+      "slug": "0090",
+      "title": "Golden amber crystal pearl elegance awareness bracelet",
+      "image": "/images/products/0090.png",
+      "description": "Elegant single-strand bracelet featuring a harmonious alternation of lustrous, creamy white pearl-like beads and sparkling faceted golden-amber crystal beads. Each round pearl bead offers a soft, natural sheen, beautifully contrasted by the translucent, light-refracting facets of the amber crystals. Small, polished silver-toned spacer beads are delicately placed between the main beads, adding a subtle metallic accent and enhancing the overall sophisticated design. This bracelet combines classic elegance with a touch of warm sparkle, symbolizing grace, inner light, and refined beauty. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our elegance and awareness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0091",
+      "slug": "0091",
+      "title": "Ornate rhinestone metallic boho eclectic artistry awareness bracelet",
+      "image": "/images/products/0091.png",
+      "description": "Extravagant bracelet featuring a rich mix of ornate beads in a warm, eclectic color palette. Large round beads in matte orange-brown showcase central square-cut rhinestones surrounded by smaller round rhinestones and raised metallic dots. Alternating light green-gold round beads display intricate silver swirl designs with embedded rhinestones. Barrel-shaped reddish-brown beads feature silver metallic caps, central panels with red stone inlays, and delicate metallic patterns accented with tiny rhinestones. These statement beads are interspersed with smaller smooth spacer beads in soft pinkish-beige and glossy orange, creating visual breaks in the intricate design. This bold, artistic piece combines textures, metallic work, and sparkling accents, symbolizing creativity, heritage, and vibrant self-expression. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our artistry and cultural wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
   ]
 }

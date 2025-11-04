@@ -291,14 +291,15 @@ eleventyNavigation:
     const root = document.getElementById('catalog');
     const DATA_URL = root.getAttribute('data-src') || '/products.json';
 
-    const IS_DEV = /^phpstack-1518311-5868490\.cloudwaysapps\.com$/.test(location.hostname);
+    const IS_DEV = /^(localhost|127\.0\.0\.1|phpstack-1518311-5868490\.cloudwaysapps\.com)$/.test(location.hostname);
 
     const safeSlug = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     const toTitle = s => String(s || '').replace(/[-_]+/g, ' ').replace(/\w\S*/g, t => t[0].toUpperCase() + t.slice(1));
 
     const productUrl = (p) => {
       const id = p.slug || p.id || safeSlug(p.title || p.name || 'item');
-      return IS_DEV ? `/product/?slug=${encodeURIComponent(id)}` : `/products/${encodeURIComponent(id)}/`;
+      // Always use query string format since the product page is at /product/ and supports this format
+      return `/product/?slug=${encodeURIComponent(id)}`;
     };
 
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -845,15 +846,20 @@ eleventyNavigation:
       const img = p.image || '/images/placeholder.jpg';
       const title = esc(p.title || p.name || 'Untitled');
       const isOutOfStock = !p.inStock;
+      const url = productUrl(p);
 
       return `<article class="card ${isOutOfStock ? 'out-of-stock' : ''}">
         <div class="card__img">
-          <picture>
-            <img src="${esc(img)}" alt="${esc(title)}" loading="lazy" decoding="async">
-          </picture>
+          <a href="${esc(url)}" aria-label="View ${title}">
+            <picture>
+              <img src="${esc(img)}" alt="${esc(title)}" loading="lazy" decoding="async">
+            </picture>
+          </a>
         </div>
         <div class="card__content">
-          <h3 class="card__title">${title}</h3>
+          <h3 class="card__title">
+            <a href="${esc(url)}">${title}</a>
+          </h3>
           <p class="card__price">${isOutOfStock ? 'Out of Stock' : 'Pay what you want to donate'}</p>
         </div>
         ${isOutOfStock ? 

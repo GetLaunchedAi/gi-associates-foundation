@@ -192,9 +192,6 @@
   const btnNext = root.querySelector('.rp-btn.next');
   const DATA_URL = root.getAttribute('data-src') || '/products.json';
 
-//   const IS_DEV = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
-  const IS_DEV = /^(www\.)?phpstack-1518311-5868490.cloudwaysapps\.com$/.test(location.hostname);
-
   const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const money = v => (Number(v)||0).toFixed(2);
   const currSlug = (() => {
@@ -203,9 +200,8 @@
     const seg = location.pathname.replace(/\/+$/,'').split('/').pop();
     return seg === 'product' ? '' : seg;
   })();
-  const productUrl = p => IS_DEV
-    ? `/product/?slug=${encodeURIComponent(p.slug || p.id)}`
-    : `/products/${encodeURIComponent(p.slug || p.id)}/`;
+  // Always use query string format since the product page is at /product/ and supports this format
+  const productUrl = p => `/product/?slug=${encodeURIComponent(p.slug || p.id)}`;
 
   const card = p => `
     <article class="rel-card">
@@ -213,19 +209,21 @@
         <img src="${esc(p.image || '/images/placeholder.jpg')}"
              alt="${esc(p.imageAlt || p.title || p.name || p.slug || 'Product')}" loading="lazy">
       </a>
-      <h3 class="rel-card__title"><a href="${esc(productUrl(p))}">${esc(p.title || p.name || p.slug)}</a></h3>
-      <div class="rel-card__price">$${money(p.price ?? p.base_price ?? 0)}</div>
-      <button class="rel-card__cta" 
-              onclick="addToCart({
-                id: '${esc(p.id || p.slug)}',
-                title: '${esc(p.title || p.name || p.slug)}',
-                image: '${esc(p.image || '')}',
-                description: '${esc(p.description || '')}',
-                price: ${p.price || 0},
-                currency: '${p.currency || 'USD'}'
-              })">
-        Add to cart
-      </button>
+      <div class="rel-card__content">
+        <h3 class="rel-card__title"><a href="${esc(productUrl(p))}">${esc(p.title || p.name || p.slug)}</a></h3>
+        <div class="rel-card__price">$${money(p.price ?? p.base_price ?? 0)}</div>
+        <button class="rel-card__cta" 
+                onclick="addToCart({
+                  id: '${esc(p.id || p.slug)}',
+                  title: '${esc(p.title || p.name || p.slug)}',
+                  image: '${esc(p.image || '')}',
+                  description: '${esc(p.description || '')}',
+                  price: ${p.price || 0},
+                  currency: '${p.currency || 'USD'}'
+                })">
+          <span>Add to cart</span>
+        </button>
+      </div>
     </article>`;
 
   function pickRelated(list, me, limit=20){

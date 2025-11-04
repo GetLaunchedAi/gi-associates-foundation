@@ -883,5 +883,101 @@
       "inStock": true
     }
     
+    ,
+    {
+      "id": "0082",
+      "slug": "0082",
+      "title": "Pink bead gold butterfly charm transformation awareness bracelet",
+      "image": "/images/products/0082.png",
+      "description": "Delicate bracelet featuring soft pink round beads with a sparkling center section of clear faceted barrel beads and gold rhinestone spacer beads. A graceful antique gold butterfly charm hangs elegantly from the center, symbolizing transformation, hope, and new beginnings. The feminine design combines the warmth of pink with the sparkle of crystals and gold accents. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our transformation and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0083",
+      "slug": "0083",
+      "title": "Silver pave cubic zirconia drop elegance awareness earrings",
+      "image": "/images/products/0083.png",
+      "description": "Elegant drop earrings featuring fine silver-plated settings with brilliant cubic zirconia stones. Each earring showcases a curved lever-back top section encrusted with sparkling stones, from which a circular pavé disc charm dangles, creating a dazzling cascade of light. The dense pavé setting ensures maximum brilliance and luxury, symbolizing elegance, grace, and refined beauty. These sophisticated earrings make a stunning statement while supporting our mission. Your donation helps fund our elegance and empowerment programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0084",
+      "slug": "0084",
+      "title": "Golden red two-tone peace sign harmony awareness bracelet",
+      "image": "/images/products/0084.png",
+      "description": "Bold two-tone bracelet featuring vibrant golden yellow-orange beads on one half and deep rich red beads on the other, creating a striking color contrast. A silver peace sign charm marks the transition point where the two colors meet, symbolizing harmony, unity, and peace. The glossy, pearl-like beads are uniform in size with a smooth, polished finish, creating a modern and eye-catching design. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our peace and harmony programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0085",
+      "slug": "0085",
+      "title": "Dark blue-grey dragon vein gold spacer strength awareness bracelet",
+      "image": "/images/products/0085.png",
+      "description": "Sophisticated bracelet featuring large dark blue-grey beads with distinctive white and light grey cracked dragon vein patterns, alternating with textured gold spacer beads. Each gold bead has a hammered or granulated surface and is elegantly separated from the cracked beads by tiny silver spacer rings, creating a refined layered look. The rich color palette of blue-grey, gold, and silver creates a striking, modern design that symbolizes strength, resilience, and inner fortitude. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our strength and resilience programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0086",
+      "slug": "0086",
+      "title": "Creamy white pearl classic elegance awareness bracelet",
+      "image": "/images/products/0086.png",
+      "description": "Timeless single-strand bracelet featuring uniform creamy white pearl-like beads with a soft, natural luster. Each perfectly round bead is polished to a gentle sheen, creating a classic and elegant appearance that never goes out of style. The simple, refined design offers understated sophistication and graceful beauty, symbolizing purity, elegance, and timeless grace. This versatile piece layers beautifully or stands alone as a classic statement. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our elegance and awareness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0087",
+      "slug": "0087",
+      "title": "Iridescent aurora borealis pave sparkle glamour awareness bracelet",
+      "image": "/images/products/0087.png",
+      "description": "Glamorous bracelet featuring dark smoky grey faceted beads with a stunning Aurora Borealis iridescent finish that reflects vibrant flashes of yellow, gold, purple, blue, and green. The mix of round and barrel-shaped faceted beads creates visual interest, while a single prominent pavé bead completely covered in brilliant rhinestones serves as a dazzling focal point. This sophisticated design captures light from every angle, creating an elegant and radiant sparkle that symbolizes hope, transformation, and inner radiance. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our glamour and empowerment programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0088",
+      "slug": "0088",
+      "title": "Golden amber faceted silver flower charm beauty awareness bracelet",
+      "image": "/images/products/0088.png",
+      "description": "Elegant two-tone bracelet featuring sparkling faceted beads in alternating clear and warm golden-amber colors, transitioning to smooth clear crystal beads. Two ornate silver-toned flower charms with intricate filigree detailing and deep reddish-brown center stones add a sophisticated focal point. The faceted beads catch and refract light beautifully, while the smooth clear beads provide a polished, translucent backdrop for the vintage-inspired flower charms. This warm, luxurious design combines sparkle with ornate detail, symbolizing beauty, grace, and blossoming hope. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our beauty and wellness programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
+    ,
+    {
+      "id": "0089",
+      "slug": "0089",
+      "title": "White orange purple gold D charm personalization awareness bracelet",
+      "image": "/images/products/0089.png",
+      "description": "Vibrant bracelet featuring a lively alternating pattern of creamy white pearl-like beads, glossy orange beads, and translucent purple-royal blue beads. The colorful mix creates a cheerful and dynamic design. A large, ornate gold-toned letter 'D' charm completely encrusted with brilliant rhinestones serves as the stunning focal point, creating a dazzling pavé effect. The charm features a classic, elegant font style, adding a personalized touch that symbolizes identity, determination, and self-expression. This eye-catching piece combines bold colors with luxurious sparkle. Strung on a comfortable stretch cord to fit most wrists. Your donation helps fund our personalization and empowerment programs.",
+      "price": 0,
+      "currency": "USD",
+      "inStock": true
+    }
+    
   ]
 }

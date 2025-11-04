@@ -205,6 +205,12 @@ body.dark-mode{
   margin: 0 auto;
 }
 
+.card__img a{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .card__img img{
   width: 100%;
   height: 100%;

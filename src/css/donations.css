@@ -1723,7 +1723,6 @@
   max-width: 40.625rem;
   margin: 0;
   color: var(--headerColor);
-
 }
 body.dark-mode #online-donations .cs-title {
   color: var(--bodyTextColorWhite);
@@ -1732,11 +1731,76 @@ body.dark-mode #online-donations .cs-text {
   color: var(--bodyTextColorWhite);
 }
 
-.zeffy-embed {
-  width: 100%;
-  max-width: 75rem;
-  margin-inline: auto;
-  margin-top: 2rem;
+#online-donations .donation-methods {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media only screen and (min-width: 48em) {
+  #online-donations .donation-methods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  #online-donations .donation-methods {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+#online-donations .method-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#online-donations .method-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+#online-donations .method-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+#online-donations .method-card h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--headerColor);
+}
+
+#online-donations .method-card p {
+  margin: 0;
+  color: var(--bodyTextColor);
+  line-height: 1.6;
+  flex: 1;
+}
+
+#online-donations .method-card .cs-button-solid {
+  align-self: flex-start;
+}
+
+body.dark-mode #online-donations .method-card {
+  background-color: var(--medium);
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+body.dark-mode #online-donations .method-card h3,
+body.dark-mode #online-donations .method-card p {
+  color: var(--bodyTextColorWhite);
 }
 
 

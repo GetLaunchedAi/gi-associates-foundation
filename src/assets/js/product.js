@@ -6,10 +6,10 @@
   // ====== Config ======
   const DATA_URL = '/products.json'; // serve via Eleventy passthrough or your dev server
   const PLACEHOLDER = '/images/placeholder.jpg';
+  const MIN_DONATION = window.cart?.config?.minDonation || 1;
 
   // ====== Helpers ======
   const $ = (sel, el = document) => el.querySelector(sel);
-  const money = v => (Number(v) || 0).toFixed(2);
   const esc = s => String(s ?? '');
 
   // Get slug from ?slug=... (rewrite adds this), otherwise last segment
@@ -18,7 +18,7 @@
   const slugFromPath = location.pathname.replace(/\/+$/, '').split('/').pop();
   const slug = slugFromQS || (slugFromPath && slugFromPath !== 'product' ? slugFromPath : '');
 
-  const state = { product: null, base: 0 };
+  const state = { product: null };
 
   async function load() {
     if (!slug) return fail('No product specified.');
@@ -35,7 +35,6 @@
     if (!p) return fail('Product not found.');
 
     state.product = p;
-    state.base = Number(p.price ?? p.base_price ?? 0);
     render(p);
     wireAddToCartButton(p);
   }
@@ -47,7 +46,6 @@
   function render(p) {
   // helpers (local so we don't depend on outer scope)
   const $ = (sel, el = document) => el.querySelector(sel);
-  const money = v => (Number(v) || 0).toFixed(2);
   const htmlEsc = s => String(s ?? '').replace(/[&<>"']/g, c => (
     ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c] || c)
   ));
@@ -60,6 +58,8 @@
   const imgEl   = $('#pdpImg');
   const priceEl = $('#pdpPrice');
   const optsEl  = $('#pdpOptions');
+  const donationInput = $('#pdpDonationInput');
+  const donationError = $('#pdpDonationError');
 
   if (!pdpEl || !titleEl || !imgEl || !priceEl || !optsEl) return; // nothing to render into
 
@@ -77,6 +77,23 @@
   const bc = document.getElementById('pdpBannerCrumb');
   if (bt) bt.textContent = title;
   if (bc) bc.textContent = title;
+
+  if (donationInput) {
+    donationInput.min = MIN_DONATION;
+    donationInput.placeholder = MIN_DONATION.toFixed(2);
+    donationInput.addEventListener('input', () => {
+      if (donationError) {
+        donationError.textContent = '';
+        donationError.style.display = 'none';
+      }
+    }, { once: false });
+  }
+  if (donationError) {
+    donationError.textContent = '';
+    donationError.style.display = 'none';
+  }
+
+  priceEl.textContent = 'Name your donation amount';
 
   // Normalize options
   const rawOpts = Array.isArray(p.options) ? p.options : [];
@@ -101,10 +118,9 @@
       const id = `opt${i}`;
       const rows = opt.values.map(v => {
         const label = v?.label || v?.value || v?.id || '';
-        const delta = Number(v?.price_delta || 0);
         const escLabel = htmlEsc(label);
-        return `<option value="${escLabel}" data-delta="${delta}" data-label="${escLabel}">
-                  ${escLabel}${delta ? ` (+$${money(delta)})` : ''}
+        return `<option value="${escLabel}" data-label="${escLabel}">
+                  ${escLabel}
                 </option>`;
       }).join('');
 
@@ -118,22 +134,8 @@
       `);
     });
 
-    // Price = base + selected deltas
-    function recalc() {
-      const selects = optsEl.querySelectorAll('select');
-      let total = Number(p.price ?? p.base_price ?? 0);
-      selects.forEach(sel => {
-        const d = Number(sel.selectedOptions[0]?.dataset.delta || 0);
-        total += d;
-      });
-      priceEl.textContent = `$${money(total)}`;
-    }
-    optsEl.addEventListener('change', recalc);
-    recalc();
     optsEl.style.display = ''; // make sure it’s visible
   } else {
-    // Simple product: show base price and hide empty options block
-    priceEl.textContent = `$${money(Number(p.price ?? p.base_price ?? 0))}`;
     optsEl.style.display = 'none';
   }
 }
@@ -143,36 +145,78 @@
   function wireAddToCartButton(p) {
     const btn = $('#addToCartBtn');
     if (!btn) return;
+    const donationInput = document.getElementById('pdpDonationInput');
+    const donationError = document.getElementById('pdpDonationError');
 
     btn.addEventListener('click', () => {
-      // Get selected options and calculate final price
+      if (!donationInput) return;
+
+      const rawAmount = parseFloat(donationInput.value);
+      const validation =
+        typeof window.cart?.validateDonation === 'function'
+          ? window.cart.validateDonation(rawAmount)
+          : {
+              isValid: !Number.isNaN(rawAmount) && rawAmount >= MIN_DONATION,
+              amount: rawAmount,
+              message: `Minimum donation is $${MIN_DONATION.toFixed(2)}`
+            };
+
+      if (!validation.isValid) {
+        if (donationError) {
+          donationError.textContent =
+            validation.message || `Minimum donation is $${MIN_DONATION.toFixed(2)}`;
+          donationError.style.display = 'block';
+        }
+        donationInput.focus();
+        return;
+      }
+
+      if (donationError) {
+        donationError.textContent = '';
+        donationError.style.display = 'none';
+      }
+
       const opts = Array.isArray(p.options) ? p.options : [];
-      let finalPrice = Number(p.price ?? p.base_price ?? 0);
-      
+      const optionSelections = [];
       opts.forEach((opt, i) => {
         const select = document.querySelector(`[data-opt-index="${i}"]`);
         const selected = select?.selectedOptions?.[0];
         if (selected) {
-          const delta = Number(selected.dataset.delta || 0);
-          finalPrice += delta;
+          const label = selected.dataset.label || selected.value;
+          optionSelections.push(`${opt?.name || 'Option'}: ${label}`);
         }
       });
 
-      // Add product to cart using the custom cart system
-      if (typeof addToCart === 'function') {
-        addToCart({
-          id: p.id || p.slug,
-          title: p.title || p.name || p.slug,
-          image: p.image || '',
-          description: p.description || '',
-          price: finalPrice,
-          currency: p.currency || 'USD'
-        });
-        
-        // Optionally open cart after adding
-        if (typeof openCart === 'function') {
-          openCart();
-        }
+      const donationAmount = validation.amount ?? rawAmount;
+      const payload = {
+        id: p.id || p.slug,
+        title: p.title || p.name || p.slug,
+        image: p.image || '',
+        description: p.description || '',
+        donationPerUnit: Math.round(donationAmount * 100) / 100,
+        quantity: 1
+      };
+
+      if (optionSelections.length) {
+        payload.description = payload.description
+          ? `${payload.description} — ${optionSelections.join(', ')}`
+          : optionSelections.join(', ');
+      }
+
+      const add =
+        (window.cart && typeof window.cart.addToCart === 'function'
+          ? window.cart.addToCart
+          : typeof addToCart === 'function'
+            ? addToCart
+            : null);
+
+      if (typeof add === 'function') {
+        add(payload);
+      }
+
+      donationInput.value = '';
+      if (typeof openCart === 'function') {
+        openCart();
       }
     });
   }
@@ -193,7 +237,6 @@
   const DATA_URL = root.getAttribute('data-src') || '/products.json';
 
   const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const money = v => (Number(v)||0).toFixed(2);
   const currSlug = (() => {
     const q = new URLSearchParams(location.search).get('slug');
     if (q) return q;
@@ -211,18 +254,10 @@
       </a>
       <div class="rel-card__content">
         <h3 class="rel-card__title"><a href="${esc(productUrl(p))}">${esc(p.title || p.name || p.slug)}</a></h3>
-        <div class="rel-card__price">$${money(p.price ?? p.base_price ?? 0)}</div>
-        <button class="rel-card__cta" 
-                onclick="addToCart({
-                  id: '${esc(p.id || p.slug)}',
-                  title: '${esc(p.title || p.name || p.slug)}',
-                  image: '${esc(p.image || '')}',
-                  description: '${esc(p.description || '')}',
-                  price: ${p.price || 0},
-                  currency: '${p.currency || 'USD'}'
-                })">
-          <span>Add to cart</span>
-        </button>
+        <div class="rel-card__price">Choose your donation</div>
+        <a class="rel-card__cta" href="${esc(productUrl(p))}">
+          <span>View item</span>
+        </a>
       </div>
     </article>`;
 

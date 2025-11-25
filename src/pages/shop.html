@@ -864,16 +864,9 @@ eleventyNavigation:
         </div>
         ${isOutOfStock ? 
           '<button class="add-to-cart disabled" disabled>Out of Stock</button>' : 
-          `<button class="add-to-cart" 
-                   type="button"
-                   data-product-id="${esc(p.id || p.slug)}"
-                   data-product-title="${esc(p.title || p.name || p.slug)}"
-                   data-product-image="${esc(p.image || '')}"
-                   data-product-description="${esc(p.description || '')}"
-                   data-product-price="${p.price || 0}"
-                   data-product-currency="${p.currency || 'USD'}">
-            Donate & Order
-          </button>`
+          `<a class="add-to-cart" href="${esc(url)}">
+            Choose Donation Amount
+          </a>`
         }
       </article>`;
     }
@@ -883,54 +876,6 @@ eleventyNavigation:
 
     // Load products into the advanced filter system
     filterSystem.loadProducts();
-    
-    // Setup event delegation for "Donate & Order" buttons (works for dynamically added buttons)
-    document.addEventListener('click', function(e) {
-      const addToCartBtn = e.target.closest('.add-to-cart');
-      if (addToCartBtn && !addToCartBtn.disabled && addToCartBtn.dataset.productId) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const product = {
-          id: addToCartBtn.dataset.productId,
-          title: addToCartBtn.dataset.productTitle,
-          image: addToCartBtn.dataset.productImage,
-          description: addToCartBtn.dataset.productDescription,
-          price: parseFloat(addToCartBtn.dataset.productPrice) || 0,
-          currency: addToCartBtn.dataset.productCurrency || 'USD'
-        };
-        
-        if (typeof addToCart === 'function') {
-          addToCart(product);
-        } else if (typeof window.cart !== 'undefined' && typeof window.cart.addToCart === 'function') {
-          window.cart.addToCart(product);
-        }
-      }
-    }, true);
-    
-    // Also handle touch events for mobile devices
-    document.addEventListener('touchend', function(e) {
-      const addToCartBtn = e.target.closest('.add-to-cart');
-      if (addToCartBtn && !addToCartBtn.disabled && addToCartBtn.dataset.productId) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const product = {
-          id: addToCartBtn.dataset.productId,
-          title: addToCartBtn.dataset.productTitle,
-          image: addToCartBtn.dataset.productImage,
-          description: addToCartBtn.dataset.productDescription,
-          price: parseFloat(addToCartBtn.dataset.productPrice) || 0,
-          currency: addToCartBtn.dataset.productCurrency || 'USD'
-        };
-        
-        if (typeof addToCart === 'function') {
-          addToCart(product);
-        } else if (typeof window.cart !== 'undefined' && typeof window.cart.addToCart === 'function') {
-          window.cart.addToCart(product);
-        }
-      }
-    }, { passive: false, capture: true });
   })();
 
   // Order Form Handling

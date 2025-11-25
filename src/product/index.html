@@ -27,6 +27,24 @@ permalink: "product/"
 
     <form id="pdpOptions" class="pdp__options"></form>
 
+    <div class="pdp__donation" id="pdpDonation">
+      <label for="pdpDonationInput">Enter your donation amount</label>
+      <div class="pdp__donation-input">
+        <span>$</span>
+        <input
+          type="number"
+          id="pdpDonationInput"
+          min="1"
+          step="0.01"
+          placeholder="0.00"
+          inputmode="decimal"
+          autocomplete="off"
+        />
+      </div>
+      <p class="pdp__donation-helper">100% of your donation funds victim support services.</p>
+      <p class="pdp__donation-error" id="pdpDonationError"></p>
+    </div>
+
     <!-- Add to cart button -->
     <button id="addToCartBtn" class="cta"><span>Add to cart</span></button>
   </div>

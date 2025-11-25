@@ -255,6 +255,73 @@
     background-color: #ffffff;
 }
 
+.pdp__donation {
+    margin: 1rem 0;
+    padding: 1.75rem;
+    background: rgba(106, 13, 173, 0.05);
+    border: 1px solid rgba(106, 13, 173, 0.2);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.pdp__donation label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--headerColor);
+    margin-bottom: 0.75rem;
+}
+body.dark-mode .pdp__donation label {
+    color: var(--bodyTextColorWhite);
+}
+
+.pdp__donation-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.pdp__donation-input span {
+    position: absolute;
+    left: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary, #6a0dad);
+}
+
+.pdp__donation-input input {
+    width: 100%;
+    padding: 0.95rem 1rem 0.95rem 2.5rem;
+    border: 2px solid rgba(106, 13, 173, 0.25);
+    border-radius: var(--border-radius-sm);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--headerColor);
+    background: #fff;
+    transition: var(--transition-quick);
+}
+
+.pdp__donation-input input:focus {
+    outline: none;
+    border-color: var(--primary, #6a0dad);
+    box-shadow: 0 0 0 4px rgba(106, 13, 173, 0.2);
+}
+
+.pdp__donation-helper {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--bodyTextColor);
+    opacity: 0.85;
+}
+
+.pdp__donation-error {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    color: #dc3545;
+    display: none;
+}
+
 .cta {
     display: inline-flex;
     align-items: center;

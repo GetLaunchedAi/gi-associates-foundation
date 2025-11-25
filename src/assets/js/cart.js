@@ -5,7 +5,7 @@
 // Global cart state
 let cartState = {
   items: [],
-  totalDonation: 0,
+  donationTotal: 0,
   itemCount: 0,
   isOpen: false,
   lastUpdated: new Date().toISOString()
@@ -16,6 +16,30 @@ const CART_CONFIG = {
   storageKey: 'gi_foundation_cart',
   minDonation: 10
 };
+
+// Helpers
+function normalizeDonationInput(value) {
+  if (value === undefined || value === null || value === '') {
+    return null;
+  }
+  const parsed = parseFloat(value);
+  if (Number.isNaN(parsed) || parsed <= 0) {
+    return null;
+  }
+  return Math.round(parsed * 100) / 100;
+}
+
+function getItemDonation(item) {
+  return typeof item?.donationPerUnit === 'number' && !Number.isNaN(item.donationPerUnit)
+    ? item.donationPerUnit
+    : null;
+}
+
+function getLineTotal(item) {
+  const donation = getItemDonation(item);
+  const quantity = Math.max(1, parseInt(item?.quantity, 10) || 1);
+  return donation ? donation * quantity : 0;
+}
 
 // Event listeners storage
 const cartListeners = {};
@@ -32,6 +56,13 @@ function loadCartFromStorage() {
         ...parsed,
         isOpen: false // Always start with cart closed
       };
+      cartState.items = Array.isArray(cartState.items)
+        ? cartState.items.map(item => ({
+            ...item,
+            quantity: Math.max(1, parseInt(item?.quantity, 10) || 1),
+            donationPerUnit: getItemDonation(item)
+          }))
+        : [];
       // Ensure derived totals are consistent with stored items
       updateCartTotals();
     }
@@ -58,7 +89,7 @@ function saveCartToStorage() {
 function getEmptyCartState() {
   return {
     items: [],
-    totalDonation: 0,
+    donationTotal: 0,
     itemCount: 0,
     isOpen: false,
     lastUpdated: new Date().toISOString()
@@ -66,8 +97,12 @@ function getEmptyCartState() {
 }
 
 function updateCartTotals() {
-  cartState.itemCount = cartState.items.reduce((total, item) => total + item.quantity, 0);
-  return cartState.itemCount;
+  cartState.itemCount = cartState.items.reduce((total, item) => total + (item.quantity || 0), 0);
+  cartState.donationTotal = cartState.items.reduce((total, item) => total + getLineTotal(item), 0);
+  return {
+    itemCount: cartState.itemCount,
+    donationTotal: cartState.donationTotal
+  };
 }
 
 // Direct badge update function (works immediately, doesn't wait for event listeners)
@@ -116,17 +151,24 @@ function addToCart(product) {
   }
 
   const existingItem = cartState.items.find(item => item.id === product.id);
+  const quantityToAdd = Math.max(1, parseInt(product.quantity, 10) || 1);
+  const donationInput =
+    product.donationPerUnit ?? product.donationAmount ?? product.donation ?? null;
+  const donationValue = normalizeDonationInput(donationInput);
   
   if (existingItem) {
-    existingItem.quantity += 1;
+    existingItem.quantity += quantityToAdd;
+    if (donationValue !== null) {
+      existingItem.donationPerUnit = donationValue;
+    }
   } else {
     cartState.items.push({
       id: product.id,
       title: product.title || product.name || 'Untitled Product',
       image: product.image || '/images/placeholder.jpg',
       description: product.description || '',
-      basePrice: product.price || 0,
-      quantity: 1
+      donationPerUnit: donationValue,
+      quantity: quantityToAdd
     });
   }
 
@@ -165,11 +207,14 @@ function updateItemQuantity(productId, quantity) {
   return true;
 }
 
-function setDonationAmount(amount) {
-  const donation = Math.max(0, parseFloat(amount) || 0);
-  cartState.totalDonation = donation;
+function setItemDonation(productId, amount) {
+  const item = cartState.items.find(entry => entry.id === productId);
+  if (!item) return false;
+
+  item.donationPerUnit = normalizeDonationInput(amount);
+  updateCartTotals();
   saveCartToStorage();
-  triggerCartEvent('donationUpdated', { amount: donation, cart: cartState });
+  triggerCartEvent('itemDonationUpdated', { productId, donation: item.donationPerUnit, cart: cartState });
   return true;
 }
 
@@ -183,29 +228,39 @@ function clearCart() {
 // ====== VALIDATION ======
 
 function validateDonation(amount) {
-  const donation = parseFloat(amount) || 0;
+  const donation =
+    typeof amount === 'number' && !Number.isNaN(amount) ? amount : normalizeDonationInput(amount);
   return {
-    isValid: donation >= CART_CONFIG.minDonation,
+    isValid: donation !== null && donation >= CART_CONFIG.minDonation,
     amount: donation,
     minimum: CART_CONFIG.minDonation,
-    message: donation < CART_CONFIG.minDonation ? 
-      `Minimum donation is $${CART_CONFIG.minDonation}` : 
-      'Donation amount is valid'
+    message:
+      donation === null
+        ? 'Enter a donation amount'
+        : donation < CART_CONFIG.minDonation
+          ? `Minimum donation is $${CART_CONFIG.minDonation}`
+          : 'Donation amount is valid'
   };
 }
 
 function validateCart() {
-  const donationValidation = validateDonation(cartState.totalDonation);
   const isEmpty = cartState.items.length === 0;
+  const itemErrors = cartState.items.map(item => {
+    const validation = validateDonation(getItemDonation(item));
+    return {
+      id: item.id,
+      title: item.title,
+      isValid: validation.isValid,
+      message: validation.isValid ? '' : validation.message
+    };
+  }).filter(entry => !entry.isValid);
   
   return {
-    isValid: donationValidation.isValid && !isEmpty,
-    errors: [
-      ...(donationValidation.isValid ? [] : [donationValidation.message]),
-      ...(isEmpty ? ['Cart is empty'] : [])
-    ],
-    donation: donationValidation,
-    isEmpty: isEmpty
+    isValid: !isEmpty && itemErrors.length === 0,
+    errors: itemErrors,
+    isEmpty,
+    minDonation: CART_CONFIG.minDonation,
+    donationTotal: cartState.donationTotal
   };
 }
 
@@ -220,7 +275,7 @@ function getItemCount() {
 }
 
 function getTotalDonation() {
-  return cartState.totalDonation;
+  return cartState.donationTotal;
 }
 
 function isCartEmpty() {
@@ -230,12 +285,14 @@ function isCartEmpty() {
 function getCartSummary() {
   return {
     itemCount: cartState.itemCount,
-    totalDonation: cartState.totalDonation,
+    totalDonation: cartState.donationTotal,
     items: cartState.items.map(item => ({
       id: item.id,
       title: item.title,
       quantity: item.quantity,
-      image: item.image
+      image: item.image,
+      donationPerUnit: getItemDonation(item),
+      lineTotal: getLineTotal(item)
     }))
   };
 }
@@ -256,11 +313,12 @@ function prepareCheckout() {
   return {
     success: true,
     cart: cartState,
-    total: cartState.totalDonation,
+    total: cartState.donationTotal,
     items: cartState.items.map(item => ({
       name: item.title,
       quantity: item.quantity,
-      price: cartState.totalDonation / cartState.itemCount // Distribute donation equally
+      donationPerUnit: getItemDonation(item),
+      lineTotal: getLineTotal(item)
     }))
   };
 }
@@ -318,7 +376,7 @@ window.cart = {
   addToCart,
   removeFromCart,
   updateItemQuantity,
-  setDonationAmount,
+  setItemDonation,
   clearCart,
   getCart,
   getItemCount,
@@ -330,5 +388,6 @@ window.cart = {
   prepareCheckout,
   onCartUpdated,
   addCartEventListener,
-  removeCartEventListener
+  removeCartEventListener,
+  config: CART_CONFIG
 };
